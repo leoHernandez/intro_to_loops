@@ -18,6 +18,8 @@
 		B73E671E17F33FA200C8F1DC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B73E671D17F33FA200C8F1DC /* Default-568h@2x.png */; };
 		B73E672117F33FA200C8F1DC /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B73E671F17F33FA200C8F1DC /* MainStoryboard.storyboard */; };
 		B73E672417F33FA200C8F1DC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B73E672317F33FA200C8F1DC /* ViewController.m */; };
+		B73E672D17F3457700C8F1DC /* ForTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B73E672B17F3457700C8F1DC /* ForTutorialViewController.m */; };
+		B73E672E17F3457700C8F1DC /* ForTutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B73E672C17F3457700C8F1DC /* ForTutorialViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,9 @@
 		B73E672017F33FA200C8F1DC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		B73E672217F33FA200C8F1DC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		B73E672317F33FA200C8F1DC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B73E672A17F3457700C8F1DC /* ForTutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForTutorialViewController.h; sourceTree = "<group>"; };
+		B73E672B17F3457700C8F1DC /* ForTutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForTutorialViewController.m; sourceTree = "<group>"; };
+		B73E672C17F3457700C8F1DC /* ForTutorialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForTutorialViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +88,9 @@
 		B73E670D17F33FA200C8F1DC /* forloops */ = {
 			isa = PBXGroup;
 			children = (
+				B73E672A17F3457700C8F1DC /* ForTutorialViewController.h */,
+				B73E672B17F3457700C8F1DC /* ForTutorialViewController.m */,
+				B73E672C17F3457700C8F1DC /* ForTutorialViewController.xib */,
 				B73E671617F33FA200C8F1DC /* AppDelegate.h */,
 				B73E671717F33FA200C8F1DC /* AppDelegate.m */,
 				B73E671F17F33FA200C8F1DC /* MainStoryboard.storyboard */,
@@ -163,6 +171,7 @@
 				B73E671C17F33FA200C8F1DC /* Default@2x.png in Resources */,
 				B73E671E17F33FA200C8F1DC /* Default-568h@2x.png in Resources */,
 				B73E672117F33FA200C8F1DC /* MainStoryboard.storyboard in Resources */,
+				B73E672E17F3457700C8F1DC /* ForTutorialViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +185,7 @@
 				B73E671417F33FA200C8F1DC /* main.m in Sources */,
 				B73E671817F33FA200C8F1DC /* AppDelegate.m in Sources */,
 				B73E672417F33FA200C8F1DC /* ViewController.m in Sources */,
+				B73E672D17F3457700C8F1DC /* ForTutorialViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

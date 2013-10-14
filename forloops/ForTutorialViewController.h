@@ -16,4 +16,21 @@
 - (IBAction)VideoButton:(UIBarButtonItem *)sender;
 - (IBAction)LookLikeButton:(UIBarButtonItem *)sender;
 
+
+@property (strong, nonatomic) IBOutlet UIImageView *variableimage;
+@property (strong, nonatomic) IBOutlet UIImageView *Controlimage;
+@property (strong, nonatomic) IBOutlet UIImageView *iterationImage;
+@property (strong, nonatomic) IBOutlet UIImageView *statementimg;
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+
+@property (strong, nonatomic) IBOutlet UITextView *firstTextView;
+@property (strong, nonatomic) IBOutlet UITextView *secondTextView;
+@property (strong, nonatomic) IBOutlet UITextView *thirdTextView;
+@property (strong, nonatomic) IBOutlet UITextView *fourthTextView;
+
+@property (strong, nonatomic) IBOutlet UILabel *label1;
+@property (strong, nonatomic) IBOutlet UILabel *label2;
+@property (strong, nonatomic) IBOutlet UILabel *label3;
+@property (strong, nonatomic) IBOutlet UILabel *label4;
+
 @end

@@ -156,10 +156,10 @@
             </objects>
             <point key="canvasLocation" x="1766" y="-52"/>
         </scene>
-        <!--View Controller-->
+        <!--Practice Level View Controller-->
         <scene sceneID="XDJ-M7-EGg">
             <objects>
-                <viewController id="sy0-ed-YzB" sceneMemberID="viewController">
+                <viewController id="sy0-ed-YzB" customClass="PracticeLevelViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1oZ-vp-ZK1">
                         <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -461,6 +461,9 @@
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PracticeLevelViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PracticeLevelViewController.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

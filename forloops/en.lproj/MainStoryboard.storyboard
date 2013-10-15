@@ -163,7 +163,33 @@
                     <view key="view" contentMode="scaleToFill" id="1oZ-vp-ZK1">
                         <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Instructions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AFe-yx-f5f">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="sIk-l6-RFr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="40"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Answers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0C-Br-kaS">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="mmV-Og-jhf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="40"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="AFe-yx-f5f" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="2X4-n5-nwg"/>
+                            <constraint firstItem="c0C-Br-kaS" firstAttribute="leading" secondItem="1oZ-vp-ZK1" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="4Pr-kG-Z3N"/>
+                            <constraint firstItem="AFe-yx-f5f" firstAttribute="leading" secondItem="1oZ-vp-ZK1" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="E8G-Xp-y4A"/>
+                            <constraint firstAttribute="bottom" secondItem="c0C-Br-kaS" secondAttribute="bottom" constant="291" id="gcH-K3-fWT"/>
+                            <constraint firstAttribute="trailing" secondItem="c0C-Br-kaS" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="nJ5-Se-2IM"/>
+                            <constraint firstItem="AFe-yx-f5f" firstAttribute="top" secondItem="1oZ-vp-ZK1" secondAttribute="top" constant="20" symbolic="YES" type="default" id="oJn-3a-UWS"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="y2V-4j-tLN"/>
                 </viewController>

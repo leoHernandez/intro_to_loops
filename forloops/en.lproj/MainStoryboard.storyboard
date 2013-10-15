@@ -138,6 +138,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="sy0-ed-YzB" kind="push" id="8Gi-AL-IHi"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -152,6 +155,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jEd-cV-pgo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1766" y="-52"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="XDJ-M7-EGg">
+            <objects>
+                <viewController id="sy0-ed-YzB" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1oZ-vp-ZK1">
+                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="y2V-4j-tLN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WKj-p6-3mw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2749" y="-52"/>
         </scene>
         <!--For Tutorial View Controller - Tutorials-->
         <scene sceneID="GBt-y8-Ngx">

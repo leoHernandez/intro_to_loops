@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12F45" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="swv-lk-LuF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="swv-lk-LuF">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -128,13 +128,74 @@
                     <view key="view" contentMode="scaleToFill" id="nwi-5T-Fbp">
                         <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="1" green="0.87519061940766518" blue="0.46741593555251881" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iG5-zZ-ZHz">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="New Game">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="sy0-ed-YzB" kind="push" id="8Gi-AL-IHi"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="iG5-zZ-ZHz" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="5m1-RA-daF"/>
+                            <constraint firstItem="iG5-zZ-ZHz" firstAttribute="top" secondItem="nwi-5T-Fbp" secondAttribute="top" constant="20" symbolic="YES" type="default" id="9Iu-Gk-JVk"/>
+                            <constraint firstItem="iG5-zZ-ZHz" firstAttribute="leading" secondItem="nwi-5T-Fbp" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ryS-t2-OZw"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Practice" id="3Hr-D7-4gL"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jEd-cV-pgo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1766" y="-52"/>
+        </scene>
+        <!--Practice Level View Controller-->
+        <scene sceneID="XDJ-M7-EGg">
+            <objects>
+                <viewController id="sy0-ed-YzB" customClass="PracticeLevelViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1oZ-vp-ZK1">
+                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Instructions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AFe-yx-f5f">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="sIk-l6-RFr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="40"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Answers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0C-Br-kaS">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="mmV-Og-jhf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="40"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="AFe-yx-f5f" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="2X4-n5-nwg"/>
+                            <constraint firstItem="c0C-Br-kaS" firstAttribute="leading" secondItem="1oZ-vp-ZK1" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="4Pr-kG-Z3N"/>
+                            <constraint firstItem="AFe-yx-f5f" firstAttribute="leading" secondItem="1oZ-vp-ZK1" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="E8G-Xp-y4A"/>
+                            <constraint firstAttribute="bottom" secondItem="c0C-Br-kaS" secondAttribute="bottom" constant="291" id="gcH-K3-fWT"/>
+                            <constraint firstAttribute="trailing" secondItem="c0C-Br-kaS" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="nJ5-Se-2IM"/>
+                            <constraint firstItem="AFe-yx-f5f" firstAttribute="top" secondItem="1oZ-vp-ZK1" secondAttribute="top" constant="20" symbolic="YES" type="default" id="oJn-3a-UWS"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="y2V-4j-tLN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WKj-p6-3mw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2749" y="-52"/>
         </scene>
         <!--For Tutorial View Controller - Tutorials-->
         <scene sceneID="GBt-y8-Ngx">
@@ -400,6 +461,9 @@
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PracticeLevelViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PracticeLevelViewController.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

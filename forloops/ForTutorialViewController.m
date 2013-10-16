@@ -140,8 +140,11 @@
     self.label4.numberOfLines=0;
     self.label4.sizeToFit;
    
-       
     
+    
+     // _answerLabelFrame = CGRectMake(500, 350, 150, 20);
+    
+
     NSMutableSet *labels = [[NSMutableSet alloc] init];
     [labels addObject:self.label1];
     [labels addObject:self.label2];
@@ -157,6 +160,23 @@
    
       _myLabel.editable = NO;
   
+}
+-(BOOL) isThisView: (UIView *) firstView nearTo:(UIView *) secondView withBuffer: (CGFloat)buffer{
+    buffer = (buffer >= 0) ? buffer : 0;
+    CGFloat firstViewX = firstView.frame.origin.x;
+    CGFloat firstViewY = firstView.frame.origin.y;
+    CGFloat secondViewX = secondView.frame.origin.x;
+    CGFloat secondViewY = secondView.frame.origin.y;
+    
+    if( firstViewX >= secondViewX-buffer
+       && firstViewX <= secondViewX+buffer
+       && firstViewY >= secondViewY-buffer
+       && firstViewY <= secondViewY+buffer )
+    {
+        return YES;
+    } else {
+        return NO;
+    }
 }
 
 - (IBAction)exampleButton:(UIBarButtonItem *)sender {
@@ -219,6 +239,17 @@
     label.center = labelPosition;
     [sender setTranslation:CGPointZero inView:self.view];
     
+    if (sender.state == UIGestureRecognizerStateEnded)
+    {
+        BOOL viewsClose = [self isThisView:label nearTo:self.label1 withBuffer:50];
+        if (viewsClose == YES)
+        {
+            label.center = self.label1.center;
+        } else {
+            [label setFrame:CGRectMake(700, 550, 100, 60)];
+        }
+    }
+
 }
 
 

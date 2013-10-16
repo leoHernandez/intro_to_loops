@@ -44,18 +44,19 @@
                                     <segue destination="lfY-u0-xPW" kind="push" id="pFW-Os-zk1"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Introduction to FOR Loops" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5B-TF-OfA">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="tte-iS-47N">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="354" id="4hS-Pz-pSR"/>
+                                    <constraint firstAttribute="width" constant="357" id="lFl-Ru-dhe"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.15514028662902801" green="0.14859557286090597" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="n5B-TF-OfA" firstAttribute="centerX" secondItem="q0y-6f-Y7R" secondAttribute="centerX" type="default" id="A5o-fd-wpP"/>
-                            <constraint firstItem="JKb-3q-vlW" firstAttribute="top" secondItem="q0y-6f-Y7R" secondAttribute="top" constant="356" id="JAo-d8-7Yu"/>
-                            <constraint firstItem="JKb-3q-vlW" firstAttribute="leading" secondItem="q0y-6f-Y7R" secondAttribute="leading" constant="198" id="WSc-RO-vfh"/>
-                            <constraint firstItem="n5B-TF-OfA" firstAttribute="top" secondItem="q0y-6f-Y7R" secondAttribute="top" constant="128" id="zxC-d8-QVE"/>
+                            <constraint firstItem="JKb-3q-vlW" firstAttribute="centerX" secondItem="q0y-6f-Y7R" secondAttribute="centerX" type="default" id="LoB-3b-xqg"/>
+                            <constraint firstItem="JKb-3q-vlW" firstAttribute="centerY" secondItem="q0y-6f-Y7R" secondAttribute="centerY" type="default" id="RYq-Vf-EWU"/>
+                            <constraint firstItem="tte-iS-47N" firstAttribute="centerX" secondItem="JKb-3q-vlW" secondAttribute="centerX" type="default" id="hXH-6f-Qvi"/>
+                            <constraint firstItem="tte-iS-47N" firstAttribute="top" secondItem="q0y-6f-Y7R" secondAttribute="top" constant="20" symbolic="YES" type="default" id="pj6-I9-kyp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6Nw-Sz-SXX"/>
@@ -106,7 +107,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.15514028662902801" green="0.14859557286090597" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="a10-c9-MvU" firstAttribute="trailing" secondItem="AoP-O4-Gik" secondAttribute="trailing" type="default" id="TI5-ov-53w"/>
                             <constraint firstItem="AoP-O4-Gik" firstAttribute="leading" secondItem="a10-c9-MvU" secondAttribute="leading" type="default" id="Uyr-SH-c9G"/>
@@ -434,6 +435,9 @@
             <point key="canvasLocation" x="1766" y="-1470"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo.png" width="2000" height="2000"/>
+    </resources>
     <classes>
         <class className="ForTutorialViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ForTutorialViewController.h"/>

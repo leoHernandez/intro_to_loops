@@ -44,18 +44,19 @@
                                     <segue destination="lfY-u0-xPW" kind="push" id="pFW-Os-zk1"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Introduction to FOR Loops" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5B-TF-OfA">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="tte-iS-47N">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="354" id="4hS-Pz-pSR"/>
+                                    <constraint firstAttribute="width" constant="357" id="lFl-Ru-dhe"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.15514028662902801" green="0.14859557286090597" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="n5B-TF-OfA" firstAttribute="centerX" secondItem="q0y-6f-Y7R" secondAttribute="centerX" type="default" id="A5o-fd-wpP"/>
-                            <constraint firstItem="JKb-3q-vlW" firstAttribute="top" secondItem="q0y-6f-Y7R" secondAttribute="top" constant="356" id="JAo-d8-7Yu"/>
-                            <constraint firstItem="JKb-3q-vlW" firstAttribute="leading" secondItem="q0y-6f-Y7R" secondAttribute="leading" constant="198" id="WSc-RO-vfh"/>
-                            <constraint firstItem="n5B-TF-OfA" firstAttribute="top" secondItem="q0y-6f-Y7R" secondAttribute="top" constant="128" id="zxC-d8-QVE"/>
+                            <constraint firstItem="JKb-3q-vlW" firstAttribute="centerX" secondItem="q0y-6f-Y7R" secondAttribute="centerX" type="default" id="LoB-3b-xqg"/>
+                            <constraint firstItem="JKb-3q-vlW" firstAttribute="centerY" secondItem="q0y-6f-Y7R" secondAttribute="centerY" type="default" id="RYq-Vf-EWU"/>
+                            <constraint firstItem="tte-iS-47N" firstAttribute="centerX" secondItem="JKb-3q-vlW" secondAttribute="centerX" type="default" id="hXH-6f-Qvi"/>
+                            <constraint firstItem="tte-iS-47N" firstAttribute="top" secondItem="q0y-6f-Y7R" secondAttribute="top" constant="20" symbolic="YES" type="default" id="pj6-I9-kyp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6Nw-Sz-SXX"/>
@@ -106,7 +107,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.15514028662902801" green="0.14859557286090597" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="a10-c9-MvU" firstAttribute="trailing" secondItem="AoP-O4-Gik" secondAttribute="trailing" type="default" id="TI5-ov-53w"/>
                             <constraint firstItem="AoP-O4-Gik" firstAttribute="leading" secondItem="a10-c9-MvU" secondAttribute="leading" type="default" id="Uyr-SH-c9G"/>
@@ -341,7 +342,7 @@
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4s-Rk-WDH">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="KCN-4g-BPE"/>
+                                    <constraint firstAttribute="height" constant="21" id="W0g-Qf-Fd9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -407,9 +408,10 @@
                             <constraint firstItem="E43-1L-PAm" firstAttribute="trailing" secondItem="zUG-GB-Izt" secondAttribute="trailing" type="default" id="3zb-Ol-YLs"/>
                             <constraint firstItem="a4s-Rk-WDH" firstAttribute="trailing" secondItem="2N9-59-9At" secondAttribute="trailing" type="default" id="5gR-sv-Ldv"/>
                             <constraint firstItem="UjK-Z2-7dg" firstAttribute="top" secondItem="DNV-b2-fso" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="5hR-WK-as3"/>
+                            <constraint firstItem="lZG-yo-TIQ" firstAttribute="top" secondItem="f5T-Hp-7hb" secondAttribute="top" constant="332" id="5yU-Rw-qji"/>
                             <constraint firstItem="waY-OK-nkb" firstAttribute="leading" secondItem="f5T-Hp-7hb" secondAttribute="leading" constant="126" id="61p-ak-XQt"/>
                             <constraint firstItem="UJ6-hP-GFK" firstAttribute="trailing" secondItem="eqJ-X5-rmw" secondAttribute="trailing" type="default" id="76b-zb-tD4"/>
-                            <constraint firstItem="zUG-GB-Izt" firstAttribute="top" secondItem="f5T-Hp-7hb" secondAttribute="top" constant="342" id="7ej-qV-JAf"/>
+                            <constraint firstItem="a4s-Rk-WDH" firstAttribute="top" secondItem="f5T-Hp-7hb" secondAttribute="top" constant="449" id="9XX-qT-28I"/>
                             <constraint firstItem="QTy-8j-JHl" firstAttribute="leading" secondItem="eqJ-X5-rmw" secondAttribute="leading" type="default" id="A7H-Mm-JQe"/>
                             <constraint firstAttribute="bottom" secondItem="avM-ck-dYs" secondAttribute="bottom" constant="379" id="EOU-ZG-kYF"/>
                             <constraint firstItem="HvT-dO-ujf" firstAttribute="leading" secondItem="E43-1L-PAm" secondAttribute="leading" type="default" id="EfV-E7-lS5"/>
@@ -447,7 +449,6 @@
                             <constraint firstItem="zUG-GB-Izt" firstAttribute="leading" secondItem="f5T-Hp-7hb" secondAttribute="leading" constant="40" id="qo0-Pm-iHk"/>
                             <constraint firstItem="UjK-Z2-7dg" firstAttribute="centerX" secondItem="DNV-b2-fso" secondAttribute="centerX" type="default" id="r2J-Pf-hi4"/>
                             <constraint firstItem="0nO-ev-ES4" firstAttribute="bottom" secondItem="HvT-dO-ujf" secondAttribute="bottom" type="default" id="rDa-Ed-eUe"/>
-                            <constraint firstItem="lZG-yo-TIQ" firstAttribute="top" secondItem="f5T-Hp-7hb" secondAttribute="top" constant="332" id="ryq-5C-WIf"/>
                             <constraint firstItem="KJe-9N-bdG" firstAttribute="centerY" secondItem="7Fy-HV-06f" secondAttribute="centerY" type="default" id="siW-m9-3va"/>
                             <constraint firstItem="UJ6-hP-GFK" firstAttribute="centerY" secondItem="waY-OK-nkb" secondAttribute="centerY" type="default" id="tuI-mI-KuZ"/>
                             <constraint firstItem="avM-ck-dYs" firstAttribute="leading" secondItem="a4s-Rk-WDH" secondAttribute="leading" type="default" id="uBP-qj-G4s"/>
@@ -482,6 +483,45 @@
             <point key="canvasLocation" x="1766" y="-1470"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo.png" width="2000" height="2000"/>
+    </resources>
+    <classes>
+        <class className="ForTutorialViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ForTutorialViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="LookLikeButton:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="action" name="VideoButton:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="action" name="WhatisLoopButton:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="action" name="exampleButton:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="action" name="termsButton:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="Controlimage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="firstTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="fourthTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="iterationImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="label1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="label2" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="label3" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="label4" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="myLabel" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="placeholder1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="placeholder2" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="placeholder3" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="placeholder4" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="secondTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="statementimg" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="thirdTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="variableimage" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PracticeLevelViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PracticeLevelViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

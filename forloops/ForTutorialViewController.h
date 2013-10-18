@@ -33,4 +33,15 @@
 @property (strong, nonatomic) IBOutlet UILabel *label3;
 @property (strong, nonatomic) IBOutlet UILabel *label4;
 
+@property (strong, nonatomic) IBOutlet UILabel *placeholder1;
+
+@property (strong, nonatomic) IBOutlet UILabel *placeholder2;
+
+@property (strong, nonatomic) IBOutlet UILabel *placeholder3;
+
+@property (strong, nonatomic) IBOutlet UILabel *placeholder4;
+
+
+
+
 @end

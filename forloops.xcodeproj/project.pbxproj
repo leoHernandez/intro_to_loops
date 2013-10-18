@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F9ADA7C180E18C0003054BE /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F9ADA7B180E18C0003054BE /* logo.png */; };
+		2FEC98C3180CE81300F874D2 /* PracticeLevelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FEC98C2180CE81300F874D2 /* PracticeLevelViewController.m */; };
 		B73E670817F33FA200C8F1DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B73E670717F33FA200C8F1DC /* UIKit.framework */; };
 		B73E670A17F33FA200C8F1DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B73E670917F33FA200C8F1DC /* Foundation.framework */; };
 		B73E670C17F33FA200C8F1DC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B73E670B17F33FA200C8F1DC /* CoreGraphics.framework */; };
@@ -30,6 +32,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F9ADA7B180E18C0003054BE /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		2FEC98C1180CE81300F874D2 /* PracticeLevelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PracticeLevelViewController.h; sourceTree = "<group>"; };
+		2FEC98C2180CE81300F874D2 /* PracticeLevelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PracticeLevelViewController.m; sourceTree = "<group>"; };
 		B73E670417F33FA200C8F1DC /* forloops.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = forloops.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B73E670717F33FA200C8F1DC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B73E670917F33FA200C8F1DC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -72,6 +77,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2FEC98C0180CE73F00F874D2 /* Practice */ = {
+			isa = PBXGroup;
+			children = (
+				2FEC98C1180CE81300F874D2 /* PracticeLevelViewController.h */,
+				2FEC98C2180CE81300F874D2 /* PracticeLevelViewController.m */,
+			);
+			name = Practice;
+			sourceTree = "<group>";
+		};
 		B73E66FB17F33FA200C8F1DC = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +116,7 @@
 		B73E670D17F33FA200C8F1DC /* forloops */ = {
 			isa = PBXGroup;
 			children = (
+				2FEC98C0180CE73F00F874D2 /* Practice */,
 				B73E672A17F3457700C8F1DC /* ForTutorialViewController.h */,
 				B73E672B17F3457700C8F1DC /* ForTutorialViewController.m */,
 				B73E671617F33FA200C8F1DC /* AppDelegate.h */,
@@ -121,6 +136,7 @@
 				B73E676C1806674300C8F1DC /* bodyimage.png */,
 				B73E676A1806673D00C8F1DC /* conditionImage.png */,
 				B73E67681806605000C8F1DC /* initializerImage.png */,
+				2F9ADA7B180E18C0003054BE /* logo.png */,
 				B73E67661806565B00C8F1DC /* StatementImage.png */,
 				B73E6764180654EB00C8F1DC /* iterationdef.png */,
 				B73E67621805C90000C8F1DC /* controldef.png */,
@@ -200,6 +216,7 @@
 				B73E676B1806673D00C8F1DC /* conditionImage.png in Resources */,
 				B73E676D1806674300C8F1DC /* bodyimage.png in Resources */,
 				B73E676F1806683700C8F1DC /* incrementimg.png in Resources */,
+				2F9ADA7C180E18C0003054BE /* logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +231,7 @@
 				B73E671817F33FA200C8F1DC /* AppDelegate.m in Sources */,
 				B73E672417F33FA200C8F1DC /* ViewController.m in Sources */,
 				B73E672D17F3457700C8F1DC /* ForTutorialViewController.m in Sources */,
+				2FEC98C3180CE81300F874D2 /* PracticeLevelViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

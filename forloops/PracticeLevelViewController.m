@@ -61,10 +61,11 @@
     [self.view addSubview:openingParen];
     
     // loop body
-    CGRect loopBodyFrame = CGRectMake(80, 210, 10, 10);
+    CGRect loopBodyFrame = CGRectMake(80, 210, self.view.frame.size.width-100, 10);
     UILabel *loopBody = [[UILabel alloc] initWithFrame:loopBodyFrame];
     loopBody.font = loopBodyFont;
     loopBody.text = _currentLevel.loopBody;
+    [loopBody setNumberOfLines:0];
     [loopBody sizeToFit];
     [self.view addSubview:loopBody];
     

@@ -15,11 +15,14 @@
 
 @property (strong, nonatomic) UILabel *instructionsLabel;
 
+@property (strong, nonatomic) UILabel *initializationContainerLabel;
 @property (strong, nonatomic) UILabel *testConditionContainerLabel;
 @property (strong, nonatomic) UILabel *incrementContainerLabel;
 
 @property CGRect answerLabelFrame;
 
 -(BOOL)isThisView:(UIView *)firstView nearTo:(UIView *)secondView withBuffer:(CGFloat) buffer;
+
+-(void)startLevel:(int) level;
 
 @end

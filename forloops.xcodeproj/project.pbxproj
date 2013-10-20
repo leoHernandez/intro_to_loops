@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F8125DD18139C6800A07D20 /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8125DC18139C6800A07D20 /* Level.m */; };
 		2F9ADA7C180E18C0003054BE /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F9ADA7B180E18C0003054BE /* logo.png */; };
 		2FEC98C3180CE81300F874D2 /* PracticeLevelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FEC98C2180CE81300F874D2 /* PracticeLevelViewController.m */; };
 		B73E670817F33FA200C8F1DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B73E670717F33FA200C8F1DC /* UIKit.framework */; };
@@ -32,6 +33,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F8125DB18139C6800A07D20 /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
+		2F8125DC18139C6800A07D20 /* Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Level.m; sourceTree = "<group>"; };
 		2F9ADA7B180E18C0003054BE /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		2FEC98C1180CE81300F874D2 /* PracticeLevelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PracticeLevelViewController.h; sourceTree = "<group>"; };
 		2FEC98C2180CE81300F874D2 /* PracticeLevelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PracticeLevelViewController.m; sourceTree = "<group>"; };
@@ -82,6 +85,8 @@
 			children = (
 				2FEC98C1180CE81300F874D2 /* PracticeLevelViewController.h */,
 				2FEC98C2180CE81300F874D2 /* PracticeLevelViewController.m */,
+				2F8125DB18139C6800A07D20 /* Level.h */,
+				2F8125DC18139C6800A07D20 /* Level.m */,
 			);
 			name = Practice;
 			sourceTree = "<group>";
@@ -232,6 +237,7 @@
 				B73E672417F33FA200C8F1DC /* ViewController.m in Sources */,
 				B73E672D17F3457700C8F1DC /* ForTutorialViewController.m in Sources */,
 				2FEC98C3180CE81300F874D2 /* PracticeLevelViewController.m in Sources */,
+				2F8125DD18139C6800A07D20 /* Level.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

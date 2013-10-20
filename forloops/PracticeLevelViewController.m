@@ -28,16 +28,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
-    // Set the level
-    self.level = 1;
-    
-    // level instructions
-    self.levelInstructions = @"Drag and drop the correct test condition from the answers section to make the loop run exactly 10 times.";
-    
-    // update navigation bar
-    self.navigationItem.title = [NSString stringWithFormat:@"Level %i",self.level];
-    
+ 
+    [self startLevel:1];
+ 
     // create and display instructions label
     CGRect instructionsLabelFrame = CGRectMake(20, 65, self.view.frame.size.width-20, 0);
     self.instructionsLabel = [[UILabel alloc] initWithFrame:instructionsLabelFrame];
@@ -87,14 +80,14 @@
     
     // init variable
     CGRect initContainerLabelFrame = CGRectMake(100, 163, answerLabelWidth, answerLabelHeight);
-    UILabel *initContainerLabel = [[UILabel alloc] initWithFrame:initContainerLabelFrame];
-    initContainerLabel.font = answerLabelFont;
-    [initContainerLabel setTextAlignment:NSTextAlignmentCenter];
-    initContainerLabel.text = @"int i = 0";
-    initContainerLabel.backgroundColor = answerLabelColor;
-    initContainerLabel.layer.borderColor = [UIColor blackColor].CGColor;
-    initContainerLabel.layer.borderWidth = 1;
-    [self.view addSubview:initContainerLabel];
+    _initializationContainerLabel = [[UILabel alloc] initWithFrame:initContainerLabelFrame];
+    _initializationContainerLabel.font = answerLabelFont;
+    [_initializationContainerLabel setTextAlignment:NSTextAlignmentCenter];
+    _initializationContainerLabel.text = @"int i = 0";
+    _initializationContainerLabel.backgroundColor = answerLabelColor;
+    _initializationContainerLabel.layer.borderColor = [UIColor blackColor].CGColor;
+    _initializationContainerLabel.layer.borderWidth = 1;
+    [self.view addSubview:_initializationContainerLabel];
     
     // test condition
     CGRect testConditionContainerFrame = CGRectMake(265, 163, answerLabelWidth, answerLabelHeight);
@@ -178,6 +171,7 @@
         if (viewsClose == YES)
         {
             label.center = self.testConditionContainerLabel.center;
+
         } else {
             [label setFrame:_answerLabelFrame];
         }
@@ -186,7 +180,18 @@
     
 }
 
-
+-(void)startLevel:(int)level
+{
+    _level = level;
+    
+    if (_level == 1)
+    {
+        _levelInstructions = @"Drag and drop the correct test condition from the answers section to make the loop run exactly 10 times."; 
+    }
+    
+    // update navigation bar
+    self.navigationItem.title = [NSString stringWithFormat:@"Level %i",_level];
+}
 
 - (void)didReceiveMemoryWarning
 {

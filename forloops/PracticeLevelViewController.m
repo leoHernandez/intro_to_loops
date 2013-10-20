@@ -152,8 +152,16 @@
     }
 }
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [[event allTouches] anyObject];
+    _tempFrame = touch.view.frame;
+    
+}
+
 -(void)panDetected:(UIPanGestureRecognizer *)sender
 {
+
     UIView *label = sender.view;
     CGPoint amtOftranslation = [sender translationInView:self.view];
     CGPoint labelPosition = label.center;
@@ -170,7 +178,7 @@
             label.center = self.testConditionContainerLabel.center;
 
         } else {
-            [label setFrame:_answerLabelFrame];
+            [label setFrame:_tempFrame];
         }
     }
     

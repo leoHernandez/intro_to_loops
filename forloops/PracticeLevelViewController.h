@@ -17,7 +17,7 @@
 @property (strong, nonatomic) UILabel *testConditionContainerLabel;
 @property (strong, nonatomic) UILabel *incrementContainerLabel;
 
-@property CGRect answerLabelFrame;
+@property CGRect tempFrame;
 
 @property (strong, nonatomic) Level *currentLevel;
 

@@ -113,7 +113,8 @@
     [self.view addSubview:_incrementContainerLabel];
     
     // create answer label
-    _answerLabelFrame = CGRectMake(20, 760, answerLabelWidth, answerLabelHeight);
+    for (NSString *text in _currentLevel.possibleAnswers)
+    _answerLabelFrame = CGRectMake(20, 680, answerLabelWidth, answerLabelHeight);
     UILabel *answerLabel = [[UILabel alloc] initWithFrame:_answerLabelFrame];
     answerLabel.text = @"i < 10";
     answerLabel.userInteractionEnabled = YES;
@@ -188,7 +189,9 @@
     NSString *loopBody;
     NSString *initialization;
     NSString *terminatingCondition;
-    NSString *increment;    
+    NSString *increment;
+    
+    NSMutableSet *possibleAnswers = [[NSMutableSet alloc] init];
     
     if (level == 1)
     {
@@ -200,6 +203,10 @@
         terminatingCondition = @"";
         increment = @"i++";
         
+        NSString *possibleAnswer = @"i < 10";
+        
+        [possibleAnswers addObject:possibleAnswer];
+        
     }
     
   
@@ -209,6 +216,7 @@
     _currentLevel.loopInitialization = initialization;
     _currentLevel.terminatingCondition = terminatingCondition;
     _currentLevel.increment = increment;
+    _currentLevel.possibleAnswers = possibleAnswers;
 }
 
 - (void)didReceiveMemoryWarning

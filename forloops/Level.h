@@ -18,11 +18,9 @@
 @property (strong, nonatomic) NSString *increment;
 @property (strong, nonatomic) NSString *loopBody;
 
-@property (strong, nonatomic) NSMutableArray *initializationAnswers;
-@property (strong, nonatomic) NSMutableArray *terminatingConditionAnswers;
-@property (strong, nonatomic) NSMutableArray *incrementAnswers;
+@property (strong, nonatomic) NSMutableSet *possibleAnswers;
 
-@property (strong, nonatomic) NSMutableArray *correctAnswerCombinations;
+@property (strong, nonatomic) NSMutableSet *correctAnswerCombinations;
 
 -(id) initWithLevel: (int)level withInstructions: (NSString *)instructions;
 

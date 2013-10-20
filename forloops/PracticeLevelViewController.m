@@ -154,8 +154,20 @@
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    // this is so answer labels go back to original position
     UITouch *touch = [[event allTouches] anyObject];
-    _tempFrame = touch.view.frame;
+    UIView *theView = touch.view;
+    
+    BOOL isOnInitialization = [self isThisView:theView nearTo:_initializationContainerLabel withBuffer:0];
+    BOOL isOnTerminatingCondition = [self isThisView:theView nearTo:_testConditionContainerLabel withBuffer:0];
+    BOOL isOnIncrement = [self isThisView:theView nearTo:_incrementContainerLabel withBuffer:0];
+    
+    if ( isOnInitialization == NO
+        && isOnTerminatingCondition == NO
+        && isOnIncrement == NO)
+    {
+        _tempFrame = theView.frame;
+    }
     
 }
 

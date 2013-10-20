@@ -114,26 +114,21 @@
     
     // create answer label
     for (NSString *text in _currentLevel.possibleAnswers)
-    _answerLabelFrame = CGRectMake(20, 680, answerLabelWidth, answerLabelHeight);
-    UILabel *answerLabel = [[UILabel alloc] initWithFrame:_answerLabelFrame];
-    answerLabel.text = @"i < 10";
-    answerLabel.userInteractionEnabled = YES;
-    answerLabel.font = answerLabelFont;
-    [answerLabel setTextAlignment:NSTextAlignmentCenter];
-    answerLabel.backgroundColor = answerLabelColor;
-    answerLabel.layer.borderColor = [UIColor blackColor].CGColor;
-    answerLabel.layer.borderWidth = 1;
-    [self.view addSubview:answerLabel];
-    
-    // add answer labels to NSMutableSet
-    NSMutableSet *answerLabels = [[NSMutableSet alloc] init];
-    [answerLabels addObject:answerLabel];
-    
-    // for loop to make pan gesture for all answer labels
-    for (UILabel *label in answerLabels)
     {
+        CGRect frame = CGRectMake(20, 680, answerLabelWidth, answerLabelHeight);
+        UILabel *answerLabel = [[UILabel alloc] initWithFrame:frame];
+        answerLabel.text = text;
+        answerLabel.userInteractionEnabled = YES;
+        answerLabel.font = answerLabelFont;
+        [answerLabel setTextAlignment:NSTextAlignmentCenter];
+        answerLabel.backgroundColor = answerLabelColor;
+        answerLabel.layer.borderColor = [UIColor blackColor].CGColor;
+        answerLabel.layer.borderWidth = 1;
+        [self.view addSubview:answerLabel];
+        
+        // make pan gesture recognizer
         UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panDetected:)];
-        [label addGestureRecognizer:panGesture];
+        [answerLabel addGestureRecognizer:panGesture];
     }
     
 }

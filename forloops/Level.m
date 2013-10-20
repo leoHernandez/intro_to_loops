@@ -10,4 +10,15 @@
 
 @implementation Level
 
+-(id) initWithLevel: (int)level withInstructions: (NSString *)instructions
+{
+    self = [super init];
+    if (self) {
+        _levelNumber = level;
+        _levelInstructions = instructions;
+    }
+    
+    return self;
+}
+
 @end

@@ -8,6 +8,7 @@
 
 #import "PracticeLevelViewController.h"
 #import "QuartzCore/QuartzCore.h"   // required to change label borders
+#import "Level.h"
 
 @interface PracticeLevelViewController ()
 
@@ -191,6 +192,9 @@
     
     // update navigation bar
     self.navigationItem.title = [NSString stringWithFormat:@"Level %i",_level];
+    
+    // create level object
+    
 }
 
 - (void)didReceiveMemoryWarning

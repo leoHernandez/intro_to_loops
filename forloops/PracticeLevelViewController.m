@@ -36,11 +36,11 @@
  
     // create and display instructions label
     CGRect instructionsLabelFrame = CGRectMake(20, 65, self.view.frame.size.width-20, 0);
-    self.instructionsLabel = [[UILabel alloc] initWithFrame:instructionsLabelFrame];
-    [self.instructionsLabel setText:self.levelInstructions];
-    [self.instructionsLabel setNumberOfLines:0];    // unlimited lines
-    [self.instructionsLabel sizeToFit]; // to make sure text is aligned at top left
-    [self.view addSubview:self.instructionsLabel];
+    _instructionsLabel = [[UILabel alloc] initWithFrame:instructionsLabelFrame];
+    [_instructionsLabel setText:_currentLevel.levelInstructions];
+    [_instructionsLabel setNumberOfLines:0];    // unlimited lines
+    [_instructionsLabel sizeToFit]; // to make sure text is aligned at top left
+    [self.view addSubview:_instructionsLabel];
     
     // create the loop structure
     UIFont *loopBodyFont = [UIFont fontWithName:@"Courier New" size:25];
@@ -64,7 +64,7 @@
     CGRect loopBodyFrame = CGRectMake(80, 210, 10, 10);
     UILabel *loopBody = [[UILabel alloc] initWithFrame:loopBodyFrame];
     loopBody.font = loopBodyFont;
-    loopBody.text = @"print(\"Hello world!\");";
+    loopBody.text = _currentLevel.loopBody;
     [loopBody sizeToFit];
     [self.view addSubview:loopBody];
     
@@ -187,14 +187,17 @@
 {
     
     NSString *levelInstructions;
+    NSString *loopBody;
     if (level == 1)
     {
         levelInstructions = @"Drag and drop the correct test condition from the answers section to make the loop run exactly 10 times.";
+        loopBody = @"System.out.println(\"Hello World!\");";
     }
     
   
     // create level object
-    _currentLevel = [[Level alloc] initWithLevel:level withInstructions:_levelInstructions];
+    _currentLevel = [[Level alloc] initWithLevel:level withInstructions:levelInstructions];
+    _currentLevel.loopBody = loopBody;
 }
 
 - (void)didReceiveMemoryWarning

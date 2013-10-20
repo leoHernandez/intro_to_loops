@@ -16,6 +16,7 @@
 @property (strong, nonatomic) NSString *loopInitialization;
 @property (strong, nonatomic) NSString *terminatingCondition;
 @property (strong, nonatomic) NSString *increment;
+@property (strong, nonatomic) NSString *loopBody;
 
 @property (strong, nonatomic) NSMutableArray *initializationAnswers;
 @property (strong, nonatomic) NSMutableArray *terminatingConditionAnswers;

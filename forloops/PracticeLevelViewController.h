@@ -11,9 +11,6 @@
 
 @interface PracticeLevelViewController : UIViewController
 
-@property int level;
-@property (strong, nonatomic) NSString *levelInstructions;
-
 @property (strong, nonatomic) UILabel *instructionsLabel;
 
 @property (strong, nonatomic) UILabel *initializationContainerLabel;

@@ -92,8 +92,6 @@
     [_initializationContainerLabel setTextAlignment:NSTextAlignmentCenter];
     _initializationContainerLabel.text = @"int i = 0";
     _initializationContainerLabel.backgroundColor = initializationColor;
-    _initializationContainerLabel.layer.borderColor = [UIColor blackColor].CGColor;
-    _initializationContainerLabel.layer.borderWidth = 1;
     [self.view addSubview:_initializationContainerLabel];
     
     // test condition
@@ -103,8 +101,6 @@
     [_testConditionContainerLabel setTextAlignment:NSTextAlignmentCenter];
     _testConditionContainerLabel.text = @"";
     _testConditionContainerLabel.backgroundColor = terminatingConditionColor;
-    _testConditionContainerLabel.layer.borderColor = [UIColor blackColor].CGColor;
-    _testConditionContainerLabel.layer.borderWidth = 1;
     [self.view addSubview:_testConditionContainerLabel];
     
     // increment statement
@@ -114,8 +110,6 @@
     [_incrementContainerLabel setTextAlignment:NSTextAlignmentCenter];
     _incrementContainerLabel.text = @"i++";
     _incrementContainerLabel.backgroundColor = incrementColor;
-    _incrementContainerLabel.layer.borderColor = [UIColor blackColor].CGColor;
-    _incrementContainerLabel.layer.borderWidth = 1;
     [self.view addSubview:_incrementContainerLabel];
     
     // create answer label

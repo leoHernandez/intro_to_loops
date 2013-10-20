@@ -23,4 +23,6 @@
 
 @property (strong, nonatomic) NSMutableArray *correctAnswerCombinations;
 
+-(id) initWithLevel: (int)level withInstructions: (NSString *)instructions;
+
 @end

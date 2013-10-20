@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Level.h"
 
 @interface PracticeLevelViewController : UIViewController
 
@@ -20,6 +21,8 @@
 @property (strong, nonatomic) UILabel *incrementContainerLabel;
 
 @property CGRect answerLabelFrame;
+
+@property (strong, nonatomic) Level *currentLevel;
 
 -(BOOL)isThisView:(UIView *)firstView nearTo:(UIView *)secondView withBuffer:(CGFloat) buffer;
 

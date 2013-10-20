@@ -31,6 +31,8 @@
 	// Do any additional setup after loading the view.
  
     [self startLevel:1];
+    
+    self.navigationItem.title = [NSString stringWithFormat:@"Level %i",_currentLevel.levelNumber];
  
     // create and display instructions label
     CGRect instructionsLabelFrame = CGRectMake(20, 65, self.view.frame.size.width-20, 0);
@@ -183,18 +185,16 @@
 
 -(void)startLevel:(int)level
 {
-    _level = level;
     
-    if (_level == 1)
+    NSString *levelInstructions;
+    if (level == 1)
     {
-        _levelInstructions = @"Drag and drop the correct test condition from the answers section to make the loop run exactly 10 times."; 
+        levelInstructions = @"Drag and drop the correct test condition from the answers section to make the loop run exactly 10 times.";
     }
     
-    // update navigation bar
-    self.navigationItem.title = [NSString stringWithFormat:@"Level %i",_level];
-    
+  
     // create level object
-    
+    _currentLevel = [[Level alloc] initWithLevel:level withInstructions:_levelInstructions];
 }
 
 - (void)didReceiveMemoryWarning

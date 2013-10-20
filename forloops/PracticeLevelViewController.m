@@ -81,6 +81,9 @@
     CGFloat answerLabelWidth = 140;
     CGFloat answerLabelHeight = 25;
     UIColor *answerLabelColor = [[UIColor alloc] initWithRed:.5 green:.5 blue:.5 alpha:.2];
+    UIColor *initializationColor = [UIColor yellowColor];
+    UIColor *terminatingConditionColor = [UIColor cyanColor];
+    UIColor *incrementColor = [UIColor orangeColor];
     
     // init variable
     CGRect initContainerLabelFrame = CGRectMake(100, 163, answerLabelWidth, answerLabelHeight);
@@ -88,7 +91,7 @@
     _initializationContainerLabel.font = answerLabelFont;
     [_initializationContainerLabel setTextAlignment:NSTextAlignmentCenter];
     _initializationContainerLabel.text = @"int i = 0";
-    _initializationContainerLabel.backgroundColor = answerLabelColor;
+    _initializationContainerLabel.backgroundColor = initializationColor;
     _initializationContainerLabel.layer.borderColor = [UIColor blackColor].CGColor;
     _initializationContainerLabel.layer.borderWidth = 1;
     [self.view addSubview:_initializationContainerLabel];
@@ -99,7 +102,7 @@
     _testConditionContainerLabel.font = answerLabelFont;
     [_testConditionContainerLabel setTextAlignment:NSTextAlignmentCenter];
     _testConditionContainerLabel.text = @"";
-    _testConditionContainerLabel.backgroundColor = answerLabelColor;
+    _testConditionContainerLabel.backgroundColor = terminatingConditionColor;
     _testConditionContainerLabel.layer.borderColor = [UIColor blackColor].CGColor;
     _testConditionContainerLabel.layer.borderWidth = 1;
     [self.view addSubview:_testConditionContainerLabel];
@@ -110,7 +113,7 @@
     _incrementContainerLabel.font = answerLabelFont;
     [_incrementContainerLabel setTextAlignment:NSTextAlignmentCenter];
     _incrementContainerLabel.text = @"i++";
-    _incrementContainerLabel.backgroundColor = answerLabelColor;
+    _incrementContainerLabel.backgroundColor = incrementColor;
     _incrementContainerLabel.layer.borderColor = [UIColor blackColor].CGColor;
     _incrementContainerLabel.layer.borderWidth = 1;
     [self.view addSubview:_incrementContainerLabel];

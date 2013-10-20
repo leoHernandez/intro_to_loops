@@ -90,7 +90,7 @@
     _initializationContainerLabel = [[UILabel alloc] initWithFrame:initContainerLabelFrame];
     _initializationContainerLabel.font = answerLabelFont;
     [_initializationContainerLabel setTextAlignment:NSTextAlignmentCenter];
-    _initializationContainerLabel.text = @"int i = 0";
+    _initializationContainerLabel.text = _currentLevel.loopInitialization;
     _initializationContainerLabel.backgroundColor = initializationColor;
     [self.view addSubview:_initializationContainerLabel];
     
@@ -99,7 +99,7 @@
     _testConditionContainerLabel = [[UILabel alloc] initWithFrame:testConditionContainerFrame];
     _testConditionContainerLabel.font = answerLabelFont;
     [_testConditionContainerLabel setTextAlignment:NSTextAlignmentCenter];
-    _testConditionContainerLabel.text = @"";
+    _testConditionContainerLabel.text = _currentLevel.terminatingCondition;
     _testConditionContainerLabel.backgroundColor = terminatingConditionColor;
     [self.view addSubview:_testConditionContainerLabel];
     
@@ -108,7 +108,7 @@
     _incrementContainerLabel = [[UILabel alloc] initWithFrame:incrementContainerFrame];
     _incrementContainerLabel.font = answerLabelFont;
     [_incrementContainerLabel setTextAlignment:NSTextAlignmentCenter];
-    _incrementContainerLabel.text = @"i++";
+    _incrementContainerLabel.text = _currentLevel.increment;
     _incrementContainerLabel.backgroundColor = incrementColor;
     [self.view addSubview:_incrementContainerLabel];
     
@@ -186,16 +186,29 @@
     
     NSString *levelInstructions;
     NSString *loopBody;
+    NSString *initialization;
+    NSString *terminatingCondition;
+    NSString *increment;    
+    
     if (level == 1)
     {
         levelInstructions = @"Drag and drop the correct test condition from the answers section to make the loop run exactly 10 times.";
+        
         loopBody = @"System.out.println(\"Hello World!\");";
+        
+        initialization = @"int i = 0";
+        terminatingCondition = @"";
+        increment = @"i++";
+        
     }
     
   
     // create level object
     _currentLevel = [[Level alloc] initWithLevel:level withInstructions:levelInstructions];
     _currentLevel.loopBody = loopBody;
+    _currentLevel.loopInitialization = initialization;
+    _currentLevel.terminatingCondition = terminatingCondition;
+    _currentLevel.increment = increment;
 }
 
 - (void)didReceiveMemoryWarning

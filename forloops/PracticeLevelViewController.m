@@ -168,7 +168,7 @@
     UIView *theView = touch.view;
     
     BOOL isOnInitialization = [self isThisView:theView nearTo:_initializationContainerLabel withBuffer:0];
-    BOOL isOnTerminatingCondition = [self isThisView:theView nearTo:_testConditionContainerLabel withBuffer:0];
+    BOOL isOnTerminatingCondition = [self isThisView:theView nearTo:_terminatingConditionContainerLabel withBuffer:0];
     BOOL isOnIncrement = [self isThisView:theView nearTo:_incrementContainerLabel withBuffer:0];
     
     if ( isOnInitialization == NO
@@ -193,10 +193,10 @@
     
     if (sender.state == UIGestureRecognizerStateEnded)
     {
-        BOOL viewsClose = [self isThisView:label nearTo:self.testConditionContainerLabel withBuffer:50];
+        BOOL viewsClose = [self isThisView:label nearTo:self.terminatingConditionContainerLabel withBuffer:50];
         if (viewsClose == YES)
         {
-            label.center = self.testConditionContainerLabel.center;
+            label.center = self.terminatingConditionContainerLabel.center;
 
         } else {
             [label setFrame:_tempFrame];
@@ -208,6 +208,11 @@
 
 -(void)startLevel:(int)level
 {
+    
+    // starting level, reset answers
+    _initializationAnswer = @"";
+    _terminatingConditionAnswer = @"";
+    _incrementAnswer = @"";
     
     NSString *levelInstructions;
     NSString *loopBody;

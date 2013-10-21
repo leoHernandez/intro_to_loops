@@ -96,12 +96,12 @@
     
     // test condition
     CGRect testConditionContainerFrame = CGRectMake(265, 163, answerLabelWidth, answerLabelHeight);
-    _testConditionContainerLabel = [[UILabel alloc] initWithFrame:testConditionContainerFrame];
-    _testConditionContainerLabel.font = answerLabelFont;
-    [_testConditionContainerLabel setTextAlignment:NSTextAlignmentCenter];
-    _testConditionContainerLabel.text = _currentLevel.terminatingCondition;
-    _testConditionContainerLabel.backgroundColor = terminatingConditionColor;
-    [self.view addSubview:_testConditionContainerLabel];
+    _terminatingConditionContainerLabel = [[UILabel alloc] initWithFrame:testConditionContainerFrame];
+    _terminatingConditionContainerLabel.font = answerLabelFont;
+    [_terminatingConditionContainerLabel setTextAlignment:NSTextAlignmentCenter];
+    _terminatingConditionContainerLabel.text = _currentLevel.terminatingCondition;
+    _terminatingConditionContainerLabel.backgroundColor = terminatingConditionColor;
+    [self.view addSubview:_terminatingConditionContainerLabel];
     
     // increment statement
     CGRect incrementContainerFrame = CGRectMake(430, 163, answerLabelWidth, answerLabelHeight);
@@ -217,6 +217,8 @@
     
     NSMutableSet *possibleAnswers = [[NSMutableSet alloc] init];
     
+    NSMutableSet *correctAnswerCombinations = [[NSMutableSet alloc] init];
+    
     if (level == 1)
     {
         levelInstructions = @"Drag and drop the correct test condition from the answers section to make the loop run exactly 10 times.";
@@ -230,6 +232,8 @@
         [possibleAnswers addObject:@"i < 10"];
         [possibleAnswers addObject:@"i <= 10"];
         
+        [correctAnswerCombinations addObject:[NSArray arrayWithObjects:@"",@"i < 10", @"", nil]];
+        
     }
     
   
@@ -240,6 +244,7 @@
     _currentLevel.terminatingCondition = terminatingCondition;
     _currentLevel.increment = increment;
     _currentLevel.possibleAnswers = possibleAnswers;
+    _currentLevel.correctAnswerCombinations = correctAnswerCombinations;
 }
 
 - (void)didReceiveMemoryWarning

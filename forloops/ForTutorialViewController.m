@@ -204,7 +204,7 @@
     _label3.font= textfont;
     _label3.text = @"A symbolic name or storage location given to a piece of data stored in a computer's memory";
     self.label3.numberOfLines=0;
-    self.label3.sizeToFit;
+    [self.label3 sizeToFit];
     self.label3.userInteractionEnabled=YES;
     
     self.label4.frame = CGRectMake(600, 730, 150, 20);

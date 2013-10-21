@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>70705A8D-D569-4F23-8EDD-603F9CC01102</string>
+	<key>IDESourceControlProjectName</key>
+	<string>forloops</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1C8DA0B9-8C7E-4DEF-A080-71DA559CE542</key>
+		<string>http://github.com/leoHernandez/intro_to_loops.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>forloops.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1C8DA0B9-8C7E-4DEF-A080-71DA559CE542</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>http://github.com/leoHernandez/intro_to_loops.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>1C8DA0B9-8C7E-4DEF-A080-71DA559CE542</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1C8DA0B9-8C7E-4DEF-A080-71DA559CE542</string>
+			<key>IDESourceControlWCCName</key>
+			<string>forloops</string>
+		</dict>
+	</array>
+</dict>
+</plist>

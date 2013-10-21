@@ -7,19 +7,26 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Level.h"
 
 @interface PracticeLevelViewController : UIViewController
 
-@property int level;
-@property (strong, nonatomic) NSString *levelInstructions;
-
 @property (strong, nonatomic) UILabel *instructionsLabel;
 
-@property (strong, nonatomic) UILabel *testConditionContainerLabel;
+@property (strong, nonatomic) UILabel *initializationContainerLabel;
+@property (strong, nonatomic) UILabel *terminatingConditionContainerLabel;
 @property (strong, nonatomic) UILabel *incrementContainerLabel;
 
-@property CGRect answerLabelFrame;
+@property (strong, nonatomic) NSString *initializationAnswer;
+@property (strong, nonatomic) NSString *terminatingConditionAnswer;
+@property (strong, nonatomic) NSString *incrementAnswer;
+
+@property CGRect tempFrame;
+
+@property (strong, nonatomic) Level *currentLevel;
 
 -(BOOL)isThisView:(UIView *)firstView nearTo:(UIView *)secondView withBuffer:(CGFloat) buffer;
+
+-(void)startLevel:(int) level;
 
 @end

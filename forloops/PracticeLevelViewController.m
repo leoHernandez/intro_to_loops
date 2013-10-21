@@ -113,13 +113,11 @@
     [self.view addSubview:_incrementContainerLabel];
     
     // create answer label
+    CGFloat labelX = 20;
+    CGFloat labelY = 680;
     for (NSString *text in _currentLevel.possibleAnswers)
     {
-        /*
-         Need to find a way to populate the answers area with labels
-         in positions that don't overlap
-         */
-        CGRect frame = CGRectMake(20, 680, answerLabelWidth, answerLabelHeight);
+        CGRect frame = CGRectMake(labelX, labelY, answerLabelWidth, answerLabelHeight);
         UILabel *answerLabel = [[UILabel alloc] initWithFrame:frame];
         answerLabel.text = text;
         answerLabel.userInteractionEnabled = YES;
@@ -133,6 +131,13 @@
         // make pan gesture recognizer
         UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panDetected:)];
         [answerLabel addGestureRecognizer:panGesture];
+        
+        // update next label positions
+        labelX = labelX + answerLabelWidth + 20;
+        if (labelX + answerLabelWidth + 20 > self.view.frame.size.width-20) {
+            labelX = 20;
+            labelY = labelY + answerLabelHeight + 20;
+        }
     }
     
 }
@@ -222,9 +227,8 @@
         terminatingCondition = @"";
         increment = @"i++";
         
-        NSString *possibleAnswer = @"i < 10";
-        
-        [possibleAnswers addObject:possibleAnswer];
+        [possibleAnswers addObject:@"i < 10"];
+        [possibleAnswers addObject:@"i <= 10"];
         
     }
     

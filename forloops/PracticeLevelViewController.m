@@ -115,6 +115,10 @@
     // create answer label
     for (NSString *text in _currentLevel.possibleAnswers)
     {
+        /*
+         Need to find a way to populate the answers area with labels
+         in positions that don't overlap
+         */
         CGRect frame = CGRectMake(20, 680, answerLabelWidth, answerLabelHeight);
         UILabel *answerLabel = [[UILabel alloc] initWithFrame:frame];
         answerLabel.text = text;

@@ -9,6 +9,7 @@
 #import "PracticeLevelViewController.h"
 #import "QuartzCore/QuartzCore.h"   // required to change label borders
 #import "Level.h"
+#import "AnswerLabel.h"
 
 @interface PracticeLevelViewController ()
 
@@ -115,22 +116,21 @@
     // create answer label
     CGFloat labelX = 20;
     CGFloat labelY = 680;
-    for (NSString *text in _currentLevel.possibleAnswers)
+    for (AnswerLabel *answer in _currentLevel.possibleAnswers)
     {
         CGRect frame = CGRectMake(labelX, labelY, answerLabelWidth, answerLabelHeight);
-        UILabel *answerLabel = [[UILabel alloc] initWithFrame:frame];
-        answerLabel.text = text;
-        answerLabel.userInteractionEnabled = YES;
-        answerLabel.font = answerLabelFont;
-        [answerLabel setTextAlignment:NSTextAlignmentCenter];
-        answerLabel.backgroundColor = answerLabelColor;
-        answerLabel.layer.borderColor = [UIColor blackColor].CGColor;
-        answerLabel.layer.borderWidth = 1;
-        [self.view addSubview:answerLabel];
+        [answer setFrame:frame];
+        answer.userInteractionEnabled = YES;
+        answer.font = answerLabelFont;
+        [answer setTextAlignment:NSTextAlignmentCenter];
+        answer.backgroundColor = answerLabelColor;
+        answer.layer.borderColor = [UIColor blackColor].CGColor;
+        answer.layer.borderWidth = 1;
+        [self.view addSubview:answer];
         
         // make pan gesture recognizer
         UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panDetected:)];
-        [answerLabel addGestureRecognizer:panGesture];
+        [answer addGestureRecognizer:panGesture];
         
         // update next label positions
         labelX = labelX + answerLabelWidth + 20;
@@ -234,8 +234,8 @@
         terminatingCondition = @"";
         increment = @"i++";
         
-        [possibleAnswers addObject:@"i < 10"];
-        [possibleAnswers addObject:@"i <= 10"];
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:@"i < 10" ofType:@"terminating"]];
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:@"i <= 10" ofType:@"terminating"]];
         
         [correctAnswerCombinations addObject:[NSArray arrayWithObjects:@"",@"i < 10", @"", nil]];
         

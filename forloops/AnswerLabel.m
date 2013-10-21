@@ -19,6 +19,16 @@
     return self;
 }
 
+-(id)initWithAnswer:(NSString *)answer ofType:(NSString *)type
+{
+    self = [super init];
+    if (self) {
+        self.text = answer;
+        self.type = type;
+    }
+    return self;
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

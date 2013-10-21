@@ -13,4 +13,6 @@
 // initialization, terminating, increment
 @property (strong, nonatomic) NSString *type;
 
+-(id)initWithAnswer:(NSString *)answer ofType:(NSString *)type;
+
 @end

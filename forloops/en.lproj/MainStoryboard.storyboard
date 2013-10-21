@@ -176,8 +176,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" ambiguous="YES" misplaced="YES" text="Instructions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Le-rc-FUZ">
-                                <rect key="frame" x="20" y="68" width="728" height="47"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Instructions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Le-rc-FUZ">
+                                <rect key="frame" x="20" y="68" width="728" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="tBz-OU-orq"/>
                                 </constraints>
@@ -189,6 +189,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="c0C-Br-kaS" firstAttribute="leading" secondItem="1oZ-vp-ZK1" secondAttribute="leading" constant="20" symbolic="YES" id="4Pr-kG-Z3N"/>
+                            <constraint firstItem="0Le-rc-FUZ" firstAttribute="leading" secondItem="c0C-Br-kaS" secondAttribute="leading" id="Icb-NX-Xbc"/>
+                            <constraint firstItem="0Le-rc-FUZ" firstAttribute="trailing" secondItem="c0C-Br-kaS" secondAttribute="trailing" id="U3q-2n-1vU"/>
+                            <constraint firstItem="0Le-rc-FUZ" firstAttribute="top" secondItem="DKY-gw-M98" secondAttribute="bottom" constant="4" id="aLY-2Q-AZU"/>
                             <constraint firstAttribute="bottom" secondItem="c0C-Br-kaS" secondAttribute="bottom" constant="291" id="gcH-K3-fWT"/>
                             <constraint firstAttribute="trailing" secondItem="c0C-Br-kaS" secondAttribute="trailing" constant="20" symbolic="YES" id="nJ5-Se-2IM"/>
                         </constraints>

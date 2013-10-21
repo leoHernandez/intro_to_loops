@@ -8,6 +8,8 @@
 
 #import "PracticeLevelViewController.h"
 #import "QuartzCore/QuartzCore.h"   // required to change label borders
+#import "Level.h"
+#import "AnswerLabel.h"
 
 @interface PracticeLevelViewController ()
 
@@ -28,23 +30,18 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+ 
+    [self startLevel:1];
     
-    // Set the level
-    self.level = 1;
-    
-    // level instructions
-    self.levelInstructions = @"Drag and drop the correct test condition from the answers section to make the loop run exactly 10 times.";
-    
-    // update navigation bar
-    self.navigationItem.title = [NSString stringWithFormat:@"Level %i",self.level];
-    
+    self.navigationItem.title = [NSString stringWithFormat:@"Level %i",_currentLevel.levelNumber];
+ 
     // create and display instructions label
     CGRect instructionsLabelFrame = CGRectMake(20, 65, self.view.frame.size.width-20, 0);
-    self.instructionsLabel = [[UILabel alloc] initWithFrame:instructionsLabelFrame];
-    [self.instructionsLabel setText:self.levelInstructions];
-    [self.instructionsLabel setNumberOfLines:0];    // unlimited lines
-    [self.instructionsLabel sizeToFit]; // to make sure text is aligned at top left
-    [self.view addSubview:self.instructionsLabel];
+    _instructionsLabel = [[UILabel alloc] initWithFrame:instructionsLabelFrame];
+    [_instructionsLabel setText:_currentLevel.levelInstructions];
+    [_instructionsLabel setNumberOfLines:0];    // unlimited lines
+    [_instructionsLabel sizeToFit]; // to make sure text is aligned at top left
+    [self.view addSubview:_instructionsLabel];
     
     // create the loop structure
     UIFont *loopBodyFont = [UIFont fontWithName:@"Courier New" size:25];
@@ -65,10 +62,11 @@
     [self.view addSubview:openingParen];
     
     // loop body
-    CGRect loopBodyFrame = CGRectMake(80, 210, 10, 10);
+    CGRect loopBodyFrame = CGRectMake(80, 210, self.view.frame.size.width-100, 10);
     UILabel *loopBody = [[UILabel alloc] initWithFrame:loopBodyFrame];
     loopBody.font = loopBodyFont;
-    loopBody.text = @"print(\"Hello world!\");";
+    loopBody.text = _currentLevel.loopBody;
+    [loopBody setNumberOfLines:0];
     [loopBody sizeToFit];
     [self.view addSubview:loopBody];
     
@@ -84,61 +82,62 @@
     CGFloat answerLabelWidth = 140;
     CGFloat answerLabelHeight = 25;
     UIColor *answerLabelColor = [[UIColor alloc] initWithRed:.5 green:.5 blue:.5 alpha:.2];
+    UIColor *initializationColor = [UIColor yellowColor];
+    UIColor *terminatingConditionColor = [UIColor cyanColor];
+    UIColor *incrementColor = [UIColor orangeColor];
     
     // init variable
     CGRect initContainerLabelFrame = CGRectMake(100, 163, answerLabelWidth, answerLabelHeight);
-    UILabel *initContainerLabel = [[UILabel alloc] initWithFrame:initContainerLabelFrame];
-    initContainerLabel.font = answerLabelFont;
-    [initContainerLabel setTextAlignment:NSTextAlignmentCenter];
-    initContainerLabel.text = @"int i = 0";
-    initContainerLabel.backgroundColor = answerLabelColor;
-    initContainerLabel.layer.borderColor = [UIColor blackColor].CGColor;
-    initContainerLabel.layer.borderWidth = 1;
-    [self.view addSubview:initContainerLabel];
+    _initializationContainerLabel = [[UILabel alloc] initWithFrame:initContainerLabelFrame];
+    _initializationContainerLabel.font = answerLabelFont;
+    [_initializationContainerLabel setTextAlignment:NSTextAlignmentCenter];
+    _initializationContainerLabel.text = _currentLevel.loopInitialization;
+    _initializationContainerLabel.backgroundColor = initializationColor;
+    [self.view addSubview:_initializationContainerLabel];
     
     // test condition
     CGRect testConditionContainerFrame = CGRectMake(265, 163, answerLabelWidth, answerLabelHeight);
-    _testConditionContainerLabel = [[UILabel alloc] initWithFrame:testConditionContainerFrame];
-    _testConditionContainerLabel.font = answerLabelFont;
-    [_testConditionContainerLabel setTextAlignment:NSTextAlignmentCenter];
-    _testConditionContainerLabel.text = @"";
-    _testConditionContainerLabel.backgroundColor = answerLabelColor;
-    _testConditionContainerLabel.layer.borderColor = [UIColor blackColor].CGColor;
-    _testConditionContainerLabel.layer.borderWidth = 1;
-    [self.view addSubview:_testConditionContainerLabel];
+    _terminatingConditionContainerLabel = [[UILabel alloc] initWithFrame:testConditionContainerFrame];
+    _terminatingConditionContainerLabel.font = answerLabelFont;
+    [_terminatingConditionContainerLabel setTextAlignment:NSTextAlignmentCenter];
+    _terminatingConditionContainerLabel.text = _currentLevel.terminatingCondition;
+    _terminatingConditionContainerLabel.backgroundColor = terminatingConditionColor;
+    [self.view addSubview:_terminatingConditionContainerLabel];
     
     // increment statement
     CGRect incrementContainerFrame = CGRectMake(430, 163, answerLabelWidth, answerLabelHeight);
     _incrementContainerLabel = [[UILabel alloc] initWithFrame:incrementContainerFrame];
     _incrementContainerLabel.font = answerLabelFont;
     [_incrementContainerLabel setTextAlignment:NSTextAlignmentCenter];
-    _incrementContainerLabel.text = @"i++";
-    _incrementContainerLabel.backgroundColor = answerLabelColor;
-    _incrementContainerLabel.layer.borderColor = [UIColor blackColor].CGColor;
-    _incrementContainerLabel.layer.borderWidth = 1;
+    _incrementContainerLabel.text = _currentLevel.increment;
+    _incrementContainerLabel.backgroundColor = incrementColor;
     [self.view addSubview:_incrementContainerLabel];
     
     // create answer label
-    _answerLabelFrame = CGRectMake(20, 760, answerLabelWidth, answerLabelHeight);
-    UILabel *answerLabel = [[UILabel alloc] initWithFrame:_answerLabelFrame];
-    answerLabel.text = @"i < 10";
-    answerLabel.userInteractionEnabled = YES;
-    answerLabel.font = answerLabelFont;
-    [answerLabel setTextAlignment:NSTextAlignmentCenter];
-    answerLabel.backgroundColor = answerLabelColor;
-    answerLabel.layer.borderColor = [UIColor blackColor].CGColor;
-    answerLabel.layer.borderWidth = 1;
-    [self.view addSubview:answerLabel];
-    
-    // add answer labels to NSMutableSet
-    NSMutableSet *answerLabels = [[NSMutableSet alloc] init];
-    [answerLabels addObject:answerLabel];
-    
-    // for loop to make pan gesture for all answer labels
-    for (UILabel *label in answerLabels)
+    CGFloat labelX = 20;
+    CGFloat labelY = 680;
+    for (AnswerLabel *answer in _currentLevel.possibleAnswers)
     {
+        CGRect frame = CGRectMake(labelX, labelY, answerLabelWidth, answerLabelHeight);
+        [answer setFrame:frame];
+        answer.userInteractionEnabled = YES;
+        answer.font = answerLabelFont;
+        [answer setTextAlignment:NSTextAlignmentCenter];
+        answer.backgroundColor = answerLabelColor;
+        answer.layer.borderColor = [UIColor blackColor].CGColor;
+        answer.layer.borderWidth = 1;
+        [self.view addSubview:answer];
+        
+        // make pan gesture recognizer
         UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panDetected:)];
-        [label addGestureRecognizer:panGesture];
+        [answer addGestureRecognizer:panGesture];
+        
+        // update next label positions
+        labelX = labelX + answerLabelWidth + 20;
+        if (labelX + answerLabelWidth + 20 > self.view.frame.size.width-20) {
+            labelX = 20;
+            labelY = labelY + answerLabelHeight + 20;
+        }
     }
     
 }
@@ -162,8 +161,28 @@
     }
 }
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    // this is so answer labels go back to original position
+    UITouch *touch = [[event allTouches] anyObject];
+    UIView *theView = touch.view;
+    
+    BOOL isOnInitialization = [self isThisView:theView nearTo:_initializationContainerLabel withBuffer:0];
+    BOOL isOnTerminatingCondition = [self isThisView:theView nearTo:_terminatingConditionContainerLabel withBuffer:0];
+    BOOL isOnIncrement = [self isThisView:theView nearTo:_incrementContainerLabel withBuffer:0];
+    
+    if ( isOnInitialization == NO
+        && isOnTerminatingCondition == NO
+        && isOnIncrement == NO)
+    {
+        _tempFrame = theView.frame;
+    }
+    
+}
+
 -(void)panDetected:(UIPanGestureRecognizer *)sender
 {
+
     UIView *label = sender.view;
     CGPoint amtOftranslation = [sender translationInView:self.view];
     CGPoint labelPosition = label.center;
@@ -174,19 +193,64 @@
     
     if (sender.state == UIGestureRecognizerStateEnded)
     {
-        BOOL viewsClose = [self isThisView:label nearTo:self.testConditionContainerLabel withBuffer:50];
+        BOOL viewsClose = [self isThisView:label nearTo:self.terminatingConditionContainerLabel withBuffer:50];
         if (viewsClose == YES)
         {
-            label.center = self.testConditionContainerLabel.center;
+            label.center = self.terminatingConditionContainerLabel.center;
+
         } else {
-            [label setFrame:_answerLabelFrame];
+            [label setFrame:_tempFrame];
         }
     }
     
     
 }
 
-
+-(void)startLevel:(int)level
+{
+    
+    // starting level, reset answers
+    _initializationAnswer = @"";
+    _terminatingConditionAnswer = @"";
+    _incrementAnswer = @"";
+    
+    NSString *levelInstructions;
+    NSString *loopBody;
+    NSString *initialization;
+    NSString *terminatingCondition;
+    NSString *increment;
+    
+    NSMutableSet *possibleAnswers = [[NSMutableSet alloc] init];
+    
+    NSMutableSet *correctAnswerCombinations = [[NSMutableSet alloc] init];
+    
+    if (level == 1)
+    {
+        levelInstructions = @"Drag and drop the correct test condition from the answers section to make the loop run exactly 10 times.";
+        
+        loopBody = @"System.out.println(\"Hello World!\");";
+        
+        initialization = @"int i = 0";
+        terminatingCondition = @"";
+        increment = @"i++";
+        
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:@"i < 10" ofType:@"terminating"]];
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:@"i <= 10" ofType:@"terminating"]];
+        
+        [correctAnswerCombinations addObject:[NSArray arrayWithObjects:@"",@"i < 10", @"", nil]];
+        
+    }
+    
+  
+    // create level object
+    _currentLevel = [[Level alloc] initWithLevel:level withInstructions:levelInstructions];
+    _currentLevel.loopBody = loopBody;
+    _currentLevel.loopInitialization = initialization;
+    _currentLevel.terminatingCondition = terminatingCondition;
+    _currentLevel.increment = increment;
+    _currentLevel.possibleAnswers = possibleAnswers;
+    _currentLevel.correctAnswerCombinations = correctAnswerCombinations;
+}
 
 - (void)didReceiveMemoryWarning
 {

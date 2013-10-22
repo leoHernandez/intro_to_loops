@@ -191,8 +191,6 @@
     answer.center = labelPosition;
     [sender setTranslation:CGPointZero inView:self.view];
     
-    NSLog(@"%@", [sender.view class]);
-
     if (sender.state == UIGestureRecognizerStateEnded)
     {
         CGFloat buffer = 50;
@@ -249,8 +247,8 @@
         terminatingCondition = @"";
         increment = @"i++";
         
-        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:@"i < 10" ofType:@"terminating"]];
-        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:@"i <= 10" ofType:@"terminating"]];
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:@"i < 10" ofType: @"terminating"]];
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:@"i <= 10" ofType: @"terminating"]];
         
         [correctAnswerCombinations addObject:[NSArray arrayWithObjects:@"",@"i < 10", @"", nil]];
         

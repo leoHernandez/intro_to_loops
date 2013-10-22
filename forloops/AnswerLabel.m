@@ -10,11 +10,6 @@
 
 @implementation AnswerLabel
 
-// define constants
-const NSString *TYPE_INITIALIZATION = @"initialization";
-const NSString *TYPE_TERMINATING = @"terminating";
-const NSString *TYPE_INCREMENT = @"increment";
-
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];

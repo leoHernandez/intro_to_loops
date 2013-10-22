@@ -178,7 +178,7 @@
         && isOnTerminatingCondition == NO
         && isOnIncrement == NO)
     {
-        _tempFrame = theView.frame; // write code here to make temp frame best available answer space
+        _tempFrame = theView.frame;
     }
     
 }
@@ -204,17 +204,17 @@
         
         if ([answer.type isEqualToString: @"initialization"] && isCloseToInitialization == YES)
         {
-            answer.center = _incrementContainerLabel.center;
+            [answer setFrame:_initializationContainerLabel.frame];
             _initializationAnswer = answer.text;
         }
         else if ([answer.type isEqualToString:@"terminating"] && isCloseToTerminatingCondition == YES)
         {
-            answer.center = _terminatingConditionContainerLabel.center;
+            [answer setFrame:_terminatingConditionContainerLabel.frame];
             _terminatingConditionAnswer = answer.text;
         }
         else if ([answer.type isEqualToString:@"increment"] && isCloseToIncrement == YES)
         {
-            answer.center = _incrementContainerLabel.center;
+            [answer setFrame:_incrementContainerLabel.frame];
             _incrementAnswer = answer.text;
         }
         else
@@ -228,6 +228,7 @@
             }
             [answer setFrame:_tempFrame];
         }
+        NSLog(@"terminating: %@", _terminatingConditionAnswer);
     }
     
 }

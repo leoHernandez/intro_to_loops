@@ -11,6 +11,8 @@
 
 @interface PracticeLevelViewController : UIViewController
 
+- (IBAction)checkAnswer:(UIBarButtonItem *)sender;
+
 @property (strong, nonatomic) UILabel *instructionsLabel;
 
 @property (strong, nonatomic) UILabel *initializationContainerLabel;

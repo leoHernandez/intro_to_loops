@@ -271,4 +271,27 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)checkAnswer:(UIBarButtonItem *)sender {
+    BOOL answerCorrect = NO;
+    
+    for (NSArray *combo in _currentLevel.correctAnswerCombinations)
+    {
+        NSString *initialization = combo[0];
+        NSString *terminating = combo[1];
+        NSString *increment = combo[2];
+        
+        if (_initializationAnswer == initialization
+            && _terminatingConditionAnswer == terminating
+            && _incrementAnswer == increment)
+        {
+            answerCorrect = YES;
+        }
+    }
+    
+    if (answerCorrect == YES) {
+        NSLog(@"Answer correct!");
+    } else {
+        NSLog(@"WRONG!!!!!!!");
+    }
+}
 @end

@@ -228,7 +228,7 @@
             }
             [answer setFrame:_tempFrame];
         }
-        NSLog(@"terminating: %@", _terminatingConditionAnswer);
+        NSLog(@"terminating: %@", _terminatingConditionAnswer); //
     }
     
 }

@@ -191,6 +191,15 @@
     answer.center = labelPosition;
     [sender setTranslation:CGPointZero inView:self.view];
     
+    // while moving, set answer placeholder to ""
+    if ([answer.type isEqualToString:@"initialization"]) {
+        _initializationAnswer = @"";
+    } else if ([answer.type isEqualToString:@"terminating"]) {
+        _terminatingConditionAnswer = @"";
+    } else if ([answer.type isEqualToString:@"increment"]) {
+        _incrementAnswer = @"";
+    }
+    
     if (sender.state == UIGestureRecognizerStateEnded)
     {
         CGFloat buffer = 50;

@@ -25,6 +25,8 @@
 @property (strong, nonatomic) NSString *incrementAnswer;
 
 @property CGRect tempFrame;
+@property CGFloat answerLabelWidth;
+@property CGFloat answerLabelHeight;
 
 @property (strong, nonatomic) Level *currentLevel;
 

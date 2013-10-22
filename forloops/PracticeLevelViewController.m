@@ -83,15 +83,15 @@
     [self.view addSubview:closingParens];
     
     // label for loop components
-    CGFloat answerLabelWidth = 140;
-    CGFloat answerLabelHeight = 25;
+    _answerLabelWidth = 140;
+    _answerLabelHeight = 25;
     UIColor *answerLabelColor = [[UIColor alloc] initWithRed:.5 green:.5 blue:.5 alpha:.2];
     UIColor *initializationColor = [UIColor yellowColor];
     UIColor *terminatingConditionColor = [UIColor cyanColor];
     UIColor *incrementColor = [UIColor orangeColor];
     
     // init variable
-    CGRect initContainerLabelFrame = CGRectMake(100, structureForLineFrame.origin.y, answerLabelWidth, answerLabelHeight);
+    CGRect initContainerLabelFrame = CGRectMake(100, structureForLineFrame.origin.y, _answerLabelWidth, _answerLabelHeight);
     _initializationContainerLabel = [[UILabel alloc] initWithFrame:initContainerLabelFrame];
     _initializationContainerLabel.font = answerLabelFont;
     [_initializationContainerLabel setTextAlignment:NSTextAlignmentCenter];
@@ -100,7 +100,7 @@
     [self.view addSubview:_initializationContainerLabel];
     
     // test condition
-    CGRect testConditionContainerFrame = CGRectMake(265, structureForLineFrame.origin.y, answerLabelWidth, answerLabelHeight);
+    CGRect testConditionContainerFrame = CGRectMake(265, structureForLineFrame.origin.y, _answerLabelWidth, _answerLabelHeight);
     _terminatingConditionContainerLabel = [[UILabel alloc] initWithFrame:testConditionContainerFrame];
     _terminatingConditionContainerLabel.font = answerLabelFont;
     [_terminatingConditionContainerLabel setTextAlignment:NSTextAlignmentCenter];
@@ -109,7 +109,7 @@
     [self.view addSubview:_terminatingConditionContainerLabel];
     
     // increment statement
-    CGRect incrementContainerFrame = CGRectMake(430, structureForLineFrame.origin.y, answerLabelWidth, answerLabelHeight);
+    CGRect incrementContainerFrame = CGRectMake(430, structureForLineFrame.origin.y, _answerLabelWidth, _answerLabelHeight);
     _incrementContainerLabel = [[UILabel alloc] initWithFrame:incrementContainerFrame];
     _incrementContainerLabel.font = answerLabelFont;
     [_incrementContainerLabel setTextAlignment:NSTextAlignmentCenter];
@@ -122,7 +122,7 @@
     CGFloat labelY = 740;
     for (AnswerLabel *answer in _currentLevel.possibleAnswers)
     {
-        CGRect frame = CGRectMake(labelX, labelY, answerLabelWidth, answerLabelHeight);
+        CGRect frame = CGRectMake(labelX, labelY, _answerLabelWidth, _answerLabelHeight);
         [answer setFrame:frame];
         answer.userInteractionEnabled = YES;
         answer.font = answerLabelFont;
@@ -137,10 +137,10 @@
         [answer addGestureRecognizer:panGesture];
         
         // update next label positions
-        labelX = labelX + answerLabelWidth + 20;
-        if (labelX + answerLabelWidth + 20 > self.view.frame.size.width-20) {
+        labelX = labelX + _answerLabelWidth + 20;
+        if (labelX + _answerLabelWidth + 20 > self.view.frame.size.width-20) {
             labelX = 20;
-            labelY = labelY + answerLabelHeight + 20;
+            labelY = labelY + _answerLabelHeight + 20;
         }
     }
 }
@@ -180,6 +180,11 @@
     {
         _tempFrame = theView.frame;
     }
+    
+}
+
+-(CGRect)getAvailableAnswerSpace
+{
     
 }
 
@@ -228,7 +233,6 @@
             }
             [answer setFrame:_tempFrame];
         }
-        NSLog(@"terminating: %@", _terminatingConditionAnswer); //
     }
     
 }

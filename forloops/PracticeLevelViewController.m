@@ -174,18 +174,38 @@
     BOOL isOnTerminatingCondition = [self isThisView:theView nearTo:_terminatingConditionContainerLabel withBuffer:0];
     BOOL isOnIncrement = [self isThisView:theView nearTo:_incrementContainerLabel withBuffer:0];
     
-    if ( isOnInitialization == NO
-        && isOnTerminatingCondition == NO
-        && isOnIncrement == NO)
-    {
-        _tempFrame = theView.frame;
-    }
+    //if ( isOnInitialization == NO
+    //    && isOnTerminatingCondition == NO
+    //    && isOnIncrement == NO)
+    //{
+        _tempFrame = [self getAvailableAnswerSpaceForView:theView];
+    //}
     
 }
 
--(CGRect)getAvailableAnswerSpace
+-(CGRect)getAvailableAnswerSpaceForView: (UIView *)view
 {
+    CGFloat labelX = 20;
+    CGFloat labelY = 740;
+    CGRect bestSpaceFrame = view.frame;
     
+    if (labelX == view.frame.origin.x && labelY == view.frame.origin.y) {
+        return view.frame;
+    } else {
+        for (AnswerLabel *label in _currentLevel.possibleAnswers) {
+            // update next label positions
+            labelX = labelX + _answerLabelWidth + 20;
+            if (labelX + _answerLabelWidth + 20 > self.view.frame.size.width-20) {
+                labelX = 20;
+                labelY = labelY + _answerLabelHeight + 20;
+            }
+            if (labelX != view.frame.origin.x && labelY != view.frame.origin.y)
+            {
+                bestSpaceFrame = CGRectMake(labelX, labelY, _answerLabelWidth, _answerLabelHeight);
+            }
+        }
+        return bestSpaceFrame;
+    }
 }
 
 -(void)panDetected:(UIPanGestureRecognizer *)sender

@@ -32,9 +32,13 @@
 	// Do any additional setup after loading the view.
  
     [self startLevel:1];
-    
+
+}
+
+-(void)setUpLevel
+{
     self.navigationItem.title = [NSString stringWithFormat:@"Level %i",_currentLevel.levelNumber];
- 
+    
     // create and display instructions label
     CGRect instructionsLabelFrame = CGRectMake(20, 115, self.view.frame.size.width-20, 0);
     _instructionsLabel = [[UILabel alloc] initWithFrame:instructionsLabelFrame];
@@ -63,14 +67,14 @@
     
     // loop body
     CGRect loopBodyFrame = CGRectMake(80, openingParenFrame.origin.y+20, self.view.frame.size.width-100, 10);
-    UILabel *loopBody = [[UILabel alloc] initWithFrame:loopBodyFrame];
-    loopBody.font = loopBodyFont;
-    loopBody.text = _currentLevel.loopBody;
-    [loopBody setNumberOfLines:0];
-    [loopBody sizeToFit];
-    [self.view addSubview:loopBody];
+    _loopBodyLabel = [[UILabel alloc] initWithFrame:loopBodyFrame];
+    _loopBodyLabel.font = loopBodyFont;
+    _loopBodyLabel.text = _currentLevel.loopBody;
+    [_loopBodyLabel setNumberOfLines:0];
+    [_loopBodyLabel sizeToFit];
+    [self.view addSubview:_loopBodyLabel];
     
-    CGFloat closingParensY = loopBody.frame.origin.y + loopBody.frame.size.height;
+    CGFloat closingParensY = _loopBodyLabel.frame.origin.y + _loopBodyLabel.frame.size.height;
     CGRect closingParensFrame = CGRectMake(20, closingParensY, 10, 10);
     UILabel *closingParens = [[UILabel alloc] initWithFrame:closingParensFrame];
     closingParens.font = loopBodyFont;
@@ -139,7 +143,6 @@
             labelY = labelY + answerLabelHeight + 20;
         }
     }
-    
 }
 
 -(BOOL)isThisView:(UIView *)firstView nearTo:(UIView *)secondView withBuffer:(CGFloat)buffer
@@ -239,6 +242,18 @@
     _terminatingConditionAnswer = @"";
     _incrementAnswer = @"";
     
+    // reset answer labels
+    for (AnswerLabel *label in _currentLevel.possibleAnswers)
+    {
+        [label removeFromSuperview];
+    }
+    
+    // reset instructions text
+    [_instructionsLabel removeFromSuperview];
+    
+    // reset loop body
+    [_loopBodyLabel removeFromSuperview];
+    
     NSString *levelInstructions;
     NSString *loopBody;
     NSString *initialization;
@@ -289,6 +304,8 @@
     _currentLevel.increment = increment;
     _currentLevel.possibleAnswers = possibleAnswers;
     _currentLevel.correctAnswerCombinations = correctAnswerCombinations;
+    
+    [self setUpLevel];
 }
 
 - (void)didReceiveMemoryWarning
@@ -314,8 +331,10 @@
         }
     }
     
+    // make action sheet/alert
     if (answerCorrect == YES) {
         NSLog(@"Answer correct!");
+        [self startLevel:1];
     } else {
         NSLog(@"WRONG!!!!!!!");
     }

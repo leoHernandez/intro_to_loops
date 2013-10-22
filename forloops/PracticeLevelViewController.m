@@ -339,10 +339,11 @@
     
     // make action sheet/alert
     if (answerCorrect == YES) {
-        NSLog(@"Answer correct!");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Correct Answer" message:@"That is the correct answer, good job! :)" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Next Level", nil];
+        [alert show];
         [self startLevel:1];
     } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Wrong Answer" message:@"Sorry, that answer is not correct :(" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Wrong Answer" message:@"Sorry, that answer is not correct :(" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];
     }
 }

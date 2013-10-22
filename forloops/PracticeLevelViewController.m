@@ -202,17 +202,17 @@
         BOOL isCloseToTerminatingCondition = [self isThisView:answer nearTo:_terminatingConditionContainerLabel withBuffer:buffer];
         BOOL isCloseToIncrement = [self isThisView:answer nearTo:_incrementContainerLabel withBuffer:buffer];
         
-        if ([answer.type isEqualToString: @"initialization"] && isCloseToInitialization == YES)
+        if ([answer.type isEqualToString: @"initialization"] && isCloseToInitialization == YES && ([_initializationAnswer isEqualToString:@""] || [answer.text isEqualToString:_initializationAnswer]) )
         {
             [answer setFrame:_initializationContainerLabel.frame];
             _initializationAnswer = answer.text;
         }
-        else if ([answer.type isEqualToString:@"terminating"] && isCloseToTerminatingCondition == YES)
+        else if ([answer.type isEqualToString:@"terminating"] && isCloseToTerminatingCondition == YES && ([_terminatingConditionAnswer isEqualToString:@""] || [answer.text isEqualToString:_terminatingConditionAnswer]) )
         {
             [answer setFrame:_terminatingConditionContainerLabel.frame];
             _terminatingConditionAnswer = answer.text;
         }
-        else if ([answer.type isEqualToString:@"increment"] && isCloseToIncrement == YES)
+        else if ([answer.type isEqualToString:@"increment"] && isCloseToIncrement == YES && ([_incrementAnswer isEqualToString:@""] || [answer.text isEqualToString:_incrementAnswer]) )
         {
             [answer setFrame:_incrementContainerLabel.frame];
             _incrementAnswer = answer.text;

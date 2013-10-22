@@ -264,6 +264,9 @@
     
     NSMutableSet *correctAnswerCombinations = [[NSMutableSet alloc] init];
     
+    // make sure level is positive
+    level = (level < 0) ? -level : level;
+    
     if (level == 1)
     {
         int random = [self getRandomNumberFrom:3 to:10];

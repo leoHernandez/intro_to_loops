@@ -113,7 +113,7 @@
     _incrementContainerLabel.backgroundColor = incrementColor;
     [self.view addSubview:_incrementContainerLabel];
     
-    // create answer label
+    // create answer labels
     CGFloat labelX = 20;
     CGFloat labelY = 740;
     for (AnswerLabel *answer in _currentLevel.possibleAnswers)
@@ -183,23 +183,36 @@
 -(void)panDetected:(UIPanGestureRecognizer *)sender
 {
 
-    UIView *label = sender.view;
+    AnswerLabel *answer = (AnswerLabel *)sender.class;
     CGPoint amtOftranslation = [sender translationInView:self.view];
-    CGPoint labelPosition = label.center;
+    CGPoint labelPosition = answer.center;
     labelPosition.x = labelPosition.x + amtOftranslation.x;
     labelPosition.y = labelPosition.y + amtOftranslation.y;
-    label.center = labelPosition;
+    answer.center = labelPosition;
     [sender setTranslation:CGPointZero inView:self.view];
     
     if (sender.state == UIGestureRecognizerStateEnded)
     {
-        BOOL viewsClose = [self isThisView:label nearTo:self.terminatingConditionContainerLabel withBuffer:50];
-        if (viewsClose == YES)
+        CGFloat buffer = 50;
+        BOOL isCloseToInitialization = [self isThisView:answer nearTo:_initializationContainerLabel withBuffer:buffer];
+        BOOL isCloseToTerminatingCondition = [self isThisView:answer nearTo:_terminatingConditionContainerLabel withBuffer:buffer];
+        BOOL isCloseToIncrement = [self isThisView:answer nearTo:_incrementContainerLabel withBuffer:buffer];
+        
+        if ([answer.type isEqualToString: @"initialization"] && isCloseToInitialization == YES)
         {
-            label.center = self.terminatingConditionContainerLabel.center;
-
-        } else {
-            [label setFrame:_tempFrame];
+            answer.center = _incrementContainerLabel.center;
+        }
+        else if ([answer.type isEqualToString:@"terminating"] && isCloseToTerminatingCondition == YES)
+        {
+            answer.center = _terminatingConditionContainerLabel.center;
+        }
+        else if ([answer.type isEqualToString:@"increment"] && isCloseToIncrement == YES)
+        {
+            answer.center = _incrementContainerLabel.center;
+        }
+        else
+        {
+            [answer setFrame:_tempFrame];
         }
     }
     

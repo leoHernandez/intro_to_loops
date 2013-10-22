@@ -186,7 +186,7 @@
 -(void)panDetected:(UIPanGestureRecognizer *)sender
 {
 
-    AnswerLabel *answer = sender.view;
+    AnswerLabel *answer = (AnswerLabel *) sender.view;
     CGPoint amtOftranslation = [sender translationInView:self.view];
     CGPoint labelPosition = answer.center;
     labelPosition.x = labelPosition.x + amtOftranslation.x;
@@ -266,9 +266,7 @@
     
     if (level == 1)
     {
-        int max = 10;
-        int min = 3;
-        int random = ( (arc4random() % (max-min+1)) + min );
+        int random = [self getRandomNumberFrom:3 to:10];
         levelInstructions = [NSString stringWithFormat:@"Drag and drop the correct test condition from the answers section to make the loop run exactly %i times.",random];
         
         loopBody = @"System.out.println(\"Hello World!\");";
@@ -306,6 +304,11 @@
     _currentLevel.correctAnswerCombinations = correctAnswerCombinations;
     
     [self setUpLevel];
+}
+
+-(int)getRandomNumberFrom:(int)min to:(int)max
+{
+    return ( (arc4random() % (max-min+1)) + min );
 }
 
 - (void)didReceiveMemoryWarning

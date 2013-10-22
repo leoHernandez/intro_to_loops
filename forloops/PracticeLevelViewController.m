@@ -337,14 +337,20 @@
         }
     }
     
-    // make action sheet/alert
     if (answerCorrect == YES) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Correct Answer" message:@"That is the correct answer, good job! :)" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Next Level", nil];
         [alert show];
-        [self startLevel:1];
     } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Wrong Answer" message:@"Sorry, that answer is not correct :(" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];
+    }
+}
+
+-(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    // next level button
+    if (buttonIndex == 1) {
+        [self startLevel:1];
     }
 }
 @end

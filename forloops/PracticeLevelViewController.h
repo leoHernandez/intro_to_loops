@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Level.h"
 
-@interface PracticeLevelViewController : UIViewController
+@interface PracticeLevelViewController : UIViewController<UIAlertViewDelegate>
 
 - (IBAction)checkAnswer:(UIBarButtonItem *)sender;
 

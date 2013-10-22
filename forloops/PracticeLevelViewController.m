@@ -270,7 +270,7 @@
     if (level == 1)
     {
         int random = [self getRandomNumberFrom:3 to:10];
-        levelInstructions = [NSString stringWithFormat:@"Drag and drop the correct test condition from the answers section to make the loop run exactly %i times.",random];
+        levelInstructions = [NSString stringWithFormat:@"Drag and drop the correct terminating condition from the answers section to make the loop run exactly %i times.",random];
         
         loopBody = @"System.out.println(\"Hello World!\");";
         
@@ -342,7 +342,8 @@
         NSLog(@"Answer correct!");
         [self startLevel:1];
     } else {
-        NSLog(@"WRONG!!!!!!!");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Wrong Answer" message:@"Sorry, that answer is not correct :(" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
     }
 }
 @end

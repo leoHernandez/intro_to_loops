@@ -10,6 +10,10 @@
 
 @interface AnswerLabel : UILabel
 
+extern const NSString *TYPE_INITIALIZATION;
+extern const NSString *TYPE_TERMINATING;
+extern const NSString *TYPE_INCREMENT;
+
 // initialization, terminating, increment
 @property (strong, nonatomic) NSString *type;
 

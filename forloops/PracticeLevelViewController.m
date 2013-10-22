@@ -183,7 +183,7 @@
 -(void)panDetected:(UIPanGestureRecognizer *)sender
 {
 
-    AnswerLabel *answer = (AnswerLabel *)sender.class;
+    AnswerLabel *answer = sender.view;
     CGPoint amtOftranslation = [sender translationInView:self.view];
     CGPoint labelPosition = answer.center;
     labelPosition.x = labelPosition.x + amtOftranslation.x;
@@ -191,6 +191,8 @@
     answer.center = labelPosition;
     [sender setTranslation:CGPointZero inView:self.view];
     
+    NSLog(@"%@", [sender.view class]);
+
     if (sender.state == UIGestureRecognizerStateEnded)
     {
         CGFloat buffer = 50;
@@ -215,7 +217,7 @@
             [answer setFrame:_tempFrame];
         }
     }
-    
+ 
     
 }
 

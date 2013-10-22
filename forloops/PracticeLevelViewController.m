@@ -178,7 +178,7 @@
         && isOnTerminatingCondition == NO
         && isOnIncrement == NO)
     {
-        _tempFrame = theView.frame;
+        _tempFrame = theView.frame; // write code here to make temp frame best available answer space
     }
     
 }
@@ -194,15 +194,7 @@
     answer.center = labelPosition;
     [sender setTranslation:CGPointZero inView:self.view];
     
-    // while moving, set answer placeholder to ""
-    if ([answer.type isEqualToString:@"initialization"]) {
-        _initializationAnswer = @"";
-    } else if ([answer.type isEqualToString:@"terminating"]) {
-        _terminatingConditionAnswer = @"";
-    } else if ([answer.type isEqualToString:@"increment"]) {
-        _incrementAnswer = @"";
-    }
-    
+  
     if (sender.state == UIGestureRecognizerStateEnded)
     {
         CGFloat buffer = 50;
@@ -227,10 +219,16 @@
         }
         else
         {
+            if ([answer.type isEqualToString:@"initialization"] && [answer.text isEqualToString:_initializationAnswer]) {
+                _initializationAnswer = @"";
+            } else if ([answer.type isEqualToString:@"terminating"] && [answer.text isEqualToString:_terminatingConditionAnswer]) {
+                _terminatingConditionAnswer = @"";
+            } else if ([answer.type isEqualToString:@"increment"] && [answer.text isEqualToString:_incrementAnswer]) {
+                _incrementAnswer = @"";
+            }
             [answer setFrame:_tempFrame];
         }
     }
- 
     
 }
 

@@ -201,14 +201,17 @@
         if ([answer.type isEqualToString: @"initialization"] && isCloseToInitialization == YES)
         {
             answer.center = _incrementContainerLabel.center;
+            _initializationAnswer = answer.text;
         }
         else if ([answer.type isEqualToString:@"terminating"] && isCloseToTerminatingCondition == YES)
         {
             answer.center = _terminatingConditionContainerLabel.center;
+            _terminatingConditionAnswer = answer.text;
         }
         else if ([answer.type isEqualToString:@"increment"] && isCloseToIncrement == YES)
         {
             answer.center = _incrementContainerLabel.center;
+            _incrementAnswer = answer.text;
         }
         else
         {
@@ -280,9 +283,9 @@
         NSString *terminating = combo[1];
         NSString *increment = combo[2];
         
-        if (_initializationAnswer == initialization
-            && _terminatingConditionAnswer == terminating
-            && _incrementAnswer == increment)
+        if ([_incrementAnswer isEqualToString:initialization]
+            && [_terminatingConditionAnswer isEqualToString:terminating]
+            && [_incrementAnswer isEqualToString:increment])
         {
             answerCorrect = YES;
         }

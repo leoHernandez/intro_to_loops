@@ -47,14 +47,14 @@
     UIFont *loopBodyFont = [UIFont fontWithName:@"Courier New" size:25];
     UIFont *answerLabelFont = [UIFont fontWithName:@"Courier New" size:20];
     
-    CGRect structureForLineFrame = CGRectMake(20, 160, self.view.frame.size.width-20, 20);
+    CGRect structureForLineFrame = CGRectMake(20, 200, self.view.frame.size.width-20, 20);
     UILabel *structureForLine = [[UILabel alloc] initWithFrame:structureForLineFrame];
     structureForLine.font = loopBodyFont;
     structureForLine.text = @"for (          ;          ;          )";
     [structureForLine sizeToFit];
     [self.view addSubview:structureForLine];
     
-    CGRect openingParenFrame = CGRectMake(20, 190, 10, 10);
+    CGRect openingParenFrame = CGRectMake(20, structureForLineFrame.origin.y+30, 10, 10);
     UILabel *openingParen = [[UILabel alloc] initWithFrame:openingParenFrame];
     openingParen.font = loopBodyFont;
     openingParen.text = @"{";
@@ -62,7 +62,7 @@
     [self.view addSubview:openingParen];
     
     // loop body
-    CGRect loopBodyFrame = CGRectMake(80, 210, self.view.frame.size.width-100, 10);
+    CGRect loopBodyFrame = CGRectMake(80, openingParenFrame.origin.y+20, self.view.frame.size.width-100, 10);
     UILabel *loopBody = [[UILabel alloc] initWithFrame:loopBodyFrame];
     loopBody.font = loopBodyFont;
     loopBody.text = _currentLevel.loopBody;
@@ -87,7 +87,7 @@
     UIColor *incrementColor = [UIColor orangeColor];
     
     // init variable
-    CGRect initContainerLabelFrame = CGRectMake(100, 163, answerLabelWidth, answerLabelHeight);
+    CGRect initContainerLabelFrame = CGRectMake(100, structureForLineFrame.origin.y, answerLabelWidth, answerLabelHeight);
     _initializationContainerLabel = [[UILabel alloc] initWithFrame:initContainerLabelFrame];
     _initializationContainerLabel.font = answerLabelFont;
     [_initializationContainerLabel setTextAlignment:NSTextAlignmentCenter];
@@ -96,7 +96,7 @@
     [self.view addSubview:_initializationContainerLabel];
     
     // test condition
-    CGRect testConditionContainerFrame = CGRectMake(265, 163, answerLabelWidth, answerLabelHeight);
+    CGRect testConditionContainerFrame = CGRectMake(265, structureForLineFrame.origin.y, answerLabelWidth, answerLabelHeight);
     _terminatingConditionContainerLabel = [[UILabel alloc] initWithFrame:testConditionContainerFrame];
     _terminatingConditionContainerLabel.font = answerLabelFont;
     [_terminatingConditionContainerLabel setTextAlignment:NSTextAlignmentCenter];
@@ -105,7 +105,7 @@
     [self.view addSubview:_terminatingConditionContainerLabel];
     
     // increment statement
-    CGRect incrementContainerFrame = CGRectMake(430, 163, answerLabelWidth, answerLabelHeight);
+    CGRect incrementContainerFrame = CGRectMake(430, structureForLineFrame.origin.y, answerLabelWidth, answerLabelHeight);
     _incrementContainerLabel = [[UILabel alloc] initWithFrame:incrementContainerFrame];
     _incrementContainerLabel.font = answerLabelFont;
     [_incrementContainerLabel setTextAlignment:NSTextAlignmentCenter];
@@ -115,7 +115,7 @@
     
     // create answer label
     CGFloat labelX = 20;
-    CGFloat labelY = 680;
+    CGFloat labelY = 740;
     for (AnswerLabel *answer in _currentLevel.possibleAnswers)
     {
         CGRect frame = CGRectMake(labelX, labelY, answerLabelWidth, answerLabelHeight);

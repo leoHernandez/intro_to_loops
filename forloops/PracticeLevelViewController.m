@@ -344,7 +344,8 @@
     }
     
     if (answerCorrect == YES) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Correct Answer" message:@"That is the correct answer, good job! :)" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Next Level", nil];
+        NSString *alertTitle = [NSString stringWithFormat:@"Level %i Complete",_currentLevel.levelNumber];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:alertTitle message:@"That is the correct answer, good job! :)" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Next Level", nil];
         [alert show];
     } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Wrong Answer" message:@"Sorry, that answer is not correct :(" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];

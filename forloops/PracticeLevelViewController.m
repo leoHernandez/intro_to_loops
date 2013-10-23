@@ -178,34 +178,16 @@
         && isOnTerminatingCondition == NO
         && isOnIncrement == NO)
     {
-        _tempFrame = [self getAvailableAnswerSpaceForView:theView];
+        _tempFrame = theView.frame;
+    } else if (isOnInitialization == YES) {
+        _tempFrame = _originalInitializationFrame;
+    } else if (isOnTerminatingCondition == YES) {
+        _tempFrame = _originalTerminatingFrame;
+    } else if (isOnIncrement == YES) {
+        _tempFrame = _originalIncrementFrame;
     }
+    NSLog(@"temp x: %f, y: %f",_tempFrame.origin.x,_tempFrame.origin.y);
     
-}
-
--(CGRect)getAvailableAnswerSpaceForView: (UIView *)view
-{
-    CGFloat labelX = 20;
-    CGFloat labelY = 740;
-    CGRect bestSpaceFrame = view.frame;
-    
-    if (labelX == view.frame.origin.x && labelY == view.frame.origin.y) {
-        return view.frame;
-    } else {
-        for (AnswerLabel *label in _currentLevel.possibleAnswers) {
-            // update next label positions
-            labelX = labelX + _answerLabelWidth + 20;
-            if (labelX + _answerLabelWidth + 20 > self.view.frame.size.width-20) {
-                labelX = 20;
-                labelY = labelY + _answerLabelHeight + 20;
-            }
-            if (labelX != view.frame.origin.x && labelY != view.frame.origin.y)
-            {
-                bestSpaceFrame = CGRectMake(labelX, labelY, _answerLabelWidth, _answerLabelHeight);
-            }
-        }
-        return bestSpaceFrame;
-    }
 }
 
 -(void)panDetected:(UIPanGestureRecognizer *)sender
@@ -229,16 +211,19 @@
         
         if ([answer.type isEqualToString: @"initialization"] && isCloseToInitialization == YES && ([_initializationAnswer isEqualToString:@""] || [answer.text isEqualToString:_initializationAnswer]) )
         {
+            _originalInitializationFrame = _tempFrame;
             [answer setFrame:_initializationContainerLabel.frame];
             _initializationAnswer = answer.text;
         }
         else if ([answer.type isEqualToString:@"terminating"] && isCloseToTerminatingCondition == YES && ([_terminatingConditionAnswer isEqualToString:@""] || [answer.text isEqualToString:_terminatingConditionAnswer]) )
         {
+            _originalTerminatingFrame = _tempFrame;
             [answer setFrame:_terminatingConditionContainerLabel.frame];
             _terminatingConditionAnswer = answer.text;
         }
         else if ([answer.type isEqualToString:@"increment"] && isCloseToIncrement == YES && ([_incrementAnswer isEqualToString:@""] || [answer.text isEqualToString:_incrementAnswer]) )
         {
+            _originalIncrementFrame = _tempFrame;
             [answer setFrame:_incrementContainerLabel.frame];
             _incrementAnswer = answer.text;
         }

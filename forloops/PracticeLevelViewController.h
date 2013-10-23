@@ -25,6 +25,9 @@
 @property (strong, nonatomic) NSString *incrementAnswer;
 
 @property CGRect tempFrame;
+@property CGRect originalInitializationFrame;
+@property CGRect originalTerminatingFrame;
+@property CGRect originalIncrementFrame;
 @property CGFloat answerLabelWidth;
 @property CGFloat answerLabelHeight;
 

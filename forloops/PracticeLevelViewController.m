@@ -174,12 +174,12 @@
     BOOL isOnTerminatingCondition = [self isThisView:theView nearTo:_terminatingConditionContainerLabel withBuffer:0];
     BOOL isOnIncrement = [self isThisView:theView nearTo:_incrementContainerLabel withBuffer:0];
     
-    //if ( isOnInitialization == NO
-    //    && isOnTerminatingCondition == NO
-    //    && isOnIncrement == NO)
-    //{
+    if (isOnInitialization == NO
+        && isOnTerminatingCondition == NO
+        && isOnIncrement == NO)
+    {
         _tempFrame = [self getAvailableAnswerSpaceForView:theView];
-    //}
+    }
     
 }
 

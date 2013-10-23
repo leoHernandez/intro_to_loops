@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "Level.h"
 
-@interface PracticeLevelViewController : UIViewController
+@interface PracticeLevelViewController : UIViewController<UIAlertViewDelegate>
+
+- (IBAction)checkAnswer:(UIBarButtonItem *)sender;
 
 @property (strong, nonatomic) UILabel *instructionsLabel;
+@property (strong, nonatomic) UILabel *loopBodyLabel;
 
 @property (strong, nonatomic) UILabel *initializationContainerLabel;
 @property (strong, nonatomic) UILabel *terminatingConditionContainerLabel;
@@ -22,6 +25,11 @@
 @property (strong, nonatomic) NSString *incrementAnswer;
 
 @property CGRect tempFrame;
+@property CGRect originalInitializationFrame;
+@property CGRect originalTerminatingFrame;
+@property CGRect originalIncrementFrame;
+@property CGFloat answerLabelWidth;
+@property CGFloat answerLabelHeight;
 
 @property (strong, nonatomic) Level *currentLevel;
 

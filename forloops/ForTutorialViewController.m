@@ -190,14 +190,14 @@
     _label1.text= @"The number of times the code in the loop body has been executed";
     //_label1.backgroundColor =Nil;
     self.label1.numberOfLines=0;
-    self.label1.sizeToFit;
+    [self.label1 sizeToFit];
     self.label1.userInteractionEnabled= YES;
     
     self.label2.frame = CGRectMake(600, 490, 150, 20);
     _label2.font= textfont;
     _label2.text = @"A line of code to be executed";
     self.label2.numberOfLines=0;
-    self.label2.sizeToFit;
+    [self.label2 sizeToFit];
     self.label2.userInteractionEnabled=YES;
     
     self.label3.frame = CGRectMake(600, 570, 150, 20);
@@ -212,7 +212,7 @@
     _label4.text =@"the variable that is incremented or decremented and is used to keep track of the number of iterations in a loop";
     self.label4.userInteractionEnabled=YES;
     self.label4.numberOfLines=0;
-    self.label4.sizeToFit;
+    [self.label4 sizeToFit];
    
     
     

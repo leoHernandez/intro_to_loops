@@ -5,18 +5,28 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
+<<<<<<< HEAD
 	<string>70705A8D-D569-4F23-8EDD-603F9CC01102</string>
+=======
+	<string>939142CE-3504-4F97-B399-F3AEA2C00E53</string>
+>>>>>>> b1bfb94408390ea78bd1e993b016680c9317e3ba
 	<key>IDESourceControlProjectName</key>
 	<string>forloops</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+<<<<<<< HEAD
 		<key>1C8DA0B9-8C7E-4DEF-A080-71DA559CE542</key>
 		<string>http://github.com/leoHernandez/intro_to_loops.git</string>
+=======
+		<key>D5FF8991-DC76-4150-81AB-C7F87DBF76C4</key>
+		<string>https://github.com/leoHernandez/intro_to_loops.git</string>
+>>>>>>> b1bfb94408390ea78bd1e993b016680c9317e3ba
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>forloops.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+<<<<<<< HEAD
 		<key>1C8DA0B9-8C7E-4DEF-A080-71DA559CE542</key>
 		<string>../..</string>
 	</dict>
@@ -26,13 +36,28 @@
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
 	<string>1C8DA0B9-8C7E-4DEF-A080-71DA559CE542</string>
+=======
+		<key>D5FF8991-DC76-4150-81AB-C7F87DBF76C4</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/leoHernandez/intro_to_loops.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D5FF8991-DC76-4150-81AB-C7F87DBF76C4</string>
+>>>>>>> b1bfb94408390ea78bd1e993b016680c9317e3ba
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
+<<<<<<< HEAD
 			<string>1C8DA0B9-8C7E-4DEF-A080-71DA559CE542</string>
+=======
+			<string>D5FF8991-DC76-4150-81AB-C7F87DBF76C4</string>
+>>>>>>> b1bfb94408390ea78bd1e993b016680c9317e3ba
 			<key>IDESourceControlWCCName</key>
 			<string>forloops</string>
 		</dict>

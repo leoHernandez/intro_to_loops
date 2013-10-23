@@ -186,8 +186,6 @@
     } else if (isOnIncrement == YES) {
         _tempFrame = _originalIncrementFrame;
     }
-    NSLog(@"temp x: %f, y: %f",_tempFrame.origin.x,_tempFrame.origin.y);
-    
 }
 
 -(void)panDetected:(UIPanGestureRecognizer *)sender

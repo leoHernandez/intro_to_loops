@@ -32,11 +32,15 @@
 	// Do any additional setup after loading the view.
  
     [self startLevel:1];
-    
+
+}
+
+-(void)setUpLevel
+{
     self.navigationItem.title = [NSString stringWithFormat:@"Level %i",_currentLevel.levelNumber];
- 
+    
     // create and display instructions label
-    CGRect instructionsLabelFrame = CGRectMake(20, 65, self.view.frame.size.width-20, 0);
+    CGRect instructionsLabelFrame = CGRectMake(20, 115, self.view.frame.size.width-20, 0);
     _instructionsLabel = [[UILabel alloc] initWithFrame:instructionsLabelFrame];
     [_instructionsLabel setText:_currentLevel.levelInstructions];
     [_instructionsLabel setNumberOfLines:0];    // unlimited lines
@@ -47,14 +51,14 @@
     UIFont *loopBodyFont = [UIFont fontWithName:@"Courier New" size:25];
     UIFont *answerLabelFont = [UIFont fontWithName:@"Courier New" size:20];
     
-    CGRect structureForLineFrame = CGRectMake(20, 160, self.view.frame.size.width-20, 20);
+    CGRect structureForLineFrame = CGRectMake(20, 200, self.view.frame.size.width-20, 20);
     UILabel *structureForLine = [[UILabel alloc] initWithFrame:structureForLineFrame];
     structureForLine.font = loopBodyFont;
     structureForLine.text = @"for (          ;          ;          )";
     [structureForLine sizeToFit];
     [self.view addSubview:structureForLine];
     
-    CGRect openingParenFrame = CGRectMake(20, 190, 10, 10);
+    CGRect openingParenFrame = CGRectMake(20, structureForLineFrame.origin.y+30, 10, 10);
     UILabel *openingParen = [[UILabel alloc] initWithFrame:openingParenFrame];
     openingParen.font = loopBodyFont;
     openingParen.text = @"{";
@@ -62,15 +66,15 @@
     [self.view addSubview:openingParen];
     
     // loop body
-    CGRect loopBodyFrame = CGRectMake(80, 210, self.view.frame.size.width-100, 10);
-    UILabel *loopBody = [[UILabel alloc] initWithFrame:loopBodyFrame];
-    loopBody.font = loopBodyFont;
-    loopBody.text = _currentLevel.loopBody;
-    [loopBody setNumberOfLines:0];
-    [loopBody sizeToFit];
-    [self.view addSubview:loopBody];
+    CGRect loopBodyFrame = CGRectMake(80, openingParenFrame.origin.y+20, self.view.frame.size.width-100, 10);
+    _loopBodyLabel = [[UILabel alloc] initWithFrame:loopBodyFrame];
+    _loopBodyLabel.font = loopBodyFont;
+    _loopBodyLabel.text = _currentLevel.loopBody;
+    [_loopBodyLabel setNumberOfLines:0];
+    [_loopBodyLabel sizeToFit];
+    [self.view addSubview:_loopBodyLabel];
     
-    CGFloat closingParensY = loopBody.frame.origin.y + loopBody.frame.size.height;
+    CGFloat closingParensY = _loopBodyLabel.frame.origin.y + _loopBodyLabel.frame.size.height;
     CGRect closingParensFrame = CGRectMake(20, closingParensY, 10, 10);
     UILabel *closingParens = [[UILabel alloc] initWithFrame:closingParensFrame];
     closingParens.font = loopBodyFont;
@@ -79,15 +83,15 @@
     [self.view addSubview:closingParens];
     
     // label for loop components
-    CGFloat answerLabelWidth = 140;
-    CGFloat answerLabelHeight = 25;
+    _answerLabelWidth = 140;
+    _answerLabelHeight = 25;
     UIColor *answerLabelColor = [[UIColor alloc] initWithRed:.5 green:.5 blue:.5 alpha:.2];
     UIColor *initializationColor = [UIColor yellowColor];
     UIColor *terminatingConditionColor = [UIColor cyanColor];
     UIColor *incrementColor = [UIColor orangeColor];
     
     // init variable
-    CGRect initContainerLabelFrame = CGRectMake(100, 163, answerLabelWidth, answerLabelHeight);
+    CGRect initContainerLabelFrame = CGRectMake(100, structureForLineFrame.origin.y, _answerLabelWidth, _answerLabelHeight);
     _initializationContainerLabel = [[UILabel alloc] initWithFrame:initContainerLabelFrame];
     _initializationContainerLabel.font = answerLabelFont;
     [_initializationContainerLabel setTextAlignment:NSTextAlignmentCenter];
@@ -96,7 +100,7 @@
     [self.view addSubview:_initializationContainerLabel];
     
     // test condition
-    CGRect testConditionContainerFrame = CGRectMake(265, 163, answerLabelWidth, answerLabelHeight);
+    CGRect testConditionContainerFrame = CGRectMake(265, structureForLineFrame.origin.y, _answerLabelWidth, _answerLabelHeight);
     _terminatingConditionContainerLabel = [[UILabel alloc] initWithFrame:testConditionContainerFrame];
     _terminatingConditionContainerLabel.font = answerLabelFont;
     [_terminatingConditionContainerLabel setTextAlignment:NSTextAlignmentCenter];
@@ -105,7 +109,7 @@
     [self.view addSubview:_terminatingConditionContainerLabel];
     
     // increment statement
-    CGRect incrementContainerFrame = CGRectMake(430, 163, answerLabelWidth, answerLabelHeight);
+    CGRect incrementContainerFrame = CGRectMake(430, structureForLineFrame.origin.y, _answerLabelWidth, _answerLabelHeight);
     _incrementContainerLabel = [[UILabel alloc] initWithFrame:incrementContainerFrame];
     _incrementContainerLabel.font = answerLabelFont;
     [_incrementContainerLabel setTextAlignment:NSTextAlignmentCenter];
@@ -113,12 +117,12 @@
     _incrementContainerLabel.backgroundColor = incrementColor;
     [self.view addSubview:_incrementContainerLabel];
     
-    // create answer label
+    // create answer labels
     CGFloat labelX = 20;
-    CGFloat labelY = 680;
+    CGFloat labelY = 740;
     for (AnswerLabel *answer in _currentLevel.possibleAnswers)
     {
-        CGRect frame = CGRectMake(labelX, labelY, answerLabelWidth, answerLabelHeight);
+        CGRect frame = CGRectMake(labelX, labelY, _answerLabelWidth, _answerLabelHeight);
         [answer setFrame:frame];
         answer.userInteractionEnabled = YES;
         answer.font = answerLabelFont;
@@ -133,13 +137,12 @@
         [answer addGestureRecognizer:panGesture];
         
         // update next label positions
-        labelX = labelX + answerLabelWidth + 20;
-        if (labelX + answerLabelWidth + 20 > self.view.frame.size.width-20) {
+        labelX = labelX + _answerLabelWidth + 20;
+        if (labelX + _answerLabelWidth + 20 > self.view.frame.size.width-20) {
             labelX = 20;
-            labelY = labelY + answerLabelHeight + 20;
+            labelY = labelY + _answerLabelHeight + 20;
         }
     }
-    
 }
 
 -(BOOL)isThisView:(UIView *)firstView nearTo:(UIView *)secondView withBuffer:(CGFloat)buffer
@@ -171,38 +174,69 @@
     BOOL isOnTerminatingCondition = [self isThisView:theView nearTo:_terminatingConditionContainerLabel withBuffer:0];
     BOOL isOnIncrement = [self isThisView:theView nearTo:_incrementContainerLabel withBuffer:0];
     
-    if ( isOnInitialization == NO
+    if (isOnInitialization == NO
         && isOnTerminatingCondition == NO
         && isOnIncrement == NO)
     {
         _tempFrame = theView.frame;
+    } else if (isOnInitialization == YES) {
+        _tempFrame = _originalInitializationFrame;
+    } else if (isOnTerminatingCondition == YES) {
+        _tempFrame = _originalTerminatingFrame;
+    } else if (isOnIncrement == YES) {
+        _tempFrame = _originalIncrementFrame;
     }
-    
 }
 
 -(void)panDetected:(UIPanGestureRecognizer *)sender
 {
 
-    UIView *label = sender.view;
+    AnswerLabel *answer = (AnswerLabel *) sender.view;
     CGPoint amtOftranslation = [sender translationInView:self.view];
-    CGPoint labelPosition = label.center;
+    CGPoint labelPosition = answer.center;
     labelPosition.x = labelPosition.x + amtOftranslation.x;
     labelPosition.y = labelPosition.y + amtOftranslation.y;
-    label.center = labelPosition;
+    answer.center = labelPosition;
     [sender setTranslation:CGPointZero inView:self.view];
     
+  
     if (sender.state == UIGestureRecognizerStateEnded)
     {
-        BOOL viewsClose = [self isThisView:label nearTo:self.terminatingConditionContainerLabel withBuffer:50];
-        if (viewsClose == YES)
+        CGFloat buffer = 50;
+        BOOL isCloseToInitialization = [self isThisView:answer nearTo:_initializationContainerLabel withBuffer:buffer];
+        BOOL isCloseToTerminatingCondition = [self isThisView:answer nearTo:_terminatingConditionContainerLabel withBuffer:buffer];
+        BOOL isCloseToIncrement = [self isThisView:answer nearTo:_incrementContainerLabel withBuffer:buffer];
+        
+        if ([answer.type isEqualToString: @"initialization"] && isCloseToInitialization == YES && ([_initializationAnswer isEqualToString:@""] || [answer.text isEqualToString:_initializationAnswer]) )
         {
-            label.center = self.terminatingConditionContainerLabel.center;
-
-        } else {
-            [label setFrame:_tempFrame];
+            _originalInitializationFrame = _tempFrame;
+            [answer setFrame:_initializationContainerLabel.frame];
+            _initializationAnswer = answer.text;
+        }
+        else if ([answer.type isEqualToString:@"terminating"] && isCloseToTerminatingCondition == YES && ([_terminatingConditionAnswer isEqualToString:@""] || [answer.text isEqualToString:_terminatingConditionAnswer]) )
+        {
+            _originalTerminatingFrame = _tempFrame;
+            [answer setFrame:_terminatingConditionContainerLabel.frame];
+            _terminatingConditionAnswer = answer.text;
+        }
+        else if ([answer.type isEqualToString:@"increment"] && isCloseToIncrement == YES && ([_incrementAnswer isEqualToString:@""] || [answer.text isEqualToString:_incrementAnswer]) )
+        {
+            _originalIncrementFrame = _tempFrame;
+            [answer setFrame:_incrementContainerLabel.frame];
+            _incrementAnswer = answer.text;
+        }
+        else
+        {
+            if ([answer.type isEqualToString:@"initialization"] && [answer.text isEqualToString:_initializationAnswer]) {
+                _initializationAnswer = @"";
+            } else if ([answer.type isEqualToString:@"terminating"] && [answer.text isEqualToString:_terminatingConditionAnswer]) {
+                _terminatingConditionAnswer = @"";
+            } else if ([answer.type isEqualToString:@"increment"] && [answer.text isEqualToString:_incrementAnswer]) {
+                _incrementAnswer = @"";
+            }
+            [answer setFrame:_tempFrame];
         }
     }
-    
     
 }
 
@@ -214,6 +248,18 @@
     _terminatingConditionAnswer = @"";
     _incrementAnswer = @"";
     
+    // reset answer labels
+    for (AnswerLabel *label in _currentLevel.possibleAnswers)
+    {
+        [label removeFromSuperview];
+    }
+    
+    // reset instructions text
+    [_instructionsLabel removeFromSuperview];
+    
+    // reset loop body
+    [_loopBodyLabel removeFromSuperview];
+    
     NSString *levelInstructions;
     NSString *loopBody;
     NSString *initialization;
@@ -224,9 +270,13 @@
     
     NSMutableSet *correctAnswerCombinations = [[NSMutableSet alloc] init];
     
+    // make sure level is positive
+    level = (level < 0) ? -level : level;
+    
     if (level == 1)
     {
-        levelInstructions = @"Drag and drop the correct test condition from the answers section to make the loop run exactly 10 times.";
+        int random = [self getRandomNumberFrom:3 to:10];
+        levelInstructions = [NSString stringWithFormat:@"Drag and drop the correct terminating condition from the answers section to make the loop run exactly %i times.",random];
         
         loopBody = @"System.out.println(\"Hello World!\");";
         
@@ -234,10 +284,21 @@
         terminatingCondition = @"";
         increment = @"i++";
         
-        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:@"i < 10" ofType:@"terminating"]];
-        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:@"i <= 10" ofType:@"terminating"]];
+        NSString *possibleAnswer;
+        possibleAnswer = [NSString stringWithFormat:@"i < %i",random];
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"terminating"]];
+        possibleAnswer = [NSString stringWithFormat:@"i <= %i",random];
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"terminating"]];
         
-        [correctAnswerCombinations addObject:[NSArray arrayWithObjects:@"",@"i < 10", @"", nil]];
+        NSString *correctInitialization;
+        NSString *correctTerminating;
+        NSString *correctIncrement;
+        
+        correctInitialization = @"";
+        correctTerminating = [NSString stringWithFormat:@"i < %i", random];
+        correctIncrement = @"";
+        NSArray *correctCombo = [NSArray arrayWithObjects:correctInitialization,correctTerminating,correctIncrement, nil];
+        [correctAnswerCombinations addObject:correctCombo];
         
     }
     
@@ -250,6 +311,13 @@
     _currentLevel.increment = increment;
     _currentLevel.possibleAnswers = possibleAnswers;
     _currentLevel.correctAnswerCombinations = correctAnswerCombinations;
+    
+    [self setUpLevel];
+}
+
+-(int)getRandomNumberFrom:(int)min to:(int)max
+{
+    return ( (arc4random() % (max-min+1)) + min );
 }
 
 - (void)didReceiveMemoryWarning
@@ -258,4 +326,38 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)checkAnswer:(UIBarButtonItem *)sender {
+    BOOL answerCorrect = NO;
+    
+    for (NSArray *combo in _currentLevel.correctAnswerCombinations)
+    {
+        NSString *initialization = combo[0];
+        NSString *terminating = combo[1];
+        NSString *increment = combo[2];
+        
+        if ([_incrementAnswer isEqualToString:initialization]
+            && [_terminatingConditionAnswer isEqualToString:terminating]
+            && [_incrementAnswer isEqualToString:increment])
+        {
+            answerCorrect = YES;
+        }
+    }
+    
+    if (answerCorrect == YES) {
+        NSString *alertTitle = [NSString stringWithFormat:@"Level %i Complete",_currentLevel.levelNumber];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:alertTitle message:@"That is the correct answer, good job! :)" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Next Level", nil];
+        [alert show];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Wrong Answer" message:@"Sorry, that answer is not correct :(" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+    }
+}
+
+-(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    // next level button
+    if (buttonIndex == 1) {
+        [self startLevel:1];
+    }
+}
 @end

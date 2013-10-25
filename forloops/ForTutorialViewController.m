@@ -135,7 +135,7 @@
     _fourthTextView.font=textfont;
     _fourthTextView.editable=NO;
     
-    self.iterationImage.image = [UIImage imageNamed:@"initializerimage.png"];
+    self.iterationImage.image = [UIImage imageNamed:@"initializerImage.png"];
     self.statementimg.image = [UIImage imageNamed:@"conditionImage.png"];
     self.Controlimage.image = [UIImage imageNamed:@"bodyimage.png"];
     self.variableimage.image =[UIImage imageNamed:@"incrementimg"];
@@ -251,10 +251,16 @@
     [labels addObject:self.label3];
     [labels addObject:self.label4];
     
-    for (UILabel *label in labels) {
-        UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panDetected:)];
-        [label addGestureRecognizer:panGesture];
-    }
+    
+    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panDetected:)];
+    [self.label1 addGestureRecognizer:pan];
+    
+    UIPanGestureRecognizer *pan2 = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector (panDetected:)];
+    [self.label2 addGestureRecognizer:pan2];
+//    for (UILabel *label in labels) {
+//        UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panDetected:)];
+//        [label addGestureRecognizer:panGesture];
+//    }
     
     
    
@@ -316,6 +322,20 @@
         
         
         [sender setTranslation:CGPointZero inView:self.view];
+       
+        if (sender.state == UIGestureRecognizerStateEnded)
+        {
+            
+            BOOL iterationNear = [self isThisView:label nearTo:self.placeholder3 withBuffer:50];
+         
+            if (iterationNear == YES)
+            {
+                label.center = self.placeholder3.center;
+            } else {
+               
+                [label setFrame:CGRectMake(600, 350, 150, 100)];
+            }
+                    }
     }
 
 - (IBAction)exampleButton:(UIBarButtonItem *)sender {

@@ -15,7 +15,10 @@
 - (IBAction)exampleButton:(UIBarButtonItem *)sender;
 - (IBAction)VideoButton:(UIBarButtonItem *)sender;
 - (IBAction)LookLikeButton:(UIBarButtonItem *)sender;
-
+    @property CGRect tempFrame;
+    @property CGRect originalInitializationFrame;
+    @property CGRect originalTerminatingFrame;
+    @property CGRect originalIncrementFrame;
 
 @property (strong, nonatomic) IBOutlet UIImageView *variableimage;
 @property (strong, nonatomic) IBOutlet UIImageView *Controlimage;
@@ -40,6 +43,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *placeholder3;
 
 @property (strong, nonatomic) IBOutlet UILabel *placeholder4;
+    @property (strong, nonatomic) IBOutlet UIButton *myButton;
+
+- (IBAction)myButton:(UIButton *)sender;
 
 
 

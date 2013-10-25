@@ -27,6 +27,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _myLabel.editable =NO;
    
 }
 
@@ -41,7 +42,9 @@
  
  */
 - (IBAction)WhatisLoopButton:(UIBarButtonItem *)sender {
+   
     _titleLabel.frame = CGRectMake(300, 250, self.view.frame.size.width-20, 20);
+      _myButton.hidden = YES;
     _firstTextView.text =@" ";
     _secondTextView.text = @" ";
     _thirdTextView.text =@" ";
@@ -54,10 +57,15 @@
     _label3.backgroundColor=Nil;
     _label4.text =@" ";
     _label4.backgroundColor= Nil;
+    _placeholder1.text= @" ";
+    _placeholder2.text=@"";
+    _placeholder3.text=@"";
+    _placeholder4.text=@"";
     _placeholder1.backgroundColor= Nil;
     _placeholder2.backgroundColor= Nil;
     _placeholder3.backgroundColor=Nil;
     _placeholder4.backgroundColor=Nil;
+   
     
     
     _titleLabel.text= @"What is a Loop? ";
@@ -68,11 +76,12 @@
    
     
     
-    _myLabel.frame=CGRectMake(30,300,750,600);
+    _label1.frame=CGRectMake(30,300,750,600);
   
-    _myLabel.font = [UIFont fontWithName:@"Courier New" size:20];
-    _myLabel.text = @"What is a loop? A loop is a programming structure that allows code to be repeated until a certain condition is met.";
-    _myLabel.editable = NO;
+    _label1.font = [UIFont fontWithName:@"Courier New" size:20];
+    _label1.text = @"What is a loop? A loop is a programming structure that allows code to be repeated until a certain condition is met.";
+    [self.label1 sizeToFit];
+   
     
 }
 /*
@@ -84,6 +93,7 @@
    _titleLabel.frame = CGRectMake(300, 250, self.view.frame.size.width-20, 20);
      UIFont *textfont = [UIFont fontWithName:@"Courier New" size:12];
        _myLabel.text= @" ";
+      _myButton.hidden = YES;
     _label1.text=@" " ;
     _label1.backgroundColor= Nil;
     _label2.text=@" ";
@@ -92,6 +102,10 @@
     _label3.backgroundColor=Nil;
     _label4.text =@" ";
     _label4.backgroundColor= Nil;
+    _placeholder1.text= @" ";
+    _placeholder2.text=@"";
+    _placeholder3.text=@"";
+    _placeholder4.text=@"";
     self.statementimg.hidden = NO;
     self.Controlimage.hidden = NO;
     self.variableimage.hidden =NO;
@@ -114,8 +128,9 @@
     _secondTextView.editable=NO;
     _thirdTextView.text = @"Increment/Decrement of Loop Control Variable: Loop control variables can either be incremented (increased by 1 in each iteration), decremented (decreased by 1 in each iteration) or can be increased or decreased by a specific amount.";
     _thirdTextView.font =textfont;
-    _thirdTextView.frame = CGRectMake(30, 550, 300, 200);
+    _thirdTextView.frame = CGRectMake(30, 540, 300, 200);
     _thirdTextView.editable=NO;
+    _fourthTextView.frame= CGRectMake(30, 670, 300, 200);
     _fourthTextView.text =@"Loop Body: This is the code to be executed with each iteration.";
     _fourthTextView.font=textfont;
     _fourthTextView.editable=NO;
@@ -137,13 +152,17 @@
  */
 
 - (IBAction)termsButton:(UIBarButtonItem *)sender {
-     _titleLabel.frame = CGRectMake(300, 250, self.view.frame.size.width-20, 20);
-    _myLabel.text= @" ";
+      _myButton.hidden = YES;
     _firstTextView.text =@" ";
+    
     _secondTextView.text = @" ";
     _thirdTextView.text =@" ";
     _fourthTextView.text =@" ";
     _titleLabel.text= @" ";
+    _placeholder1.text= @" ";
+    _placeholder2.text=@"";
+    _placeholder3.text=@"";
+    _placeholder4.text=@"";
     _label1.text=@" " ;
     _label1.backgroundColor= Nil;
     _label2.text=@" ";
@@ -156,18 +175,17 @@
     self.Controlimage.hidden = YES;
     self.variableimage.hidden =YES;
     self.iterationImage.hidden=YES;
+    _titleLabel.frame = CGRectMake(300, 250, self.view.frame.size.width-20, 20);
+    _myLabel.text= @" ";
+    
     _myLabel.frame=CGRectMake(30,300,750,600);
     UIFont *textfont = [UIFont fontWithName:@"Courier New" size:16];
     //_myLabel.font = [UIFont fontWithName:@"Courier New" size:20];
    // _myLabel.textColor = [UIColor redColor];
     _myLabel.text= @" ";
+   
     
-    self.statementimg.hidden = YES;
-    self.Controlimage.hidden = YES;
-    self.variableimage.hidden =YES;
-    self.iterationImage.hidden=YES;
-    
-    _firstTextView.text = @"Variable --->";
+    _firstTextView.text= @"Variable --->";
     _firstTextView.frame= CGRectMake(30, 350, 200, 100);
     _firstTextView.font = textfont;
     _firstTextView.backgroundColor =Nil;
@@ -260,6 +278,45 @@
         return NO;
     }
 }
+    
+    -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+    {
+        // this is so answer labels go back to original position
+        UITouch *touch = [[event allTouches] anyObject];
+        UIView *theView = touch.view;
+        
+        BOOL isOnInitialization = [self isThisView:theView nearTo:_label1 withBuffer:0];
+        BOOL isOnTerminatingCondition = [self isThisView:theView nearTo:_label2 withBuffer:0];
+        BOOL isOnIncrement = [self isThisView:theView nearTo:_label3 withBuffer:0];
+        
+        if (isOnInitialization == NO
+            && isOnTerminatingCondition == NO
+            && isOnIncrement == NO)
+        {
+            _tempFrame = theView.frame;
+        } else if (isOnInitialization == YES) {
+            _tempFrame = _originalInitializationFrame;
+        } else if (isOnTerminatingCondition == YES) {
+            _tempFrame = _originalTerminatingFrame;
+        } else if (isOnIncrement == YES) {
+            _tempFrame = _originalIncrementFrame;
+        }
+    }
+    
+    -(void) panDetected: (UIPanGestureRecognizer * )sender
+    {
+      UIView *label = sender.view;
+        CGPoint amtOfTranslation = [sender translationInView:self.view];
+        //get the image view's center, add the amount of translation to it and set the center of the image view to the new position
+        CGPoint imageViewPosition =label.center;
+        imageViewPosition.x = imageViewPosition.x + amtOfTranslation.x;
+        imageViewPosition.y = imageViewPosition.y + amtOfTranslation.y;
+       label.center = imageViewPosition;
+        //set the translation back to (0,0) otherwise the translation keeps compunding. As you move the finger on the screen, the image goes away from the position of touch if this is not done.
+        
+        
+        [sender setTranslation:CGPointZero inView:self.view];
+    }
 
 - (IBAction)exampleButton:(UIBarButtonItem *)sender {
      _myLabel.text= @" ";
@@ -272,6 +329,7 @@
     _label2.text=@" ";
     _label3.text=@" ";
     _label4.text =@" ";
+    
     _placeholder1.backgroundColor= Nil;
     _placeholder2.backgroundColor= Nil;
     _placeholder3.backgroundColor=Nil;
@@ -293,24 +351,24 @@
     _titleLabel.font = loopBodyFont;
     _titleLabel.text = @"for (          ;          ;          )";
     
-    _label4.frame= CGRectMake(20, 360, 100, 100);
-    _label4.font= loopBodyFont;
-    _label4.text =@"{";
+    _thirdTextView.frame= CGRectMake(20, 360, 100, 100);
+    _thirdTextView.font= loopBodyFont;
+    _thirdTextView.text =@"{";
     
-    _label1.frame =CGRectMake(100, 350, answerLabelWidth, answerLabelHeight);
-    _label1.font =answerLabelFont;
-    _label1.backgroundColor = [UIColor yellowColor];
-    _label1.text = @" i = 0";
+    _placeholder1.frame =CGRectMake(100, 350, answerLabelWidth, answerLabelHeight);
+    _placeholder1.font =answerLabelFont;
+    _placeholder1.backgroundColor = [UIColor yellowColor];
+    _placeholder1.text = @" i = 0";
     
-    _label2.frame = CGRectMake(260, 350, answerLabelWidth, answerLabelHeight);
-    _label2.font=answerLabelFont;
-    _label2.text = @" i < 5" ;
-    _label2.backgroundColor = [UIColor cyanColor];
+    _placeholder2.frame = CGRectMake(260, 350, answerLabelWidth, answerLabelHeight);
+    _placeholder2.font=answerLabelFont;
+    _placeholder2.text = @" i < 5" ;
+    _placeholder2.backgroundColor = [UIColor cyanColor];
     
-    _label3.frame = CGRectMake(430, 350, answerLabelWidth, answerLabelHeight);
-    _label3.font = answerLabelFont;
-    _label3.text = @"i++";
-    _label3.backgroundColor =[UIColor orangeColor];
+    _placeholder3.frame = CGRectMake(430, 350, answerLabelWidth, answerLabelHeight);
+    _placeholder3.font = answerLabelFont;
+    _placeholder3.text = @"i++";
+    _placeholder3.backgroundColor =[UIColor orangeColor];
     
     _firstTextView.frame= CGRectMake(30, 420, 300, 100);
     _firstTextView.font =loopBodyFont;
@@ -321,7 +379,10 @@
     _secondTextView.font= loopBodyFont;
     _secondTextView.text = @" } ";
     
+   
+
     
+    _myButton.hidden = NO;
     
     _myLabel.editable = NO;
    
@@ -352,31 +413,17 @@
     [self.view addSubview:webView];
 }
 
--(void)panDetected:(UIPanGestureRecognizer *)sender
-{
-    UIView *label = sender.view;
-    CGPoint amtOfTranslation = [sender translationInView:self.view];
-    CGPoint labelPosition = label.center;
-    labelPosition.x = labelPosition.x + amtOfTranslation.x;
-    labelPosition.y = labelPosition.y + amtOfTranslation.y;
-    label.center = labelPosition;
-    [sender setTranslation:CGPointZero inView:self.view];
+
+
+
+
+- (IBAction)myButton:(UIButton *)sender {
+     UIFont *textfont = [UIFont fontWithName:@"Courier New" size:16];
+    _thirdTextView.frame =CGRectMake(30, 550, 200, 1000);
+    _thirdTextView.font =textfont;
+
     
-    if (sender.state == UIGestureRecognizerStateEnded)
-    {
-        BOOL viewsClose = [self isThisView:label nearTo:self.placeholder1 withBuffer:50];
-        if (viewsClose == YES)
-        {
-            label.center = self.placeholder1.center;
-        } else {
-            [label setFrame:_label1.frame];
-            //[label setFrame:CGRectMake(400, 550, 100, 60)];
-        }
-    }
-
+_thirdTextView.text = @" hello world!! hello world!!   hello world!!    hello world!!   hello world!!";
+     [self.thirdTextView sizeToFit];
 }
-
-
-
-
 @end

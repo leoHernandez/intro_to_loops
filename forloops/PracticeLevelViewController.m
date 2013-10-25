@@ -40,7 +40,7 @@
     self.navigationItem.title = [NSString stringWithFormat:@"Level %i",_currentLevel.levelNumber];
     
     // create and display instructions label
-    CGRect instructionsLabelFrame = CGRectMake(20, 115, self.view.frame.size.width-20, 0);
+    CGRect instructionsLabelFrame = CGRectMake(20, 120, self.view.frame.size.width-20, 0);
     _instructionsLabel = [[UILabel alloc] initWithFrame:instructionsLabelFrame];
     [_instructionsLabel setText:_currentLevel.levelInstructions];
     [_instructionsLabel setNumberOfLines:0];    // unlimited lines

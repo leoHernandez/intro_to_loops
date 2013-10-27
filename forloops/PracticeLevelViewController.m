@@ -10,6 +10,7 @@
 #import "QuartzCore/QuartzCore.h"   // required to change label borders
 #import "Level.h"
 #import "AnswerLabel.h"
+#import "PopUpViewController.h"
 
 @interface PracticeLevelViewController ()
 
@@ -32,7 +33,8 @@
 	// Do any additional setup after loading the view.
  
     [self startLevel:1];
-
+    
+    
 }
 
 -(void)setUpLevel
@@ -344,9 +346,20 @@
     }
     
     if (answerCorrect == YES) {
-        NSString *alertTitle = [NSString stringWithFormat:@"Level %i Complete",_currentLevel.levelNumber];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:alertTitle message:@"That is the correct answer, good job! :)" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Next Level", nil];
+        
+        NSString *popupTitle = [NSString stringWithFormat:@"Level %i Complete",_currentLevel.levelNumber];
+        NSString *popupMessage = @"That is the correct answer, well done! :-)";
+        //NSString *popupImageLocation = @"feedback_correct.png";
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:popupTitle message:popupMessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Next Level", nil];
         [alert show];
+        /*
+         Need to fix this
+        PopUpViewController *popup = [[PopUpViewController alloc] initWithTitle:popupTitle withMessage:popupMessage withImageLocatedAt:popupImageLocation];
+        [popup showInViewController:self];
+         */
+       
+        
     } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Wrong Answer" message:@"Sorry, that answer is not correct :(" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];

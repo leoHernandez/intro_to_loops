@@ -10,6 +10,10 @@
 		2F8125DD18139C6800A07D20 /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8125DC18139C6800A07D20 /* Level.m */; };
 		2F90BC971814C1E3008FEF78 /* AnswerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F90BC961814C1E3008FEF78 /* AnswerLabel.m */; };
 		2F9ADA7C180E18C0003054BE /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F9ADA7B180E18C0003054BE /* logo.png */; };
+		2FB31BBE181C960500773898 /* feedback_wrong.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FB31BBD181C960500773898 /* feedback_wrong.png */; };
+		2FEBB175181B194D007596FD /* icon_ipad_nonretina.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FEBB174181B194D007596FD /* icon_ipad_nonretina.png */; };
+		2FEBB178181B20A4007596FD /* feedback_correct.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FEBB177181B20A4007596FD /* feedback_correct.png */; };
+		2FEBB17B181B2E21007596FD /* PopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FEBB17A181B2E21007596FD /* PopUpViewController.m */; };
 		2FEC98C3180CE81300F874D2 /* PracticeLevelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FEC98C2180CE81300F874D2 /* PracticeLevelViewController.m */; };
 		B73E670817F33FA200C8F1DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B73E670717F33FA200C8F1DC /* UIKit.framework */; };
 		B73E670A17F33FA200C8F1DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B73E670917F33FA200C8F1DC /* Foundation.framework */; };
@@ -39,9 +43,14 @@
 		2F90BC951814C1E3008FEF78 /* AnswerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerLabel.h; sourceTree = "<group>"; };
 		2F90BC961814C1E3008FEF78 /* AnswerLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerLabel.m; sourceTree = "<group>"; };
 		2F9ADA7B180E18C0003054BE /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		2FB31BBD181C960500773898 /* feedback_wrong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feedback_wrong.png; sourceTree = "<group>"; };
+		2FEBB174181B194D007596FD /* icon_ipad_nonretina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_ipad_nonretina.png; sourceTree = "<group>"; };
+		2FEBB177181B20A4007596FD /* feedback_correct.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feedback_correct.png; sourceTree = "<group>"; };
+		2FEBB179181B2E21007596FD /* PopUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopUpViewController.h; sourceTree = "<group>"; };
+		2FEBB17A181B2E21007596FD /* PopUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopUpViewController.m; sourceTree = "<group>"; };
 		2FEC98C1180CE81300F874D2 /* PracticeLevelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PracticeLevelViewController.h; sourceTree = "<group>"; };
 		2FEC98C2180CE81300F874D2 /* PracticeLevelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PracticeLevelViewController.m; sourceTree = "<group>"; };
-		B73E670417F33FA200C8F1DC /* forloops.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = forloops.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B73E670417F33FA200C8F1DC /* Intro to Loops.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Intro to Loops.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B73E670717F33FA200C8F1DC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B73E670917F33FA200C8F1DC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B73E670B17F33FA200C8F1DC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -83,6 +92,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2FEBB173181B1632007596FD /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				2FEBB174181B194D007596FD /* icon_ipad_nonretina.png */,
+			);
+			name = icons;
+			sourceTree = "<group>";
+		};
+		2FEBB176181B2094007596FD /* feedback icons */ = {
+			isa = PBXGroup;
+			children = (
+				2FB31BBD181C960500773898 /* feedback_wrong.png */,
+				2FEBB177181B20A4007596FD /* feedback_correct.png */,
+			);
+			name = "feedback icons";
+			sourceTree = "<group>";
+		};
 		2FEC98C0180CE73F00F874D2 /* Practice */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,7 +134,7 @@
 		B73E670517F33FA200C8F1DC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B73E670417F33FA200C8F1DC /* forloops.app */,
+				B73E670417F33FA200C8F1DC /* Intro to Loops.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -130,6 +156,8 @@
 				B73E672A17F3457700C8F1DC /* ForTutorialViewController.h */,
 				B73E672B17F3457700C8F1DC /* ForTutorialViewController.m */,
 				B73E671617F33FA200C8F1DC /* AppDelegate.h */,
+				2FEBB179181B2E21007596FD /* PopUpViewController.h */,
+				2FEBB17A181B2E21007596FD /* PopUpViewController.m */,
 				B73E671717F33FA200C8F1DC /* AppDelegate.m */,
 				B73E671F17F33FA200C8F1DC /* MainStoryboard.storyboard */,
 				B73E672217F33FA200C8F1DC /* ViewController.h */,
@@ -144,9 +172,11 @@
 			children = (
 				B73E676E1806683700C8F1DC /* incrementimg.png */,
 				B73E676C1806674300C8F1DC /* bodyimage.png */,
+				2FEBB173181B1632007596FD /* icons */,
 				B73E676A1806673D00C8F1DC /* conditionImage.png */,
 				B73E67681806605000C8F1DC /* initializerImage.png */,
 				2F9ADA7B180E18C0003054BE /* logo.png */,
+				2FEBB176181B2094007596FD /* feedback icons */,
 				B73E67661806565B00C8F1DC /* StatementImage.png */,
 				B73E6764180654EB00C8F1DC /* iterationdef.png */,
 				B73E67621805C90000C8F1DC /* controldef.png */,
@@ -179,7 +209,7 @@
 			);
 			name = forloops;
 			productName = forloops;
-			productReference = B73E670417F33FA200C8F1DC /* forloops.app */;
+			productReference = B73E670417F33FA200C8F1DC /* Intro to Loops.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -190,6 +220,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "leo Hernandez";
+				TargetAttributes = {
+					B73E670317F33FA200C8F1DC = {
+						DevelopmentTeam = 7WZVBNRRU3;
+					};
+				};
 			};
 			buildConfigurationList = B73E66FF17F33FA200C8F1DC /* Build configuration list for PBXProject "forloops" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -220,11 +255,14 @@
 				B73E672117F33FA200C8F1DC /* MainStoryboard.storyboard in Resources */,
 				B73E67611805C3CA00C8F1DC /* variabledef.png in Resources */,
 				B73E67631805C90000C8F1DC /* controldef.png in Resources */,
+				2FEBB175181B194D007596FD /* icon_ipad_nonretina.png in Resources */,
 				B73E6765180654EC00C8F1DC /* iterationdef.png in Resources */,
 				B73E67671806565B00C8F1DC /* StatementImage.png in Resources */,
 				B73E67691806605000C8F1DC /* initializerImage.png in Resources */,
 				B73E676B1806673D00C8F1DC /* conditionImage.png in Resources */,
 				B73E676D1806674300C8F1DC /* bodyimage.png in Resources */,
+				2FEBB178181B20A4007596FD /* feedback_correct.png in Resources */,
+				2FB31BBE181C960500773898 /* feedback_wrong.png in Resources */,
 				B73E676F1806683700C8F1DC /* incrementimg.png in Resources */,
 				2F9ADA7C180E18C0003054BE /* logo.png in Resources */,
 			);
@@ -240,6 +278,7 @@
 				B73E671417F33FA200C8F1DC /* main.m in Sources */,
 				B73E671817F33FA200C8F1DC /* AppDelegate.m in Sources */,
 				B73E672417F33FA200C8F1DC /* ViewController.m in Sources */,
+				2FEBB17B181B2E21007596FD /* PopUpViewController.m in Sources */,
 				B73E672D17F3457700C8F1DC /* ForTutorialViewController.m in Sources */,
 				2FEC98C3180CE81300F874D2 /* PracticeLevelViewController.m in Sources */,
 				2F8125DD18139C6800A07D20 /* Level.m in Sources */,
@@ -296,6 +335,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "Intro to Loops";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -321,6 +361,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PRODUCT_NAME = "Intro to Loops";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
@@ -330,10 +371,13 @@
 		B73E672817F33FA200C8F1DC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "forloops/forloops-Prefix.pch";
 				INFOPLIST_FILE = "forloops/forloops-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Intro to Loops";
+				PROVISIONING_PROFILE = "476E93F6-F913-4AAA-B252-472B774C4F2A";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
@@ -342,10 +386,13 @@
 		B73E672917F33FA200C8F1DC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "forloops/forloops-Prefix.pch";
 				INFOPLIST_FILE = "forloops/forloops-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Intro to Loops";
+				PROVISIONING_PROFILE = "476E93F6-F913-4AAA-B252-472B774C4F2A";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};

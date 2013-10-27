@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B73E670317F33FA200C8F1DC"
-               BuildableName = "forloops.app"
+               BuildableName = "Intro to Loops.app"
                BlueprintName = "forloops"
                ReferencedContainer = "container:forloops.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B73E670317F33FA200C8F1DC"
-            BuildableName = "forloops.app"
+            BuildableName = "Intro to Loops.app"
             BlueprintName = "forloops"
             ReferencedContainer = "container:forloops.xcodeproj">
          </BuildableReference>
@@ -52,7 +52,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B73E670317F33FA200C8F1DC"
-            BuildableName = "forloops.app"
+            BuildableName = "Intro to Loops.app"
             BlueprintName = "forloops"
             ReferencedContainer = "container:forloops.xcodeproj">
          </BuildableReference>
@@ -70,7 +70,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B73E670317F33FA200C8F1DC"
-            BuildableName = "forloops.app"
+            BuildableName = "Intro to Loops.app"
             BlueprintName = "forloops"
             ReferencedContainer = "container:forloops.xcodeproj">
          </BuildableReference>

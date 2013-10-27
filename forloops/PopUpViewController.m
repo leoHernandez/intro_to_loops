@@ -77,7 +77,7 @@
     [self.view addSubview:imageView];
     
     // display message
-    CGRect messageFrame = CGRectMake(imageFrame.size.width+30, imageFrame.origin.y, popupFrame.size.width-30-imageFrame.size.width, 0);
+    CGRect messageFrame = CGRectMake(imageFrame.size.width+40, imageFrame.origin.y, popupFrame.size.width-imageFrame.size.width, 0);
     UILabel *messageLabel = [[UILabel alloc] initWithFrame:messageFrame];
     messageLabel.text = self.message;
     [messageLabel setNumberOfLines:0];

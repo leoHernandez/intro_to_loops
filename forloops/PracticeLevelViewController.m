@@ -346,13 +346,18 @@
     }
     
     if (answerCorrect == YES) {
-              
-        NSString *popupTitle = [NSString stringWithFormat:@"Level %i Complete",_currentLevel.levelNumber];
-        NSString *popupMessage = @"That is the correct answer, well done! :)";
-        NSString *popupImageLocation = @"feedback_correct.png";
         
+        NSString *popupTitle = [NSString stringWithFormat:@"Level %i Complete",_currentLevel.levelNumber];
+        NSString *popupMessage = @"That is the correct answer, well done! :-)";
+        //NSString *popupImageLocation = @"feedback_correct.png";
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:popupTitle message:popupMessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Next Level", nil];
+        [alert show];
+        /*
+         Need to fix this
         PopUpViewController *popup = [[PopUpViewController alloc] initWithTitle:popupTitle withMessage:popupMessage withImageLocatedAt:popupImageLocation];
         [popup showInViewController:self];
+         */
        
         
     } else {

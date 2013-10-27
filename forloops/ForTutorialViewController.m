@@ -252,11 +252,17 @@
     [labels addObject:self.label4];
     
     
-    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panDetected:)];
+  UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panDetected:)];
     [self.label1 addGestureRecognizer:pan];
     
-    UIPanGestureRecognizer *pan2 = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector (panDetected:)];
+    UIPanGestureRecognizer *pan2 = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector (panDetected2:)];
     [self.label2 addGestureRecognizer:pan2];
+    
+    UIPanGestureRecognizer *pan3 = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector (panDetected3:)];
+    [self.label3 addGestureRecognizer:pan3];
+    
+    UIPanGestureRecognizer *pan4 = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector (panDetected4:)];
+    [self.label4 addGestureRecognizer:pan4];
 //    for (UILabel *label in labels) {
 //        UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panDetected:)];
 //        [label addGestureRecognizer:panGesture];
@@ -311,6 +317,34 @@
     
     -(void) panDetected: (UIPanGestureRecognizer * )sender
     {
+        UIView *label = sender.view;
+        CGPoint amtOfTranslation = [sender translationInView:self.view];
+        //get the image view's center, add the amount of translation to it and set the center of the image view to the new position
+        CGPoint imageViewPosition =label.center;
+        imageViewPosition.x = imageViewPosition.x + amtOfTranslation.x;
+        imageViewPosition.y = imageViewPosition.y + amtOfTranslation.y;
+        label.center = imageViewPosition;
+        //set the translation back to (0,0) otherwise the translation keeps compunding. As you move the finger on the screen, the image goes away from the position of touch if this is not done.
+        
+        
+        [sender setTranslation:CGPointZero inView:self.view];
+        if (sender.state == UIGestureRecognizerStateEnded)
+        {
+            
+            BOOL iterationNear = [self isThisView:label nearTo:self.placeholder3 withBuffer:50];
+            
+            if (iterationNear == YES)
+            {
+                label.center = self.placeholder3.center;
+            } else {
+                
+                [label setFrame:CGRectMake(600, 350, 150, 100)];
+            }
+        }
+        
+    }
+    -(void) panDetected2: (UIPanGestureRecognizer * )sender
+    {
       UIView *label = sender.view;
         CGPoint amtOfTranslation = [sender translationInView:self.view];
         //get the image view's center, add the amount of translation to it and set the center of the image view to the new position
@@ -322,21 +356,83 @@
         
         
         [sender setTranslation:CGPointZero inView:self.view];
-       
-        if (sender.state == UIGestureRecognizerStateEnded)
+                     if (sender.state == UIGestureRecognizerStateEnded)
         {
             
-            BOOL iterationNear = [self isThisView:label nearTo:self.placeholder3 withBuffer:50];
+            BOOL iterationNear = [self isThisView:label nearTo:self.placeholder4 withBuffer:50];
          
             if (iterationNear == YES)
             {
-                label.center = self.placeholder3.center;
+                label.center = self.placeholder4.center;
             } else {
                
-                [label setFrame:CGRectMake(600, 350, 150, 100)];
+                [label setFrame:CGRectMake(600, 450, 150, 100)];
             }
                     }
+
+        }
+    
+    
+    -(void) panDetected3: (UIPanGestureRecognizer * )sender
+    {
+        UIView *label = sender.view;
+        CGPoint amtOfTranslation = [sender translationInView:self.view];
+        //get the image view's center, add the amount of translation to it and set the center of the image view to the new position
+        CGPoint imageViewPosition =label.center;
+        imageViewPosition.x = imageViewPosition.x + amtOfTranslation.x;
+        imageViewPosition.y = imageViewPosition.y + amtOfTranslation.y;
+        label.center = imageViewPosition;
+        //set the translation back to (0,0) otherwise the translation keeps compunding. As you move the finger on the screen, the image goes away from the position of touch if this is not done.
+        
+        
+        [sender setTranslation:CGPointZero inView:self.view];
+        if (sender.state == UIGestureRecognizerStateEnded)
+        {
+            
+            BOOL iterationNear = [self isThisView:label nearTo:self.placeholder1 withBuffer:50];
+            
+            if (iterationNear == YES)
+            {
+                label.center = self.placeholder1.center;
+            } else {
+                
+                [label setFrame:CGRectMake(600, 550, 150, 100)];
+            }
+        }
+        
     }
+
+    
+    -(void) panDetected4: (UIPanGestureRecognizer * )sender
+    {
+        UIView *label = sender.view;
+        CGPoint amtOfTranslation = [sender translationInView:self.view];
+        //get the image view's center, add the amount of translation to it and set the center of the image view to the new position
+        CGPoint imageViewPosition =label.center;
+        imageViewPosition.x = imageViewPosition.x + amtOfTranslation.x;
+        imageViewPosition.y = imageViewPosition.y + amtOfTranslation.y;
+        label.center = imageViewPosition;
+        //set the translation back to (0,0) otherwise the translation keeps compunding. As you move the finger on the screen, the image goes away from the position of touch if this is not done.
+        
+        
+        [sender setTranslation:CGPointZero inView:self.view];
+        if (sender.state == UIGestureRecognizerStateEnded)
+        {
+            
+            BOOL iterationNear = [self isThisView:label nearTo:self.placeholder2 withBuffer:50];
+            
+            if (iterationNear == YES)
+            {
+                label.center = self.placeholder2.center;
+            } else {
+                
+                [label setFrame:CGRectMake(600, 650, 150, 100)];
+            }
+        }
+        
+    }
+
+    
 
 - (IBAction)exampleButton:(UIBarButtonItem *)sender {
      _myLabel.text= @" ";

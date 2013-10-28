@@ -27,7 +27,11 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    _myLabel.editable =NO;
+    _myLabel.text=@" ";
+    _myLabel.font = [UIFont fontWithName:@"Courier New" size:20];
+    _myLabel.text = @"What is a loop? A loop is a programming structure that allows code to be repeated until a certain condition is met.";
+    self.label1.numberOfLines=0;
+    [self.label1 sizeToFit];
    
 }
 
@@ -65,21 +69,19 @@
     _placeholder2.backgroundColor= Nil;
     _placeholder3.backgroundColor=Nil;
     _placeholder4.backgroundColor=Nil;
-   
-    
-    
-    _titleLabel.text= @"What is a Loop? ";
-    self.statementimg.hidden = YES;
+   _myLabel.text =@"";
+  self.statementimg.hidden = YES;
     self.Controlimage.hidden = YES;
     self.variableimage.hidden =YES;
     self.iterationImage.hidden=YES;
    
     
-    
+      _titleLabel.text= @"What is a Loop? ";
     _label1.frame=CGRectMake(30,300,750,600);
   
     _label1.font = [UIFont fontWithName:@"Courier New" size:20];
     _label1.text = @"What is a loop? A loop is a programming structure that allows code to be repeated until a certain condition is met.";
+   self.label1.numberOfLines=0;
     [self.label1 sizeToFit];
    
     
@@ -235,13 +237,13 @@
     
     
     _placeholder1.backgroundColor = [[UIColor alloc] initWithRed:.5 green:.5 blue:.5 alpha:.2];
-    _placeholder1.frame = CGRectMake(300, 320, 150, 130);
+    _placeholder1.frame = CGRectMake(300, 300, 150, 150);
     _placeholder2.backgroundColor=[[UIColor alloc] initWithRed:.5 green:.5 blue:.5 alpha:.2];
-    _placeholder2.frame = CGRectMake(300, 460, 150, 130);
+    _placeholder2.frame = CGRectMake(300, 470, 150, 150);
     _placeholder3.backgroundColor=[[UIColor alloc] initWithRed:.5 green:.5 blue:.5 alpha:.2];
-    _placeholder3.frame=CGRectMake(300, 620, 150, 130);
+    _placeholder3.frame=CGRectMake(300, 640, 150, 150);
     _placeholder4.backgroundColor=[[UIColor alloc] initWithRed:.5 green:.5 blue:.5 alpha:.2];
-    _placeholder4.frame=CGRectMake(300, 760, 150, 130);
+    _placeholder4.frame=CGRectMake(300, 810, 150, 150);
 
     
 
@@ -505,24 +507,34 @@
 }
 
 - (IBAction)VideoButton:(UIBarButtonItem *)sender {
-    _myLabel.text= @" ";
+    _myButton.hidden = YES;
     _firstTextView.text =@" ";
+    
     _secondTextView.text = @" ";
     _thirdTextView.text =@" ";
     _fourthTextView.text =@" ";
     _titleLabel.text= @" ";
+    _placeholder1.text= @" ";
+    _placeholder2.text=@"";
+    _placeholder3.text=@"";
+    _placeholder4.text=@"";
     _label1.text=@" " ;
+    _label1.backgroundColor= Nil;
     _label2.text=@" ";
+    _label2.backgroundColor= Nil;
     _label3.text=@" ";
+    _label3.backgroundColor=Nil;
     _label4.text =@" ";
+    _label4.backgroundColor= Nil;
     self.statementimg.hidden = YES;
     self.Controlimage.hidden = YES;
     self.variableimage.hidden =YES;
     self.iterationImage.hidden=YES;
-  
+    _placeholder4.hidden = YES;
+    
    
     UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0.0, 0.0,840.0,840.0)];
-    NSURL *URL = [NSURL URLWithString:@"http://www.youtube.com/watch?v=b-eYJEYYAsk"];
+    NSURL *URL = [NSURL URLWithString:@"http://www.youtube.com/watch?v=rjkYAs6gAkk"];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:URL];
    // webView.delegate = self ;
     [webView loadRequest:requestObj];

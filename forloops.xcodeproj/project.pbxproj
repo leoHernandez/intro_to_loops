@@ -377,7 +377,7 @@
 				GCC_PREFIX_HEADER = "forloops/forloops-Prefix.pch";
 				INFOPLIST_FILE = "forloops/forloops-Info.plist";
 				PRODUCT_NAME = "Intro to Loops";
-				PROVISIONING_PROFILE = "476E93F6-F913-4AAA-B252-472B774C4F2A";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
@@ -392,7 +392,7 @@
 				GCC_PREFIX_HEADER = "forloops/forloops-Prefix.pch";
 				INFOPLIST_FILE = "forloops/forloops-Info.plist";
 				PRODUCT_NAME = "Intro to Loops";
-				PROVISIONING_PROFILE = "476E93F6-F913-4AAA-B252-472B774C4F2A";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};

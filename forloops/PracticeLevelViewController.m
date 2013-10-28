@@ -291,6 +291,12 @@
         [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"terminating"]];
         possibleAnswer = [NSString stringWithFormat:@"i <= %i",random];
         [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"terminating"]];
+        possibleAnswer = [NSString stringWithFormat:@"i < %i", random +1];
+        [possibleAnswers addObject:[[AnswerLabel alloc ] initWithAnswer:possibleAnswer ofType:@"terminating"]];
+        possibleAnswer = [NSString stringWithFormat:@"i <= %i", random +1];
+        [possibleAnswers addObject:[[AnswerLabel alloc ] initWithAnswer:possibleAnswer ofType:@"terminating"]];
+        
+        
         
         NSString *correctInitialization;
         NSString *correctTerminating;

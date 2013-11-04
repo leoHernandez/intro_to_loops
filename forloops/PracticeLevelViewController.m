@@ -34,7 +34,6 @@
  
     [self startLevel:1];
     
-    
 }
 
 -(void)setUpLevel
@@ -275,8 +274,7 @@
     // make sure level is positive
     level = (level < 0) ? -level : level;
     
-    if (level == 1)
-    {
+    if (level == 1) {
         int random = [self getRandomNumberFrom:3 to:10];
         levelInstructions = [NSString stringWithFormat:@"Drag and drop the correct terminating condition from the answers section to make the loop run exactly %i times.",random];
         
@@ -308,6 +306,34 @@
         NSArray *correctCombo = [NSArray arrayWithObjects:correctInitialization,correctTerminating,correctIncrement, nil];
         [correctAnswerCombinations addObject:correctCombo];
         
+    } else if (level == 2) {
+        int random = [self getRandomNumberFrom:3 to:10];
+        levelInstructions = [NSString stringWithFormat:@"Drag and drop the correct initialization variable to make the loop run exactly %i times",random];
+        
+        loopBody = @"System.out.println(\"Loops are cool!\");";
+        
+        initialization = @"";
+        terminatingCondition = [NSString stringWithFormat:@"i < %i",random];
+        increment = @"i++";
+        
+        NSString *possibleAnswer;
+        possibleAnswer = @"i = 0";
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"initialization"]];
+        possibleAnswer = @"i = 1";
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"initialization"]];
+        
+        NSString *correctInitialization;
+        NSString *correctTerminating;
+        NSString *correctIncrement;
+        
+        correctInitialization = @"i = 0";
+        correctTerminating = @"";
+        correctIncrement = @"";
+        NSArray *correctCombo = [NSArray arrayWithObjects:correctInitialization,correctTerminating,correctIncrement, nil];
+        [correctAnswerCombinations addObject:correctCombo];
+        
+    } else {
+        [self startLevel:1];
     }
     
   
@@ -376,7 +402,7 @@
 {
     // next level button
     if (buttonIndex == 1) {
-        [self startLevel:1];
+        [self startLevel:_currentLevel.levelNumber + 1];
     }
 }
 @end

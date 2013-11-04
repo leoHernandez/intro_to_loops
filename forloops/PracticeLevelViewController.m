@@ -332,10 +332,7 @@
         NSArray *correctCombo = [NSArray arrayWithObjects:correctInitialization,correctTerminating,correctIncrement, nil];
         [correctAnswerCombinations addObject:correctCombo];
         
-    } else {
-        [self startLevel:1];
     }
-    
   
     // create level object
     _currentLevel = [[Level alloc] initWithLevel:level withInstructions:levelInstructions];
@@ -402,6 +399,7 @@
 {
     // next level button
     if (buttonIndex == 1) {
+        // TODO: check if last level completed, else start next level
         [self startLevel:_currentLevel.levelNumber + 1];
     }
 }

@@ -272,7 +272,7 @@
     NSMutableSet *correctAnswerCombinations = [[NSMutableSet alloc] init];
     
     // make sure level is positive
-    level = (level < 0) ? -level : level;
+    level = (level < 0) ? level*-1 : level;
     
     if (level == 1) {
         int random = [self getRandomNumberFrom:3 to:10];
@@ -369,7 +369,7 @@
         NSString *terminating = combo[1];
         NSString *increment = combo[2];
         
-        if ([_incrementAnswer isEqualToString:initialization]
+        if ([_initializationAnswer isEqualToString:initialization]
             && [_terminatingConditionAnswer isEqualToString:terminating]
             && [_incrementAnswer isEqualToString:increment])
         {

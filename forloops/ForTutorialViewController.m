@@ -383,7 +383,7 @@
                      if (sender.state == UIGestureRecognizerStateEnded)
         {
             
-            BOOL iterationNear = [self isThisView:label nearTo:self.placeholder4 withBuffer:50];
+            BOOL iterationNear = [self isThisView:label nearTo:self.placeholder4 withBuffer:80];
          
             if (iterationNear == YES)
             {
@@ -578,16 +578,14 @@
     _firstTextView.frame =CGRectMake(30, 570, 200, 1000);
     _label1.frame =CGRectMake(30, 550, 200, 1000);
     
-   
-    NSString *meme = self.userInput.text;
-    int i = 0;
-    for (i =0; i<5; i++){
-        _thirdTextView.text = meme;
-        NSLog(@"%@", meme);
-      _thirdTextView.text = [[NSString alloc] initWithFormat: @"%@", meme];
-    }
+    NSString *string1 = self.userInput.text;
+    NSString *string2 = self.userInput.text;
+    NSString *string3 = self.userInput.text;
+    NSString *string4 = self.userInput.text;
+    NSString *string5 = self.userInput.text;
     
-   //_thirdTextView.text = [[NSString alloc] initWithFormat: @"%@", meme];
+    _thirdTextView.text = [NSString stringWithFormat:@"%@\r%@\r%@\r%@\r%@",string1, string2,string3, string4, string5];
+   
     //_thirdTextView.text = @" hello world!! hello world!!   hello world!!    hello world!!   hello world!!";
    
     [self.thirdTextView sizeToFit];

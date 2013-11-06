@@ -143,14 +143,14 @@
     _fourthTextView.font=textfont;
     _fourthTextView.editable=NO;
     
-    self.iterationImage.image = [UIImage imageNamed:@"initializerImage.png"];
-    _iterationImage.frame = CGRectMake(360, 330, 350, 100);
-    self.statementimg.image = [UIImage imageNamed:@"conditionImage.png"];
-    _statementimg.frame=CGRectMake(360, 450, 350, 100);
-    self.Controlimage.image = [UIImage imageNamed:@"bodyimage.png"];
-    _Controlimage.frame= CGRectMake(360, 580, 350, 100);
-    self.variableimage.image =[UIImage imageNamed:@"incrementimg"];
-    _variableimage.frame= CGRectMake(360, 720, 350, 100);
+    self.iterationImage.image = [UIImage imageNamed:@"initializerImage2.png"];
+    _iterationImage.frame = CGRectMake(360, 330, 330, 80);
+    self.statementimg.image = [UIImage imageNamed:@"conditionImage2.png"];
+    _statementimg.frame=CGRectMake(360, 450, 330, 80);
+    self.Controlimage.image = [UIImage imageNamed:@"iterationImage2.png"];
+    _Controlimage.frame= CGRectMake(360, 580, 330, 80);
+    self.variableimage.image =[UIImage imageNamed:@"bodyImage2.png"];
+    _variableimage.frame= CGRectMake(360, 720, 330, 80);
    
     _myLabel.frame=CGRectMake(30,300,750,600);
    
@@ -563,7 +563,7 @@
     UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0.0, 0.0,840.0,840.0)];
     NSURL *URL = [NSURL URLWithString:@"http://www.youtube.com/watch?v=rjkYAs6gAkk"];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:URL];
-   // webView.delegate = self ;
+   
     [webView loadRequest:requestObj];
     [self.view addSubview:webView];
 }

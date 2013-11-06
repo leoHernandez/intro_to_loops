@@ -47,6 +47,7 @@
 
 - (IBAction)myButton:(UIButton *)sender;
 
+@property (strong, nonatomic) IBOutlet UITextField *userInput;
 
 
 

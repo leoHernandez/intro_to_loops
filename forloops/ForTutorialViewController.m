@@ -463,7 +463,7 @@
     
 
 - (IBAction)exampleButton:(UIBarButtonItem *)sender {
-     _myLabel.text= @" ";
+    _myLabel.text= @" ";
     _firstTextView.text =@" ";
     _secondTextView.text = @" ";
     _thirdTextView.text =@" ";

@@ -249,6 +249,9 @@
     _terminatingConditionAnswer = @"";
     _incrementAnswer = @"";
     
+    // reset guess count
+    _incorrectGuesses = 0;
+    
     // reset answer labels
     for (AnswerLabel *label in _currentLevel.possibleAnswers)
     {
@@ -393,7 +396,12 @@
        
         
     } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Wrong Answer" message:@"Sorry, that answer is not correct :(" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        _incorrectGuesses++;
+        NSString *message = @"Sorry, that answer is not correct.";
+        if (_incorrectGuesses >= 2) {
+            
+        }
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Wrong Answer" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];
     }
 }

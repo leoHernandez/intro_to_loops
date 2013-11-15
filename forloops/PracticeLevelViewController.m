@@ -135,6 +135,7 @@
         
         // make pan gesture recognizer
         UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panDetected:)];
+        panGesture.maximumNumberOfTouches = 1;
         [answer addGestureRecognizer:panGesture];
         
         // update next label positions
@@ -191,7 +192,6 @@
 
 -(void)panDetected:(UIPanGestureRecognizer *)sender
 {
-
     AnswerLabel *answer = (AnswerLabel *) sender.view;
     CGPoint amtOftranslation = [sender translationInView:self.view];
     CGPoint labelPosition = answer.center;

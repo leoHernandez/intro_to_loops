@@ -274,6 +274,8 @@
     
     NSMutableSet *correctAnswerCombinations = [[NSMutableSet alloc] init];
     
+    NSMutableArray *levelHints = [[NSMutableArray alloc] init];
+    
     // make sure level is positive
     level = (level < 0) ? level*-1 : level;
     
@@ -297,8 +299,6 @@
         possibleAnswer = [NSString stringWithFormat:@"i <= %i", random +1];
         [possibleAnswers addObject:[[AnswerLabel alloc ] initWithAnswer:possibleAnswer ofType:@"terminating"]];
         
-        
-        
         NSString *correctInitialization;
         NSString *correctTerminating;
         NSString *correctIncrement;
@@ -308,6 +308,10 @@
         correctIncrement = @"";
         NSArray *correctCombo = [NSArray arrayWithObjects:correctInitialization,correctTerminating,correctIncrement, nil];
         [correctAnswerCombinations addObject:correctCombo];
+        
+        // hints
+        [levelHints addObject:@"Remember the loop starts counting at 0."];
+        [levelHints addObject:@"The loop needs to run an exact amount of times, no more."];
         
     } else if (level == 2) {
         int random = [self getRandomNumberFrom:3 to:10];
@@ -348,6 +352,7 @@
     _currentLevel.increment = increment;
     _currentLevel.possibleAnswers = possibleAnswers;
     _currentLevel.correctAnswerCombinations = correctAnswerCombinations;
+    _currentLevel.levelHints = levelHints;
     
     [self setUpLevel];
 }
@@ -397,9 +402,11 @@
         
     } else {
         _incorrectGuesses++;
-        NSString *message = @"Sorry, that answer is not correct.";
+        NSString *message = @"Sorry, that answer is not correct. :(";
         if (_incorrectGuesses >= 2) {
-            
+            NSUInteger randomIndex = arc4random() % [_currentLevel.levelHints count];
+            NSString *hint = _currentLevel.levelHints[randomIndex];
+            message = [NSString stringWithFormat:@"%@ \rHint: %@",message,hint];
         }
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Wrong Answer" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];

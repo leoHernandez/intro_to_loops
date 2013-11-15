@@ -339,6 +339,30 @@
         NSArray *correctCombo = [NSArray arrayWithObjects:correctInitialization,correctTerminating,correctIncrement, nil];
         [correctAnswerCombinations addObject:correctCombo];
         
+        // hints
+        [levelHints addObject:@"Know the difference between < and <="];
+        [levelHints addObject:@"Try to write the output down on a piece of paper and keep track of the varbiale i"];
+        
+    } else if (level == 3) {
+        int random = [self getRandomNumberFrom:3 to:10];
+        levelInstructions = [NSString stringWithFormat:@"Drag and drop the correct loop increment/decrement variable to make the loop run exactly %i times", random];
+        
+        loopBody = @"System.out.println(\"I never knew loops could be incredible!\");";
+        
+        initialization = [NSString stringWithFormat:@"int i = %i", random];
+        terminatingCondition = @"i > 0";
+        increment = @"";
+        
+        NSString *possibleAnswer;
+        possibleAnswer = @"i++";
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"increment"]];
+        possibleAnswer = @"i + 1";
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"increment"]];
+        possibleAnswer = @"i--";
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"increment"]];
+        possibleAnswer = [NSString stringWithFormat:@"i = i - %i",random];
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"increment"]];
+        
     } else {
         [self startLevel:1];
     }

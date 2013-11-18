@@ -363,6 +363,20 @@
         possibleAnswer = [NSString stringWithFormat:@"i = i - %i",random];
         [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"increment"]];
         
+        NSString *correctInitialization;
+        NSString *correctTerminating;
+        NSString *correctIncrement;
+        
+        correctInitialization = @"";
+        correctTerminating = @"";
+        correctIncrement = @"i--";
+        NSArray *correctCombo = [NSArray arrayWithObjects:correctInitialization, correctTerminating, correctIncrement, nil];
+        [correctAnswerCombinations addObject:correctCombo];
+        
+        //hints
+        [levelHints addObject:@"Is the loop count up or down?"];
+        [levelHints addObject:[NSString stringWithFormat:@"The loop has to run exactly %i times",random]];
+        
     } else {
         [self startLevel:1];
     }

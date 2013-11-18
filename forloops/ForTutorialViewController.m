@@ -28,10 +28,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     _myLabel.text=@" ";
-    _myLabel.font = [UIFont fontWithName:@"Courier New" size:20];
-    _myLabel.text = @"What is a loop? A loop is a programming structure that allows code to be repeated until a certain condition is met.";
+    _label1.font = [UIFont fontWithName:@"Courier New" size:30];
+    _label1.frame=CGRectMake(30,300,750,600);
+    _label1.text = @"What is a loop? A loop is a programming structure that allows code to be repeated until a certain condition is met.";
     self.label1.numberOfLines=0;
     [self.label1 sizeToFit];
+    
    
 }
 
@@ -74,12 +76,14 @@
     self.Controlimage.hidden = YES;
     self.variableimage.hidden =YES;
     self.iterationImage.hidden=YES;
+    _userInput.hidden = YES;
+    
    
     
       _titleLabel.text= @"What is a Loop? ";
     _label1.frame=CGRectMake(30,300,750,600);
   
-    _label1.font = [UIFont fontWithName:@"Courier New" size:20];
+    _label1.font = [UIFont fontWithName:@"Courier New" size:30];
     _label1.text = @"What is a loop? A loop is a programming structure that allows code to be repeated until a certain condition is met.";
    self.label1.numberOfLines=0;
     [self.label1 sizeToFit];
@@ -93,7 +97,7 @@
 
 - (IBAction)LookLikeButton:(UIBarButtonItem *)sender {
    _titleLabel.frame = CGRectMake(300, 250, self.view.frame.size.width-20, 20);
-     UIFont *textfont = [UIFont fontWithName:@"Courier New" size:12];
+     UIFont *textfont = [UIFont fontWithName:@"Courier New" size:16];
        _myLabel.text= @" ";
       _myButton.hidden = YES;
     _label1.text=@" " ;
@@ -116,6 +120,8 @@
     _placeholder2.backgroundColor= Nil;
     _placeholder3.backgroundColor=Nil;
     _placeholder4.backgroundColor=Nil;
+    _userInput.hidden = YES;
+    
     _titleLabel.text= @"What does it look Like? ";
     
     
@@ -130,17 +136,21 @@
     _secondTextView.editable=NO;
     _thirdTextView.text = @"Increment/Decrement of Loop Control Variable: Loop control variables can either be incremented (increased by 1 in each iteration), decremented (decreased by 1 in each iteration) or can be increased or decreased by a specific amount.";
     _thirdTextView.font =textfont;
-    _thirdTextView.frame = CGRectMake(30, 540, 300, 200);
+    _thirdTextView.frame = CGRectMake(30, 560, 300, 200);
     _thirdTextView.editable=NO;
-    _fourthTextView.frame= CGRectMake(30, 670, 300, 200);
+    _fourthTextView.frame= CGRectMake(30, 750, 300, 200);
     _fourthTextView.text =@"Loop Body: This is the code to be executed with each iteration.";
     _fourthTextView.font=textfont;
     _fourthTextView.editable=NO;
     
-    self.iterationImage.image = [UIImage imageNamed:@"initializerImage.png"];
-    self.statementimg.image = [UIImage imageNamed:@"conditionImage.png"];
-    self.Controlimage.image = [UIImage imageNamed:@"bodyimage.png"];
-    self.variableimage.image =[UIImage imageNamed:@"incrementimg"];
+    self.iterationImage.image = [UIImage imageNamed:@"initializerImage2.png"];
+    _iterationImage.frame = CGRectMake(360, 330, 330, 80);
+    self.statementimg.image = [UIImage imageNamed:@"conditionImage2.png"];
+    _statementimg.frame=CGRectMake(360, 450, 330, 80);
+    self.Controlimage.image = [UIImage imageNamed:@"iterationImage2.png"];
+    _Controlimage.frame= CGRectMake(360, 580, 330, 80);
+    self.variableimage.image =[UIImage imageNamed:@"bodyImage2.png"];
+    _variableimage.frame= CGRectMake(360, 720, 330, 80);
    
     _myLabel.frame=CGRectMake(30,300,750,600);
    
@@ -155,6 +165,8 @@
 
 - (IBAction)termsButton:(UIBarButtonItem *)sender {
       _myButton.hidden = YES;
+    _userInput.hidden = YES;
+    
     _firstTextView.text =@" ";
     
     _secondTextView.text = @" ";
@@ -173,10 +185,10 @@
     _label3.backgroundColor=Nil;
     _label4.text =@" ";
     _label4.backgroundColor= Nil;
-    self.statementimg.hidden = YES;
-    self.Controlimage.hidden = YES;
-    self.variableimage.hidden =YES;
-    self.iterationImage.hidden=YES;
+    //self.statementimg.hidden = YES;
+    //self.Controlimage.hidden = YES;
+    //self.variableimage.hidden =YES;
+    //self.iterationImage.hidden=YES;
     _titleLabel.frame = CGRectMake(300, 250, self.view.frame.size.width-20, 20);
     _myLabel.text= @" ";
     
@@ -195,10 +207,10 @@
     _secondTextView.frame= CGRectMake(30, 490, 200, 100);
     _secondTextView.font = textfont;
    _thirdTextView.text =@"Iteration -->";
-    _thirdTextView.frame = CGRectMake(30, 650, 200, 100);
+    _thirdTextView.frame = CGRectMake(30, 680, 200, 100);
     _thirdTextView.font =textfont;
    _fourthTextView.text =@"Statement-->";
-    _fourthTextView.frame= CGRectMake(30, 790, 200, 100);
+    _fourthTextView.frame= CGRectMake(30, 870, 200, 100);
     _fourthTextView.font= textfont;
     
     _titleLabel.frame = CGRectMake(100, 200, 700, 100);
@@ -245,7 +257,20 @@
     _placeholder4.backgroundColor=[[UIColor alloc] initWithRed:.5 green:.5 blue:.5 alpha:.2];
     _placeholder4.frame=CGRectMake(300, 810, 150, 150);
 
-    
+    self.variableimage.image =[UIImage imageNamed:@"feedback_correct.png"];
+    _variableimage.frame=CGRectMake(450, 300, 50, 50);
+    _variableimage.hidden =YES;
+    self.Controlimage.image = [UIImage imageNamed:@"feedback_correct.png"];
+    _Controlimage.frame=CGRectMake(450, 470, 50, 50);
+    _Controlimage.hidden =YES;
+    self.iterationImage.image = [UIImage imageNamed:@"feedback_correct.png"];
+    _iterationImage.frame = CGRectMake(450, 640, 50, 50);
+    _iterationImage.hidden = YES;
+    self.statementimg.image = [UIImage imageNamed:@"feedback_correct.png"];
+    _statementimg.frame =CGRectMake(450, 810, 50, 50);
+    _statementimg.hidden = YES;
+   
+   
 
     NSMutableSet *labels = [[NSMutableSet alloc] init];
     [labels addObject:self.label1];
@@ -265,13 +290,9 @@
     
     UIPanGestureRecognizer *pan4 = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector (panDetected4:)];
     [self.label4 addGestureRecognizer:pan4];
-//    for (UILabel *label in labels) {
-//        UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panDetected:)];
-//        [label addGestureRecognizer:panGesture];
-//    }
+
     
     
-   
       _myLabel.editable = NO;
   
 }
@@ -332,12 +353,13 @@
         [sender setTranslation:CGPointZero inView:self.view];
         if (sender.state == UIGestureRecognizerStateEnded)
         {
-            
+          
             BOOL iterationNear = [self isThisView:label nearTo:self.placeholder3 withBuffer:50];
             
             if (iterationNear == YES)
             {
                 label.center = self.placeholder3.center;
+               _iterationImage.hidden = NO;
             } else {
                 
                 [label setFrame:CGRectMake(600, 350, 150, 100)];
@@ -361,11 +383,12 @@
                      if (sender.state == UIGestureRecognizerStateEnded)
         {
             
-            BOOL iterationNear = [self isThisView:label nearTo:self.placeholder4 withBuffer:50];
+            BOOL iterationNear = [self isThisView:label nearTo:self.placeholder4 withBuffer:80];
          
             if (iterationNear == YES)
             {
                 label.center = self.placeholder4.center;
+                _statementimg.hidden= NO;
             } else {
                
                 [label setFrame:CGRectMake(600, 450, 150, 100)];
@@ -396,6 +419,8 @@
             if (iterationNear == YES)
             {
                 label.center = self.placeholder1.center;
+                _variableimage.hidden=NO;
+             
             } else {
                 
                 [label setFrame:CGRectMake(600, 550, 150, 100)];
@@ -426,6 +451,7 @@
             if (iterationNear == YES)
             {
                 label.center = self.placeholder2.center;
+                _Controlimage.hidden=NO;
             } else {
                 
                 [label setFrame:CGRectMake(600, 650, 150, 100)];
@@ -469,9 +495,9 @@
     _titleLabel.font = loopBodyFont;
     _titleLabel.text = @"for (          ;          ;          )";
     
-    _thirdTextView.frame= CGRectMake(20, 360, 100, 100);
-    _thirdTextView.font= loopBodyFont;
-    _thirdTextView.text =@"{";
+    _fourthTextView.frame= CGRectMake(20, 360, 100, 100);
+    _fourthTextView.font= loopBodyFont;
+    _fourthTextView.text =@"{";
     
     _placeholder1.frame =CGRectMake(100, 350, answerLabelWidth, answerLabelHeight);
     _placeholder1.font =answerLabelFont;
@@ -488,12 +514,11 @@
     _placeholder3.text = @"i++";
     _placeholder3.backgroundColor =[UIColor orangeColor];
     
-    _firstTextView.frame= CGRectMake(30, 420, 300, 100);
-    _firstTextView.font =loopBodyFont;
-    _firstTextView.backgroundColor= Nil;
-    _firstTextView.text = @"hello world!!";
     
-    _secondTextView.frame= CGRectMake(15, 450, 100, 100);
+    _userInput.hidden = NO;
+    _userInput.frame =CGRectMake(30, 420, 300, 70);
+
+    _secondTextView.frame= CGRectMake(15, 490, 100, 100);
     _secondTextView.font= loopBodyFont;
     _secondTextView.text = @" } ";
     
@@ -508,6 +533,8 @@
 
 - (IBAction)VideoButton:(UIBarButtonItem *)sender {
     _myButton.hidden = YES;
+    _userInput.hidden = YES;
+    
     _firstTextView.text =@" ";
     
     _secondTextView.text = @" ";
@@ -536,7 +563,7 @@
     UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0.0, 0.0,840.0,840.0)];
     NSURL *URL = [NSURL URLWithString:@"http://www.youtube.com/watch?v=rjkYAs6gAkk"];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:URL];
-   // webView.delegate = self ;
+   
     [webView loadRequest:requestObj];
     [self.view addSubview:webView];
 }
@@ -546,12 +573,15 @@
 
 
 - (IBAction)myButton:(UIButton *)sender {
-     UIFont *textfont = [UIFont fontWithName:@"Courier New" size:16];
-    _thirdTextView.frame =CGRectMake(30, 550, 200, 1000);
-    _thirdTextView.font =textfont;
-
+   //  UIFont *textfont = [UIFont fontWithName:@"Courier New" size:16];
+    _thirdTextView.frame =CGRectMake(30, 590, 200, 1000);
     
-_thirdTextView.text = @" hello world!! hello world!!   hello world!!    hello world!!   hello world!!";
-     [self.thirdTextView sizeToFit];
+    _thirdTextView.text = @"";
+    
+    for (int i = 0; i < 5; i++) {
+        _thirdTextView.text = [NSString stringWithFormat:@"%@ \r %@", _thirdTextView.text, self.userInput.text];
+    }
+   
+    [self.thirdTextView sizeToFit];
 }
 @end

@@ -33,6 +33,8 @@
 
 @property (strong, nonatomic) Level *currentLevel;
 
+@property int incorrectGuesses;
+
 -(BOOL)isThisView:(UIView *)firstView nearTo:(UIView *)secondView withBuffer:(CGFloat) buffer;
 
 -(void)startLevel:(int) level;

@@ -135,6 +135,7 @@
         
         // make pan gesture recognizer
         UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panDetected:)];
+        panGesture.maximumNumberOfTouches = 1;
         [answer addGestureRecognizer:panGesture];
         
         // update next label positions
@@ -191,7 +192,6 @@
 
 -(void)panDetected:(UIPanGestureRecognizer *)sender
 {
-
     AnswerLabel *answer = (AnswerLabel *) sender.view;
     CGPoint amtOftranslation = [sender translationInView:self.view];
     CGPoint labelPosition = answer.center;
@@ -249,6 +249,9 @@
     _terminatingConditionAnswer = @"";
     _incrementAnswer = @"";
     
+    // reset guess count
+    _incorrectGuesses = 0;
+    
     // reset answer labels
     for (AnswerLabel *label in _currentLevel.possibleAnswers)
     {
@@ -270,6 +273,8 @@
     NSMutableSet *possibleAnswers = [[NSMutableSet alloc] init];
     
     NSMutableSet *correctAnswerCombinations = [[NSMutableSet alloc] init];
+    
+    NSMutableArray *levelHints = [[NSMutableArray alloc] init];
     
     // make sure level is positive
     level = (level < 0) ? level*-1 : level;
@@ -294,8 +299,6 @@
         possibleAnswer = [NSString stringWithFormat:@"i <= %i", random +1];
         [possibleAnswers addObject:[[AnswerLabel alloc ] initWithAnswer:possibleAnswer ofType:@"terminating"]];
         
-        
-        
         NSString *correctInitialization;
         NSString *correctTerminating;
         NSString *correctIncrement;
@@ -305,6 +308,10 @@
         correctIncrement = @"";
         NSArray *correctCombo = [NSArray arrayWithObjects:correctInitialization,correctTerminating,correctIncrement, nil];
         [correctAnswerCombinations addObject:correctCombo];
+        
+        // hints
+        [levelHints addObject:@"Remember the loop starts counting at 0."];
+        [levelHints addObject:@"The loop needs to run an exact amount of times, no more."];
         
     } else if (level == 2) {
         int random = [self getRandomNumberFrom:3 to:10];
@@ -342,6 +349,7 @@
     _currentLevel.increment = increment;
     _currentLevel.possibleAnswers = possibleAnswers;
     _currentLevel.correctAnswerCombinations = correctAnswerCombinations;
+    _currentLevel.levelHints = levelHints;
     
     [self setUpLevel];
 }
@@ -390,7 +398,14 @@
        
         
     } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Wrong Answer" message:@"Sorry, that answer is not correct :(" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        _incorrectGuesses++;
+        NSString *message = @"Sorry, that answer is not correct. :(";
+        if (_incorrectGuesses >= 2) {
+            NSUInteger randomIndex = arc4random() % [_currentLevel.levelHints count];
+            NSString *hint = _currentLevel.levelHints[randomIndex];
+            message = [NSString stringWithFormat:@"%@ \rHint: %@",message,hint];
+        }
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Wrong Answer" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];
     }
 }

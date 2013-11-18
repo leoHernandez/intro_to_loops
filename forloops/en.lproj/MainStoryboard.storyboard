@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="swv-lk-LuF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="swv-lk-LuF">
     <dependencies>
         <deployment version="1792" defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -184,7 +184,7 @@
                         <subviews>
                             <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" usesAttributedText="YES" id="waY-OK-nkb">
                                 <rect key="frame" x="127" y="245" width="459" height="96"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.89036591200000004" green="0.89036591200000004" blue="0.89036591200000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <attributedString key="attributedText">
                                     <fragment content="  A Loop is a Programming structure that allows code to be repeated until a certain condition is met.">
                                         <attributes>
@@ -195,48 +195,6 @@
                                 </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="NgI-B5-jW3">
-                                <rect key="frame" x="0.0" y="980" width="768" height="44"/>
-                                <items>
-                                    <barButtonItem title="what is a loop?" id="HuP-nl-Cdu">
-                                        <connections>
-                                            <action selector="WhatisLoopButton:" destination="1ft-w8-BXv" id="Wa4-AW-5to"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="What does a loop look like?" id="yFL-J7-Eg4">
-                                        <connections>
-                                            <action selector="LookLikeButton:" destination="1ft-w8-BXv" id="lEd-Tb-cND"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="Terms" id="6O1-xG-wlw">
-                                        <connections>
-                                            <action selector="termsButton:" destination="1ft-w8-BXv" id="gaD-Vm-fZu"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="examples" id="gHV-fM-yOp">
-                                        <connections>
-                                            <action selector="exampleButton:" destination="1ft-w8-BXv" id="u1F-5y-O0Q"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="Show me a video" id="Ysu-Fz-5QL">
-                                        <connections>
-                                            <action selector="VideoButton:" destination="1ft-w8-BXv" id="1Wg-rw-7Bv"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tutorials" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DNV-b2-fso">
-                                <rect key="frame" x="352" y="58" width="65" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Click on one of the buttons to find out more" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UjK-Z2-7dg">
-                                <rect key="frame" x="217" y="87" width="335" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="GEq-Ol-iRa">
                                 <rect key="frame" x="357" y="521" width="356" height="124"/>
                             </imageView>
@@ -249,21 +207,16 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="2N9-59-9At">
                                 <rect key="frame" x="352" y="438" width="361" height="75"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" id="wdB-XS-TZd">
-                                <rect key="frame" x="198" y="261" width="468" height="45"/>
-                                <color key="backgroundColor" red="0.33562485331001168" green="1" blue="0.54431115363257976" alpha="0.0" colorSpace="calibratedRGB"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="What Is a Loop?">
-                                        <attributes>
-                                            <font key="NSFont" size="22" name="GloucesterMT-ExtraCondensed"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="What Is a Loop?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" id="wdB-XS-TZd">
+                                <rect key="frame" x="301" y="192" width="468" height="45"/>
+                                <color key="backgroundColor" red="0.89036591200000004" green="0.89036591200000004" blue="0.89036591200000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="GloucesterMT-ExtraCondensed" family="Gloucester MT Extra Condensed" pointSize="22"/>
+                                <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
                             <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" id="zUG-GB-Izt">
-                                <rect key="frame" x="40" y="341" width="240" height="128"/>
+                                <rect key="frame" x="74" y="162" width="240" height="128"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -351,8 +304,56 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="io2-IL-wja">
+                                <rect key="frame" x="92" y="91" width="131" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="What is a Loop?">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="WLoopButton:" destination="1ft-w8-BXv" eventType="touchUpInside" id="sic-8s-OQY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WQd-r5-GQF">
+                                <rect key="frame" x="247" y="91" width="165" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="What does it look like?">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="LookButton:" destination="1ft-w8-BXv" eventType="touchUpInside" id="BQD-sA-TcN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DQv-Wf-9Fu">
+                                <rect key="frame" x="427" y="91" width="61" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Terms">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="TermButton:" destination="1ft-w8-BXv" eventType="touchUpInside" id="6Wb-eU-psW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iAB-B9-rVj">
+                                <rect key="frame" x="496" y="91" width="125" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Examples">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="ExampleButton:" destination="1ft-w8-BXv" eventType="touchUpInside" id="Dfm-iY-UDl"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.89036591198979598" green="0.89036591198979598" blue="0.89036591198979598" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Tutorials" id="M5n-MI-eTx"/>
                     <connections>

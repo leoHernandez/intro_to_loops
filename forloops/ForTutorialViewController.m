@@ -30,7 +30,7 @@
     _myLabel.text=@" ";
     _label1.font = [UIFont fontWithName:@"Courier New" size:30];
     _label1.frame=CGRectMake(30,300,750,600);
-    _label1.text = @"What is a loop? A loop is a programming structure that allows code to be repeated until a certain condition is met.";
+    _label1.text = @"What is a loop? A loop is a programming structure that allows code to be repeated until a certain condition is met. This allows you to run a specific time of code several times without having to re type it. ";
     self.label1.numberOfLines=0;
     [self.label1 sizeToFit];
     
@@ -47,7 +47,8 @@
  All other labels and text views and images are hidden
  
  */
-- (IBAction)WhatisLoopButton:(UIBarButtonItem *)sender {
+- (IBAction)WLoopButton:(UIButton *)sender{
+//- (IBAction)WhatisLoopButton:(UIBarButtonItem *)sender {
    
     _titleLabel.frame = CGRectMake(300, 250, self.view.frame.size.width-20, 20);
       _myButton.hidden = YES;
@@ -79,23 +80,26 @@
     _userInput.hidden = YES;
     
    
-    
+    _titleLabel.textColor = [UIColor blackColor];
       _titleLabel.text= @"What is a Loop? ";
     _label1.frame=CGRectMake(30,300,750,600);
   
     _label1.font = [UIFont fontWithName:@"Courier New" size:30];
-    _label1.text = @"What is a loop? A loop is a programming structure that allows code to be repeated until a certain condition is met.";
+    _label1.text = @"What is a loop? A loop is a programming structure that allows code to be repeated until a certain condition is met. This allows you to run a specific time of code several times without having to re type it";
    self.label1.numberOfLines=0;
     [self.label1 sizeToFit];
    
     
 }
+
+
+
 /*
  This method shows how each part of the loop looks like.
  
  */
-
-- (IBAction)LookLikeButton:(UIBarButtonItem *)sender {
+- (IBAction)LookButton:(UIButton *)sender {
+    NSLog(@"here");
    _titleLabel.frame = CGRectMake(300, 250, self.view.frame.size.width-20, 20);
      UIFont *textfont = [UIFont fontWithName:@"Courier New" size:16];
        _myLabel.text= @" ";
@@ -128,12 +132,15 @@
     _firstTextView.text= @" Initialization: This is where a variable called a loop control variable that is used to keep track of the number of iterations the loop has gone through.";
     _firstTextView.frame = CGRectMake(30, 330, 300, 200);
     _firstTextView.font = textfont;
-    
+    //_firstTextView.textColor = [UIColor yellowColor];
     _firstTextView.editable =NO;
+    
     _secondTextView.text = @" Terminating Condition: A statement that defines a test condition the loop control variable must meet in order to terminate the loop.";
     _secondTextView.font =textfont;
     _secondTextView.frame= CGRectMake(30, 450, 300, 200);
+   // _secondTextView.textColor = [UIColor cyanColor];
     _secondTextView.editable=NO;
+    
     _thirdTextView.text = @"Increment/Decrement of Loop Control Variable: Loop control variables can either be incremented (increased by 1 in each iteration), decremented (decreased by 1 in each iteration) or can be increased or decreased by a specific amount.";
     _thirdTextView.font =textfont;
     _thirdTextView.frame = CGRectMake(30, 560, 300, 200);
@@ -141,6 +148,7 @@
     _fourthTextView.frame= CGRectMake(30, 750, 300, 200);
     _fourthTextView.text =@"Loop Body: This is the code to be executed with each iteration.";
     _fourthTextView.font=textfont;
+  //  _fourthTextView.textColor =[UIColor orangeColor];
     _fourthTextView.editable=NO;
     
     self.iterationImage.image = [UIImage imageNamed:@"initializerImage2.png"];
@@ -155,15 +163,17 @@
     _myLabel.frame=CGRectMake(30,300,750,600);
    
     _myLabel.font = [UIFont fontWithName:@"Courier New" size:20];
-    
-    
     _myLabel.editable = NO;
 }
+
+
+
+
+
 /*
  This method has terms that a for loop has.  The labels have the ability to be drag and dropped and a specific location has been set so that each individual label can only be placed in one location.  If the label is dragged to the wrong place, it should return to its original location
  */
-
-- (IBAction)termsButton:(UIBarButtonItem *)sender {
+-  (IBAction)TermButton:(UIButton *)sender {
       _myButton.hidden = YES;
     _userInput.hidden = YES;
     
@@ -199,17 +209,17 @@
     _myLabel.text= @" ";
    
     
-    _firstTextView.text= @"Variable --->";
+    _firstTextView.text= @"Initialization --->";
     _firstTextView.frame= CGRectMake(30, 350, 200, 100);
     _firstTextView.font = textfont;
     _firstTextView.backgroundColor =Nil;
-   _secondTextView.text =@"Loop Control variable -->";
+   _secondTextView.text =@"Terminating Condition -->";
     _secondTextView.frame= CGRectMake(30, 490, 200, 100);
     _secondTextView.font = textfont;
-   _thirdTextView.text =@"Iteration -->";
+   _thirdTextView.text =@"Increment/Decrement-->";
     _thirdTextView.frame = CGRectMake(30, 680, 200, 100);
     _thirdTextView.font =textfont;
-   _fourthTextView.text =@"Statement-->";
+   _fourthTextView.text =@"Loop Body-->";
     _fourthTextView.frame= CGRectMake(30, 870, 200, 100);
     _fourthTextView.font= textfont;
     
@@ -290,8 +300,6 @@
     
     UIPanGestureRecognizer *pan4 = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector (panDetected4:)];
     [self.label4 addGestureRecognizer:pan4];
-
-    
     
       _myLabel.editable = NO;
   
@@ -461,8 +469,9 @@
     }
 
     
+- (IBAction)ExampleButton:(UIButton *)sender {
 
-- (IBAction)exampleButton:(UIBarButtonItem *)sender {
+//- (IBAction)exampleButton:(UIBarButtonItem *)sender {
     _myLabel.text= @" ";
     _firstTextView.text =@" ";
     _secondTextView.text = @" ";
@@ -502,11 +511,11 @@
     _placeholder1.frame =CGRectMake(100, 350, answerLabelWidth, answerLabelHeight);
     _placeholder1.font =answerLabelFont;
     _placeholder1.backgroundColor = [UIColor yellowColor];
-    _placeholder1.text = @" i = 0";
+    _placeholder1.text = @" i = 5";
     
     _placeholder2.frame = CGRectMake(260, 350, answerLabelWidth, answerLabelHeight);
     _placeholder2.font=answerLabelFont;
-    _placeholder2.text = @" i < 5" ;
+    _placeholder2.text = @" i < 10" ;
     _placeholder2.backgroundColor = [UIColor cyanColor];
     
     _placeholder3.frame = CGRectMake(430, 350, answerLabelWidth, answerLabelHeight);
@@ -578,10 +587,13 @@
     
     _thirdTextView.text = @"";
     
-    for (int i = 0; i < 5; i++) {
+    for (int i = 5; i < 10; i++) {
         _thirdTextView.text = [NSString stringWithFormat:@"%@ \r %@", _thirdTextView.text, self.userInput.text];
     }
    
     [self.thirdTextView sizeToFit];
 }
+
+
+
 @end

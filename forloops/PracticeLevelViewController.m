@@ -41,6 +41,7 @@
     self.navigationItem.title = [NSString stringWithFormat:@"Level %i",_currentLevel.levelNumber];
     
     // create and display instructions label
+    [_instructionsLabel removeFromSuperview];
     CGRect instructionsLabelFrame = CGRectMake(20, 120, self.view.frame.size.width-20, 0);
     _instructionsLabel = [[UILabel alloc] initWithFrame:instructionsLabelFrame];
     [_instructionsLabel setText:_currentLevel.levelInstructions];
@@ -67,6 +68,7 @@
     [self.view addSubview:openingParen];
     
     // loop body
+    [_loopBodyLabel removeFromSuperview];
     CGRect loopBodyFrame = CGRectMake(80, openingParenFrame.origin.y+20, self.view.frame.size.width-100, 10);
     _loopBodyLabel = [[UILabel alloc] initWithFrame:loopBodyFrame];
     _loopBodyLabel.font = loopBodyFont;
@@ -75,13 +77,14 @@
     [_loopBodyLabel sizeToFit];
     [self.view addSubview:_loopBodyLabel];
     
+    [_closingParens removeFromSuperview];
     CGFloat closingParensY = _loopBodyLabel.frame.origin.y + _loopBodyLabel.frame.size.height;
     CGRect closingParensFrame = CGRectMake(20, closingParensY, 10, 10);
-    UILabel *closingParens = [[UILabel alloc] initWithFrame:closingParensFrame];
-    closingParens.font = loopBodyFont;
-    closingParens.text = @"}";
-    [closingParens sizeToFit];
-    [self.view addSubview:closingParens];
+    _closingParens = [[UILabel alloc] initWithFrame:closingParensFrame];
+    _closingParens.font = loopBodyFont;
+    _closingParens.text = @"}";
+    [_closingParens sizeToFit];
+    [self.view addSubview:_closingParens];
     
     // label for loop components
     _answerLabelWidth = 140;
@@ -347,7 +350,7 @@
         int random = [self getRandomNumberFrom:3 to:10];
         levelInstructions = [NSString stringWithFormat:@"Drag and drop the correct loop increment/decrement variable to make the loop run exactly %i times", random];
         
-        loopBody = @"System.out.println(\"I never knew loops could be incredible!\");";
+        loopBody = @"System.out.println(\"I never knew loops could \nbe incredible!\");";
         
         initialization = [NSString stringWithFormat:@"int i = %i", random];
         terminatingCondition = @"i > 0";

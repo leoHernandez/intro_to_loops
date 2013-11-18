@@ -15,6 +15,7 @@
 
 @property (strong, nonatomic) UILabel *instructionsLabel;
 @property (strong, nonatomic) UILabel *loopBodyLabel;
+@property (strong, nonatomic) UILabel *closingParens;
 
 @property (strong, nonatomic) UILabel *initializationContainerLabel;
 @property (strong, nonatomic) UILabel *terminatingConditionContainerLabel;

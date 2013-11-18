@@ -374,7 +374,7 @@
         [correctAnswerCombinations addObject:correctCombo];
         
         //hints
-        [levelHints addObject:@"Is the loop count up or down?"];
+        [levelHints addObject:@"Is the loop counting up or down?"];
         [levelHints addObject:[NSString stringWithFormat:@"The loop has to run exactly %i times",random]];
         
     } else {

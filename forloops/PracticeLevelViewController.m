@@ -383,9 +383,23 @@
         
     } else if (level == 4) {
         int random;
-        do {
+        /*
+         the code below takes a long time to generate a number, using a dirty fix for now
+         do {
             random = [self getRandomNumberFrom:10 to:50];
         } while (!random%5==0);
+         */
+        
+        // dirty fix for above code as it causes performance issue
+        int val = 10;
+        int randomNums[9];
+        for (int i = 0; i < sizeof(randomNums); i++) {
+            randomNums[i] = val;
+            val = val + 5;
+            NSLog(@"%i", randomNums[i]);
+        }
+        int index = [self getRandomNumberFrom:0 to:sizeof(randomNums)];
+        random = randomNums[index];
         
         int div = random/5;
         

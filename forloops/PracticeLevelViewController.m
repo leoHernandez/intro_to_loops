@@ -261,12 +261,6 @@
         [label removeFromSuperview];
     }
     
-    // reset instructions text
-    [_instructionsLabel removeFromSuperview];
-    
-    // reset loop body
-    [_loopBodyLabel removeFromSuperview];
-    
     NSString *levelInstructions;
     NSString *loopBody;
     NSString *initialization;

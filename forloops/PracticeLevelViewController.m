@@ -34,6 +34,8 @@
  
     // set highest level available
     _maxLevel = 3;
+    
+    // start level 1 first
     [self startLevel:1];
     
 }
@@ -326,16 +328,16 @@
         increment = @"i++";
         
         NSString *possibleAnswer;
-        possibleAnswer = @"i = 0";
+        possibleAnswer = @"int i = 0";
         [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"initialization"]];
-        possibleAnswer = @"i = 1";
+        possibleAnswer = @"int i = 1";
         [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"initialization"]];
         
         NSString *correctInitialization;
         NSString *correctTerminating;
         NSString *correctIncrement;
         
-        correctInitialization = @"i = 0";
+        correctInitialization = @"int i = 0";
         correctTerminating = @"";
         correctIncrement = @"";
         NSArray *correctCombo = [NSArray arrayWithObjects:correctInitialization,correctTerminating,correctIncrement, nil];
@@ -379,8 +381,15 @@
         [levelHints addObject:@"Is the loop counting up or down?"];
         [levelHints addObject:[NSString stringWithFormat:@"The loop has to run exactly %i times",random]];
         
-    } else {
-        [self startLevel:1];
+    } else if (level == 4) {
+        int random;
+        do {
+            random = [self getRandomNumberFrom:5 to:50];
+        } while (random%5==0);
+        
+        int div = random/5;
+        
+        
     }
     
   

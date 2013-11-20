@@ -33,6 +33,7 @@
 @property CGFloat answerLabelHeight;
 
 @property (strong, nonatomic) Level *currentLevel;
+@property int maxLevel;
 
 @property int incorrectGuesses;
 

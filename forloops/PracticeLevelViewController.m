@@ -32,6 +32,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
  
+    // set highest level available
+    _maxLevel = 3;
     [self startLevel:1];
     
 }
@@ -275,6 +277,9 @@
     
     // make sure level is positive
     level = (level < 0) ? level*-1 : level;
+    
+    // for now, go back to level 1 if max level is reached
+    level = (level > _maxLevel) ? 1 : level;
     
     if (level == 1) {
         int random = [self getRandomNumberFrom:3 to:10];

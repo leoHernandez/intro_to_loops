@@ -393,18 +393,18 @@
         // dirty fix for above code as it causes performance issue
         int val = 10;
         int randomNums[9];
-        for (int i = 0; i < sizeof(randomNums); i++) {
+        for (int i = 0; i < 9; i++) {
             randomNums[i] = val;
             val = val + 5;
             NSLog(@"%i", randomNums[i]);
         }
-        int index = [self getRandomNumberFrom:0 to:sizeof(randomNums)];
+        int index = [self getRandomNumberFrom:0 to:9];
         random = randomNums[index];
         
         int div = random/5;
         
         // testing
-        for (int i = 0; i <= random; i = i + 5) {
+        for (int i = 5; i < random; i = i + 5) {
             NSLog([NSString stringWithFormat:@"i: %i",i]);
         }
         
@@ -433,11 +433,24 @@
         NSString *correctInitialization;
         NSString *correctTerminating;
         NSString *correctIncrement;
+        NSArray *correctCombo;
         
         correctInitialization = @"int i = 0";
-        correctTerminating = [NSString stringWithFormat:@"i < %i",div];
+        correctTerminating = [NSString stringWithFormat:@"i < %i",random];
         correctIncrement = @"";
-        NSArray *correctCombo = [NSArray arrayWithObjects:correctInitialization, correctTerminating, correctIncrement, nil];
+        correctCombo = [NSArray arrayWithObjects:correctInitialization, correctTerminating, correctIncrement, nil];
+        [correctAnswerCombinations addObject:correctCombo];
+        
+        correctInitialization = @"int i = 1";
+        correctTerminating = [NSString stringWithFormat:@"i <= %i",random];
+        correctIncrement = @"";
+        correctCombo = [NSArray arrayWithObjects:correctInitialization,correctTerminating,correctIncrement, nil];
+        [correctAnswerCombinations addObject:correctCombo];
+        
+        correctInitialization = @"int i = 5";
+        correctTerminating = [NSString stringWithFormat:@"i <= %i", random];
+        correctIncrement = @"";
+        correctCombo = [NSArray arrayWithObjects:correctInitialization, correctTerminating, correctIncrement, nil];
         [correctAnswerCombinations addObject:correctCombo];
         
         // hints

@@ -36,6 +36,7 @@
 @property int maxLevel;
 
 @property int incorrectGuesses;
+@property (strong, nonatomic) IBOutlet UIImageView *feedbackImage;
 
 -(BOOL)isThisView:(UIView *)firstView nearTo:(UIView *)secondView withBuffer:(CGFloat) buffer;
 

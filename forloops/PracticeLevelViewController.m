@@ -259,6 +259,9 @@
     // reset guess count
     _incorrectGuesses = 0;
     
+    // reset feedback image
+    _feedbackImage.image = nil;
+    
     // reset answer labels
     for (AnswerLabel *label in _currentLevel.possibleAnswers)
     {
@@ -502,6 +505,10 @@
     
     if (answerCorrect == YES) {
         
+        // set feedback image
+        UIImage *correctFeedbackImage = [UIImage imageNamed:@"feedback_correct.png"];
+        [_feedbackImage setImage:correctFeedbackImage];
+        
         NSString *popupTitle = [NSString stringWithFormat:@"Level %i Complete",_currentLevel.levelNumber];
         NSString *popupMessage = @"That is the correct answer, well done! :-)";
         //NSString *popupImageLocation = @"feedback_correct.png";
@@ -516,6 +523,11 @@
        
         
     } else {
+        
+        // set feedback image
+        UIImage *incorrectFeedbackImage = [UIImage imageNamed:@"feedback_wrong.png"];
+        [_feedbackImage setImage:incorrectFeedbackImage];
+        
         _incorrectGuesses++;
         NSString *message = @"Sorry, that answer is not correct. :(";
         if (_incorrectGuesses >= 2) {

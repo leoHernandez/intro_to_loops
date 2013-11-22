@@ -327,7 +327,10 @@
         loopBody = @"System.out.println(\"Loops are cool!\");";
         
         initialization = @"";
-        terminatingCondition = [NSString stringWithFormat:@"i < %i",random];
+        
+        NSString *terminatingConditionString1 = [NSString stringWithFormat:@"i < %i",random];
+        NSString *terminatingConditionString2 = [NSString stringWithFormat:@"i <= %i",random];
+        terminatingCondition = ([self getRandomNumberFrom:1 to:2]%2==0) ? terminatingConditionString1 : terminatingConditionString2;
         increment = @"i++";
         
         NSString *possibleAnswer;
@@ -339,11 +342,16 @@
         NSString *correctInitialization;
         NSString *correctTerminating;
         NSString *correctIncrement;
+        NSArray *correctCombo;
         
-        correctInitialization = @"int i = 0";
+        if ( [terminatingCondition isEqualToString:terminatingConditionString1]) {
+            correctInitialization = @"int i = 0";
+        } else {
+            correctInitialization = @"int i = 1";
+        }
         correctTerminating = @"";
         correctIncrement = @"";
-        NSArray *correctCombo = [NSArray arrayWithObjects:correctInitialization,correctTerminating,correctIncrement, nil];
+        correctCombo = [NSArray arrayWithObjects:correctInitialization,correctTerminating,correctIncrement, nil];
         [correctAnswerCombinations addObject:correctCombo];
         
         // hints

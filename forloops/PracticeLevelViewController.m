@@ -36,7 +36,7 @@
     _maxLevel = 4;
     
     // start level 1 first
-    [self startLevel:4];
+    [self startLevel:1];
     
 }
 
@@ -128,6 +128,7 @@
     // create answer labels
     CGFloat labelX = 20;
     CGFloat labelY = 740;
+    
     for (AnswerLabel *answer in _currentLevel.possibleAnswers)
     {
         CGRect frame = CGRectMake(labelX, labelY, _answerLabelWidth, _answerLabelHeight);
@@ -135,7 +136,7 @@
         answer.userInteractionEnabled = YES;
         answer.font = answerLabelFont;
         [answer setTextAlignment:NSTextAlignmentCenter];
-        
+                
         if ([answer.type isEqualToString:@"initialization"]) {
             answer.backgroundColor = initializationColor;
         } else if ([answer.type isEqualToString:@"terminating"]) {
@@ -491,6 +492,7 @@
 }
 
 - (IBAction)checkAnswer:(UIBarButtonItem *)sender {
+    
     BOOL answerCorrect = NO;
     
     for (NSArray *combo in _currentLevel.correctAnswerCombinations)
@@ -528,19 +530,29 @@
         
     } else {
         
-        // set feedback image
-        UIImage *incorrectFeedbackImage = [UIImage imageNamed:@"feedback_wrong.png"];
-        [_feedbackImage setImage:incorrectFeedbackImage];
-        
-        _incorrectGuesses++;
-        NSString *message = @"Sorry, that answer is not correct. :(";
-        if (_incorrectGuesses >= 2) {
-            NSUInteger randomIndex = arc4random() % [_currentLevel.levelHints count];
-            NSString *hint = _currentLevel.levelHints[randomIndex];
-            message = [NSString stringWithFormat:@"%@ \rHint: %@",message,hint];
+        if (![_initializationAnswer isEqualToString:@""]
+            || ![_terminatingConditionAnswer isEqualToString:@""]
+            || ![_incrementAnswer isEqualToString:@""])
+        {
+            // set feedback image
+            UIImage *incorrectFeedbackImage = [UIImage imageNamed:@"feedback_wrong.png"];
+            [_feedbackImage setImage:incorrectFeedbackImage];
+            
+            _incorrectGuesses++;
+            NSString *message = @"Sorry, that answer is not correct. :(";
+            if (_incorrectGuesses >= 2) {
+                NSUInteger randomIndex = arc4random() % [_currentLevel.levelHints count];
+                NSString *hint = _currentLevel.levelHints[randomIndex];
+                message = [NSString stringWithFormat:@"%@ \rHint: %@",message,hint];
+            }
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Wrong Answer" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alert show];
+        } else {
+            // user didn't enter an answer...
+            NSString *message = @"Please drag and drop an answer!";
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Answer Entered" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
         }
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Wrong Answer" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alert show];
     }
 }
 

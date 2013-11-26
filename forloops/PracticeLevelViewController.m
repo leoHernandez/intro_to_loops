@@ -135,7 +135,17 @@
         answer.userInteractionEnabled = YES;
         answer.font = answerLabelFont;
         [answer setTextAlignment:NSTextAlignmentCenter];
-        answer.backgroundColor = answerLabelColor;
+        
+        if ([answer.type isEqualToString:@"initialization"]) {
+            answer.backgroundColor = initializationColor;
+        } else if ([answer.type isEqualToString:@"terminating"]) {
+            answer.backgroundColor = terminatingConditionColor;
+        } else if ([answer.type isEqualToString:@"increment"]) {
+            answer.backgroundColor = incrementColor;
+        } else {
+            answer.backgroundColor = answerLabelColor;
+        }
+        
         answer.layer.borderColor = [UIColor blackColor].CGColor;
         answer.layer.borderWidth = 1;
         [self.view addSubview:answer];
@@ -407,7 +417,6 @@
         for (int i = 0; i < 9; i++) {
             randomNums[i] = val;
             val = val + 5;
-            NSLog(@"%i", randomNums[i]);
         }
         int index = [self getRandomNumberFrom:0 to:9];
         random = randomNums[index];

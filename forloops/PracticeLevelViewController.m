@@ -36,7 +36,7 @@
     _maxLevel = 4;
     
     // start level 1 first
-    [self startLevel:1];
+    [self startLevel:4];
     
 }
 
@@ -414,11 +414,6 @@
         
         int div = random/5;
         
-        // testing
-        for (int i = 5; i < random; i = i + 5) {
-            NSLog([NSString stringWithFormat:@"i: %i",i]);
-        }
-        
         levelInstructions = [NSString stringWithFormat:@"Drag and drop the correct initialization and terminating condition to make the loop run exactly %i times.", div];
         
         loopBody = @"System.out.println(\"I can't wait to start using loops in my programs!\");";
@@ -430,8 +425,6 @@
         // answer labels
         NSString *possibleAnswer;
         possibleAnswer = @"int i = 0";
-        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"initialization"]];
-        possibleAnswer = @"int i = 1";
         [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"initialization"]];
         possibleAnswer = @"int i = 5";
         [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"initialization"]];
@@ -450,12 +443,6 @@
         correctTerminating = [NSString stringWithFormat:@"i < %i",random];
         correctIncrement = @"";
         correctCombo = [NSArray arrayWithObjects:correctInitialization, correctTerminating, correctIncrement, nil];
-        [correctAnswerCombinations addObject:correctCombo];
-        
-        correctInitialization = @"int i = 1";
-        correctTerminating = [NSString stringWithFormat:@"i <= %i",random];
-        correctIncrement = @"";
-        correctCombo = [NSArray arrayWithObjects:correctInitialization,correctTerminating,correctIncrement, nil];
         [correctAnswerCombinations addObject:correctCombo];
         
         correctInitialization = @"int i = 5";

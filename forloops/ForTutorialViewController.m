@@ -48,8 +48,9 @@
  
  */
 - (IBAction)WLoopButton:(UIButton *)sender{
-//- (IBAction)WhatisLoopButton:(UIBarButtonItem *)sender {
-   
+    /*****
+     This section resets the view and all of the labels and images
+     *****/
     _titleLabel.frame = CGRectMake(300, 250, self.view.frame.size.width-20, 20);
       _myButton.hidden = YES;
     _firstTextView.text =@" ";
@@ -99,7 +100,9 @@
  
  */
 - (IBAction)LookButton:(UIButton *)sender {
-    NSLog(@"here");
+    /*****
+     This section resets the view and all of the labels and images
+     *****/
    _titleLabel.frame = CGRectMake(300, 250, self.view.frame.size.width-20, 20);
      UIFont *textfont = [UIFont fontWithName:@"Courier New" size:16];
        _myLabel.text= @" ";
@@ -174,11 +177,12 @@
  This method has terms that a for loop has.  The labels have the ability to be drag and dropped and a specific location has been set so that each individual label can only be placed in one location.  If the label is dragged to the wrong place, it should return to its original location
  */
 -  (IBAction)TermButton:(UIButton *)sender {
-      _myButton.hidden = YES;
+    /*****
+     This section resets the view and all of the labels and images
+     *****/
+    _myButton.hidden = YES;
     _userInput.hidden = YES;
-    
     _firstTextView.text =@" ";
-    
     _secondTextView.text = @" ";
     _thirdTextView.text =@" ";
     _fourthTextView.text =@" ";
@@ -195,20 +199,12 @@
     _label3.backgroundColor=Nil;
     _label4.text =@" ";
     _label4.backgroundColor= Nil;
-    //self.statementimg.hidden = YES;
-    //self.Controlimage.hidden = YES;
-    //self.variableimage.hidden =YES;
-    //self.iterationImage.hidden=YES;
     _titleLabel.frame = CGRectMake(300, 250, self.view.frame.size.width-20, 20);
     _myLabel.text= @" ";
-    
     _myLabel.frame=CGRectMake(30,300,750,600);
     UIFont *textfont = [UIFont fontWithName:@"Courier New" size:16];
-    //_myLabel.font = [UIFont fontWithName:@"Courier New" size:20];
-   // _myLabel.textColor = [UIColor redColor];
-    _myLabel.text= @" ";
+
    
-    
     _firstTextView.text= @"Initialization --->";
     _firstTextView.frame= CGRectMake(30, 350, 200, 100);
     _firstTextView.font = textfont;
@@ -230,7 +226,6 @@
     self.label1.frame = CGRectMake(600, 350, 150, 20);
     _label1.font = textfont;
     _label1.text= @"The number of times the code in the loop body has been executed";
-    //_label1.backgroundColor =Nil;
     self.label1.numberOfLines=0;
     [self.label1 sizeToFit];
     self.label1.userInteractionEnabled= YES;
@@ -470,8 +465,9 @@
 
     
 - (IBAction)ExampleButton:(UIButton *)sender {
-
-//- (IBAction)exampleButton:(UIBarButtonItem *)sender {
+    /*****
+     This section resets the view and all of the labels and images
+     *****/
     _myLabel.text= @" ";
     _firstTextView.text =@" ";
     _secondTextView.text = @" ";
@@ -498,8 +494,7 @@
     UIFont *answerLabelFont = [UIFont fontWithName:@"Courier New" size:20];
     CGFloat answerLabelWidth = 140;
     CGFloat answerLabelHeight = 25;
-   // UIColor *answerLabelColor = [[UIColor alloc] initWithRed:.5 green:.5 blue:.5 alpha:.2];
-    
+ 
     _titleLabel.frame = CGRectMake(20, 350, self.view.frame.size.width-20, 20);
     _titleLabel.font = loopBodyFont;
     _titleLabel.text = @"for (          ;          ;          )";
@@ -531,21 +526,18 @@
     _secondTextView.font= loopBodyFont;
     _secondTextView.text = @" } ";
     
-   
-
-    
     _myButton.hidden = NO;
-    
     _myLabel.editable = NO;
    
 }
 
 - (IBAction)VideoButton:(UIBarButtonItem *)sender {
+    /*****
+     This section resets the view and all of the labels and images
+     *****/
     _myButton.hidden = YES;
     _userInput.hidden = YES;
-    
     _firstTextView.text =@" ";
-    
     _secondTextView.text = @" ";
     _thirdTextView.text =@" ";
     _fourthTextView.text =@" ";
@@ -582,7 +574,6 @@
 
 
 - (IBAction)myButton:(UIButton *)sender {
-   //  UIFont *textfont = [UIFont fontWithName:@"Courier New" size:16];
     _thirdTextView.frame =CGRectMake(30, 590, 200, 1000);
     
     _thirdTextView.text = @"";
@@ -593,7 +584,6 @@
    
     [self.thirdTextView sizeToFit];
 }
-
 
 
 @end

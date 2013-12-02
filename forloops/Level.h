@@ -22,6 +22,8 @@
 
 @property (strong, nonatomic) NSMutableSet *correctAnswerCombinations;
 
+@property (strong, nonatomic) NSMutableArray *levelHints;
+
 -(id) initWithLevel: (int)level withInstructions: (NSString *)instructions;
 
 @end

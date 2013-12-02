@@ -15,6 +15,7 @@
 
 @property (strong, nonatomic) UILabel *instructionsLabel;
 @property (strong, nonatomic) UILabel *loopBodyLabel;
+@property (strong, nonatomic) UILabel *closingParens;
 
 @property (strong, nonatomic) UILabel *initializationContainerLabel;
 @property (strong, nonatomic) UILabel *terminatingConditionContainerLabel;
@@ -32,6 +33,10 @@
 @property CGFloat answerLabelHeight;
 
 @property (strong, nonatomic) Level *currentLevel;
+@property int maxLevel;
+
+@property int incorrectGuesses;
+@property (strong, nonatomic) IBOutlet UIImageView *feedbackImage;
 
 -(BOOL)isThisView:(UIView *)firstView nearTo:(UIView *)secondView withBuffer:(CGFloat) buffer;
 

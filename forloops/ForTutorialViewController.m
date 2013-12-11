@@ -506,11 +506,11 @@
     _placeholder1.frame =CGRectMake(100, 350, answerLabelWidth, answerLabelHeight);
     _placeholder1.font =answerLabelFont;
     _placeholder1.backgroundColor = [UIColor yellowColor];
-    _placeholder1.text = @" i = 5";
+    _placeholder1.text = @" i = 1";
     
     _placeholder2.frame = CGRectMake(260, 350, answerLabelWidth, answerLabelHeight);
     _placeholder2.font=answerLabelFont;
-    _placeholder2.text = @" i < 10" ;
+    _placeholder2.text = @" i < 5" ;
     _placeholder2.backgroundColor = [UIColor cyanColor];
     
     _placeholder3.frame = CGRectMake(430, 350, answerLabelWidth, answerLabelHeight);
@@ -529,7 +529,10 @@
     _myButton.hidden = NO;
     _myLabel.editable = NO;
    
+    
+   
 }
+
 
 - (IBAction)VideoButton:(UIBarButtonItem *)sender {
     /*****
@@ -578,8 +581,11 @@
     
     _thirdTextView.text = @"";
     
-    for (int i = 5; i < 10; i++) {
+        
+ 
+    for (int i = 1; i < 5; i++) {
         _thirdTextView.text = [NSString stringWithFormat:@"%@ \r %@", _thirdTextView.text, self.userInput.text];
+      
     }
    
     [self.thirdTextView sizeToFit];

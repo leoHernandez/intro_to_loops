@@ -506,7 +506,7 @@
     _placeholder1.frame =CGRectMake(100, 350, answerLabelWidth, answerLabelHeight);
     _placeholder1.font =answerLabelFont;
     _placeholder1.backgroundColor = [UIColor yellowColor];
-    _placeholder1.text = @" i = 5";
+    _placeholder1.text = @"int i = 5";
     
     _placeholder2.frame = CGRectMake(260, 350, answerLabelWidth, answerLabelHeight);
     _placeholder2.font=answerLabelFont;

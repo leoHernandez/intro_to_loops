@@ -499,7 +499,7 @@
     _titleLabel.font = loopBodyFont;
     _titleLabel.text = @"for (          ;          ;          )";
     
-    _fourthTextView.frame= CGRectMake(20, 360, 100, 100);
+    _fourthTextView.frame= CGRectMake(12, 360, 100, 100);
     _fourthTextView.font= loopBodyFont;
     _fourthTextView.text =@"{";
     
@@ -518,13 +518,14 @@
     _placeholder3.text = @"i++";
     _placeholder3.backgroundColor =[UIColor orangeColor];
     
-    
-    _userInput.hidden = NO;
-    _userInput.frame =CGRectMake(30, 420, 300, 70);
+    _exampleLoopBody = [[UILabel alloc] initWithFrame:CGRectMake(40, 380, self.view.frame.size.width-100, 70)];
+    _exampleLoopBody.text = @"System.out.println(\"Loops are so loopy!\");";
+    _exampleLoopBody.font = answerLabelFont;
+    [self.view addSubview:_exampleLoopBody];
 
-    _secondTextView.frame= CGRectMake(15, 490, 100, 100);
+    _secondTextView.frame= CGRectMake(12, 420, 100, 100);
     _secondTextView.font= loopBodyFont;
-    _secondTextView.text = @" } ";
+    _secondTextView.text = @"}";
     
     _myButton.hidden = NO;
     _myLabel.editable = NO;

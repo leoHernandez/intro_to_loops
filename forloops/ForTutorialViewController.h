@@ -43,7 +43,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *placeholder3;
 
 @property (strong, nonatomic) IBOutlet UILabel *placeholder4;
-    @property (strong, nonatomic) IBOutlet UIButton *myButton;
+@property (strong, nonatomic) IBOutlet UIButton *myButton;
+
+@property(strong, nonatomic) UILabel *exampleLoopBody;
 
 - (IBAction)myButton:(UIButton *)sender;
 

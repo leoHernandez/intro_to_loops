@@ -33,10 +33,10 @@
 	// Do any additional setup after loading the view.
  
     // set highest level available
-    _maxLevel = 4;
+    _maxLevel = 16;
     
     // start level 1 first
-    [self startLevel:1];
+    [self startLevel:12];
     
 }
 
@@ -331,7 +331,268 @@
         [levelHints addObject:@"Remember the loop starts counting at 0."];
         [levelHints addObject:@"The loop needs to run an exact amount of times, no more."];
         
+        
     } else if (level == 2) {
+        int random = [self getRandomNumberFrom:3 to:10];
+        levelInstructions = [NSString stringWithFormat:@"Drag and drop the correct terminating condition from the answers section to make the loop run exactly %i times.",random];
+        
+        loopBody = @"System.out.println(\"Must get all the homeowrk done in time!\");";
+        
+        initialization = @"int i = 1";
+        terminatingCondition = @"";
+        increment = @"i++";
+        
+        NSString *possibleAnswer;
+        possibleAnswer = [NSString stringWithFormat:@"i < %i",random+1];
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"terminating"]];
+        possibleAnswer = [NSString stringWithFormat:@"i <= %i",random+1];
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"terminating"]];
+        possibleAnswer = [NSString stringWithFormat:@"i < %i", random +2];
+        [possibleAnswers addObject:[[AnswerLabel alloc ] initWithAnswer:possibleAnswer ofType:@"terminating"]];
+        possibleAnswer = [NSString stringWithFormat:@"i <= %i", random +2];
+        [possibleAnswers addObject:[[AnswerLabel alloc ] initWithAnswer:possibleAnswer ofType:@"terminating"]];
+        
+        NSString *correctInitialization;
+        NSString *correctTerminating;
+        NSString *correctIncrement;
+        
+        correctInitialization = @"";
+        correctTerminating = [NSString stringWithFormat:@"i < %i", random+1];
+        correctIncrement = @"";
+        NSArray *correctCombo = [NSArray arrayWithObjects:correctInitialization,correctTerminating,correctIncrement, nil];
+        [correctAnswerCombinations addObject:correctCombo];
+        
+        // hints
+        [levelHints addObject:@"Remember the loop starts counting at 1."];
+        [levelHints addObject:@"The loop needs to run an exact amount of times, no more."];
+        
+        
+    }
+    else if (level == 3) {
+        int random = [self getRandomNumberFrom:3 to:10];
+        levelInstructions = [NSString stringWithFormat:@"Drag and drop the correct terminating condition from the answers section to make the loop run exactly %i times.",random];
+        
+        loopBody = @"System.out.println(\"Hello World!\");";
+        
+        initialization = @"int i = 2";
+        terminatingCondition = @"";
+        increment = @"i++";
+        
+        NSString *possibleAnswer;
+        possibleAnswer = [NSString stringWithFormat:@"i < %i",random+2];
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"terminating"]];
+        possibleAnswer = [NSString stringWithFormat:@"i <= %i",random+2];
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"terminating"]];
+        possibleAnswer = [NSString stringWithFormat:@"i < %i", random +3];
+        [possibleAnswers addObject:[[AnswerLabel alloc ] initWithAnswer:possibleAnswer ofType:@"terminating"]];
+        possibleAnswer = [NSString stringWithFormat:@"i <= %i", random +3];
+        [possibleAnswers addObject:[[AnswerLabel alloc ] initWithAnswer:possibleAnswer ofType:@"terminating"]];
+        
+        NSString *correctInitialization;
+        NSString *correctTerminating;
+        NSString *correctIncrement;
+        
+        correctInitialization = @"";
+        correctTerminating = [NSString stringWithFormat:@"i < %i", random+2];
+        correctIncrement = @"";
+        NSArray *correctCombo = [NSArray arrayWithObjects:correctInitialization,correctTerminating,correctIncrement, nil];
+        [correctAnswerCombinations addObject:correctCombo];
+        
+        // hints
+        [levelHints addObject:@"Remember the loop starts counting at 2."];
+        [levelHints addObject:@"The loop needs to run an exact amount of times, no more."];
+        
+        
+    }else if (level == 4) {
+        int random = [self getRandomNumberFrom:3 to:10];
+        levelInstructions = [NSString stringWithFormat:@"Drag and drop the correct terminating condition from the answers section to make the loop run exactly %i times.",random];
+        
+        loopBody = @"System.out.println(\"Hello World!\");";
+        
+        initialization = @"int i = 0";
+        terminatingCondition = @"";
+        increment = @"i++";
+        
+        NSString *possibleAnswer;
+        possibleAnswer = [NSString stringWithFormat:@"i < %i",random];
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"terminating"]];
+        possibleAnswer = [NSString stringWithFormat:@"i <= %i",random];
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"terminating"]];
+        possibleAnswer = [NSString stringWithFormat:@"i < %i", random +1];
+        [possibleAnswers addObject:[[AnswerLabel alloc ] initWithAnswer:possibleAnswer ofType:@"terminating"]];
+        possibleAnswer = [NSString stringWithFormat:@"i <= %i", random +1];
+        [possibleAnswers addObject:[[AnswerLabel alloc ] initWithAnswer:possibleAnswer ofType:@"terminating"]];
+        
+        NSString *correctInitialization;
+        NSString *correctTerminating;
+        NSString *correctIncrement;
+        
+        correctInitialization = @"";
+        correctTerminating = [NSString stringWithFormat:@"i < %i", random];
+        correctIncrement = @"";
+        NSArray *correctCombo = [NSArray arrayWithObjects:correctInitialization,correctTerminating,correctIncrement, nil];
+        [correctAnswerCombinations addObject:correctCombo];
+        
+        // hints
+        [levelHints addObject:@"Remember the loop starts counting at 0."];
+        [levelHints addObject:@"The loop needs to run an exact amount of times, no more."];
+        
+        
+    }
+    else if (level == 5) {
+        int random = [self getRandomNumberFrom:3 to:10];
+        levelInstructions = [NSString stringWithFormat:@"Drag and drop the correct terminating condition from the answers section to make the loop run exactly %i times.",random];
+        
+        loopBody = @"System.out.println(\"I am Starting to get this\");";
+        
+        initialization = @"int i = 1";
+        terminatingCondition = @"";
+        increment = @"i++";
+        
+        NSString *possibleAnswer;
+        possibleAnswer = [NSString stringWithFormat:@"i < %i",random+1];
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"terminating"]];
+        possibleAnswer = [NSString stringWithFormat:@"i <= %i",random+1];
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"terminating"]];
+        possibleAnswer = [NSString stringWithFormat:@"i < %i", random +2];
+        [possibleAnswers addObject:[[AnswerLabel alloc ] initWithAnswer:possibleAnswer ofType:@"terminating"]];
+        possibleAnswer = [NSString stringWithFormat:@"i <= %i", random +2];
+        [possibleAnswers addObject:[[AnswerLabel alloc ] initWithAnswer:possibleAnswer ofType:@"terminating"]];
+        
+        NSString *correctInitialization;
+        NSString *correctTerminating;
+        NSString *correctIncrement;
+        
+        correctInitialization = @"";
+        correctTerminating = [NSString stringWithFormat:@"i < %i", random+1];
+        correctIncrement = @"";
+        NSArray *correctCombo = [NSArray arrayWithObjects:correctInitialization,correctTerminating,correctIncrement, nil];
+        [correctAnswerCombinations addObject:correctCombo];
+        
+        // hints
+        [levelHints addObject:@"Remember the loop starts counting at 1."];
+        [levelHints addObject:@"The loop needs to run an exact amount of times, no more."];
+        
+        
+    }
+    else if (level == 6) {
+        int random = [self getRandomNumberFrom:3 to:10];
+        levelInstructions = [NSString stringWithFormat:@"Drag and drop the correct initialization variable to make the loop run exactly %i times.",random];
+        
+        loopBody = @"System.out.println(\"Loops are cool!\");";
+        
+        initialization = @"";
+        
+        NSString *terminatingConditionString1 = [NSString stringWithFormat:@"i < %i",random];
+        NSString *terminatingConditionString2 = [NSString stringWithFormat:@"i <= %i",random];
+        terminatingCondition = ([self getRandomNumberFrom:1 to:2]%2==0) ? terminatingConditionString1 : terminatingConditionString2;
+        increment = @"i++";
+        
+        NSString *possibleAnswer;
+        possibleAnswer = @"int i = 0";
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"initialization"]];
+        possibleAnswer = @"int i = 1";
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"initialization"]];
+        
+        NSString *correctInitialization;
+        NSString *correctTerminating;
+        NSString *correctIncrement;
+        NSArray *correctCombo;
+        
+        if ( [terminatingCondition isEqualToString:terminatingConditionString1]) {
+            correctInitialization = @"int i = 0";
+        } else {
+            correctInitialization = @"int i = 1";
+        }
+        correctTerminating = @"";
+        correctIncrement = @"";
+        correctCombo = [NSArray arrayWithObjects:correctInitialization,correctTerminating,correctIncrement, nil];
+        [correctAnswerCombinations addObject:correctCombo];
+        
+        // hints
+        [levelHints addObject:@"Know the difference between < and <="];
+        [levelHints addObject:@"Try to write the output down on a piece of paper and keep track of the varbiale i"];
+        
+    }
+    else if (level == 7) {
+        int random = [self getRandomNumberFrom:3 to:10];
+        levelInstructions = [NSString stringWithFormat:@"Drag and drop the correct initialization variable to make the loop run exactly %i times.",random];
+        
+        loopBody = @"System.out.println(\"Loops are cool!\");";
+        
+        initialization = @"";
+        
+        NSString *terminatingConditionString1 = [NSString stringWithFormat:@"i < %i",random];
+        NSString *terminatingConditionString2 = [NSString stringWithFormat:@"i <= %i",random];
+        terminatingCondition = ([self getRandomNumberFrom:1 to:2]%2==0) ? terminatingConditionString1 : terminatingConditionString2;
+        increment = @"i++";
+        
+        NSString *possibleAnswer;
+        possibleAnswer = @"int i = 0";
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"initialization"]];
+        possibleAnswer = @"int i = 1";
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"initialization"]];
+        
+        NSString *correctInitialization;
+        NSString *correctTerminating;
+        NSString *correctIncrement;
+        NSArray *correctCombo;
+        
+        if ( [terminatingCondition isEqualToString:terminatingConditionString1]) {
+            correctInitialization = @"int i = 0";
+        } else {
+            correctInitialization = @"int i = 1";
+        }
+        correctTerminating = @"";
+        correctIncrement = @"";
+        correctCombo = [NSArray arrayWithObjects:correctInitialization,correctTerminating,correctIncrement, nil];
+        [correctAnswerCombinations addObject:correctCombo];
+        
+        // hints
+        [levelHints addObject:@"Know the difference between < and <="];
+        [levelHints addObject:@"Try to write the output down on a piece of paper and keep track of the varbiale i"];
+        
+    }
+    else if (level == 8) {
+        int random = [self getRandomNumberFrom:3 to:10];
+        levelInstructions = [NSString stringWithFormat:@"Drag and drop the correct initialization variable to make the loop run exactly %i times.",random];
+        
+        loopBody = @"System.out.println(\"Loops are cool!\");";
+        
+        initialization = @"";
+        
+        NSString *terminatingConditionString1 = [NSString stringWithFormat:@"i < %i",random];
+        NSString *terminatingConditionString2 = [NSString stringWithFormat:@"i <= %i",random];
+        terminatingCondition = ([self getRandomNumberFrom:1 to:2]%2==0) ? terminatingConditionString1 : terminatingConditionString2;
+        increment = @"i++";
+        
+        NSString *possibleAnswer;
+        possibleAnswer = @"int i = 0";
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"initialization"]];
+        possibleAnswer = @"int i = 1";
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"initialization"]];
+        
+        NSString *correctInitialization;
+        NSString *correctTerminating;
+        NSString *correctIncrement;
+        NSArray *correctCombo;
+        
+        if ( [terminatingCondition isEqualToString:terminatingConditionString1]) {
+            correctInitialization = @"int i = 0";
+        } else {
+            correctInitialization = @"int i = 1";
+        }
+        correctTerminating = @"";
+        correctIncrement = @"";
+        correctCombo = [NSArray arrayWithObjects:correctInitialization,correctTerminating,correctIncrement, nil];
+        [correctAnswerCombinations addObject:correctCombo];
+        
+        // hints
+        [levelHints addObject:@"Know the difference between < and <="];
+        [levelHints addObject:@"Try to write the output down on a piece of paper and keep track of the varbiale i"];
+        
+    }
+    else if (level == 9) {
         int random = [self getRandomNumberFrom:3 to:10];
         levelInstructions = [NSString stringWithFormat:@"Drag and drop the correct initialization variable to make the loop run exactly %i times.",random];
         

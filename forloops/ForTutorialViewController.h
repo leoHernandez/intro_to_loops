@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @interface ForTutorialViewController : UIViewController
+
+
+
+@property (nonatomic,retain) IBOutlet UIButton *button;
+
+
+
 @property (strong, nonatomic) IBOutlet UITextView *myLabel;
-//- (IBAction)WhatisLoopButton:(UIBarButtonItem *)sender;
-//- (IBAction)termsButton:(UIBarButtonItem *)sender;
-//- (IBAction)exampleButton:(UIBarButtonItem *)sender;
-//- (IBAction)VideoButton:(UIBarButtonItem *)sender;
-//- (IBAction)LookLikeButton:(UIBarButtonItem *)sender;
     @property CGRect tempFrame;
     @property CGRect originalInitializationFrame;
     @property CGRect originalTerminatingFrame;
@@ -49,10 +51,14 @@
 
 @property (strong, nonatomic) IBOutlet UITextField *userInput;
 
+
+
 - (IBAction)WLoopButton:(UIButton *)sender;
 - (IBAction)LookButton:(UIButton *)sender;
 
 - (IBAction)TermButton:(UIButton *)sender;
 - (IBAction)ExampleButton:(UIButton *)sender;
+
+
 
 @end

@@ -32,6 +32,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
  
+    // set highest level available
+    _maxLevel = 4;
+    
+    // start level 1 first
     [self startLevel:1];
     
 }
@@ -41,6 +45,7 @@
     self.navigationItem.title = [NSString stringWithFormat:@"Level %i",_currentLevel.levelNumber];
     
     // create and display instructions label
+    [_instructionsLabel removeFromSuperview];
     CGRect instructionsLabelFrame = CGRectMake(20, 120, self.view.frame.size.width-20, 0);
     _instructionsLabel = [[UILabel alloc] initWithFrame:instructionsLabelFrame];
     [_instructionsLabel setText:_currentLevel.levelInstructions];
@@ -67,6 +72,7 @@
     [self.view addSubview:openingParen];
     
     // loop body
+    [_loopBodyLabel removeFromSuperview];
     CGRect loopBodyFrame = CGRectMake(80, openingParenFrame.origin.y+20, self.view.frame.size.width-100, 10);
     _loopBodyLabel = [[UILabel alloc] initWithFrame:loopBodyFrame];
     _loopBodyLabel.font = loopBodyFont;
@@ -75,13 +81,14 @@
     [_loopBodyLabel sizeToFit];
     [self.view addSubview:_loopBodyLabel];
     
+    [_closingParens removeFromSuperview];
     CGFloat closingParensY = _loopBodyLabel.frame.origin.y + _loopBodyLabel.frame.size.height;
     CGRect closingParensFrame = CGRectMake(20, closingParensY, 10, 10);
-    UILabel *closingParens = [[UILabel alloc] initWithFrame:closingParensFrame];
-    closingParens.font = loopBodyFont;
-    closingParens.text = @"}";
-    [closingParens sizeToFit];
-    [self.view addSubview:closingParens];
+    _closingParens = [[UILabel alloc] initWithFrame:closingParensFrame];
+    _closingParens.font = loopBodyFont;
+    _closingParens.text = @"}";
+    [_closingParens sizeToFit];
+    [self.view addSubview:_closingParens];
     
     // label for loop components
     _answerLabelWidth = 140;
@@ -121,6 +128,7 @@
     // create answer labels
     CGFloat labelX = 20;
     CGFloat labelY = 740;
+    
     for (AnswerLabel *answer in _currentLevel.possibleAnswers)
     {
         CGRect frame = CGRectMake(labelX, labelY, _answerLabelWidth, _answerLabelHeight);
@@ -128,7 +136,17 @@
         answer.userInteractionEnabled = YES;
         answer.font = answerLabelFont;
         [answer setTextAlignment:NSTextAlignmentCenter];
-        answer.backgroundColor = answerLabelColor;
+                
+        if ([answer.type isEqualToString:@"initialization"]) {
+            answer.backgroundColor = initializationColor;
+        } else if ([answer.type isEqualToString:@"terminating"]) {
+            answer.backgroundColor = terminatingConditionColor;
+        } else if ([answer.type isEqualToString:@"increment"]) {
+            answer.backgroundColor = incrementColor;
+        } else {
+            answer.backgroundColor = answerLabelColor;
+        }
+        
         answer.layer.borderColor = [UIColor blackColor].CGColor;
         answer.layer.borderWidth = 1;
         [self.view addSubview:answer];
@@ -252,17 +270,14 @@
     // reset guess count
     _incorrectGuesses = 0;
     
+    // reset feedback image
+    _feedbackImage.image = nil;
+    
     // reset answer labels
     for (AnswerLabel *label in _currentLevel.possibleAnswers)
     {
         [label removeFromSuperview];
     }
-    
-    // reset instructions text
-    [_instructionsLabel removeFromSuperview];
-    
-    // reset loop body
-    [_loopBodyLabel removeFromSuperview];
     
     NSString *levelInstructions;
     NSString *loopBody;
@@ -278,6 +293,9 @@
     
     // make sure level is positive
     level = (level < 0) ? level*-1 : level;
+    
+    // for now, go back to level 1 if max level is reached
+    level = (level > _maxLevel) ? 1 : level;
     
     if (level == 1) {
         int random = [self getRandomNumberFrom:3 to:10];
@@ -315,28 +333,36 @@
         
     } else if (level == 2) {
         int random = [self getRandomNumberFrom:3 to:10];
-        levelInstructions = [NSString stringWithFormat:@"Drag and drop the correct initialization variable to make the loop run exactly %i times",random];
+        levelInstructions = [NSString stringWithFormat:@"Drag and drop the correct initialization variable to make the loop run exactly %i times.",random];
         
         loopBody = @"System.out.println(\"Loops are cool!\");";
         
         initialization = @"";
-        terminatingCondition = [NSString stringWithFormat:@"i < %i",random];
+        
+        NSString *terminatingConditionString1 = [NSString stringWithFormat:@"i < %i",random];
+        NSString *terminatingConditionString2 = [NSString stringWithFormat:@"i <= %i",random];
+        terminatingCondition = ([self getRandomNumberFrom:1 to:2]%2==0) ? terminatingConditionString1 : terminatingConditionString2;
         increment = @"i++";
         
         NSString *possibleAnswer;
-        possibleAnswer = @"i = 0";
+        possibleAnswer = @"int i = 0";
         [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"initialization"]];
-        possibleAnswer = @"i = 1";
+        possibleAnswer = @"int i = 1";
         [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"initialization"]];
         
         NSString *correctInitialization;
         NSString *correctTerminating;
         NSString *correctIncrement;
+        NSArray *correctCombo;
         
-        correctInitialization = @"i = 0";
+        if ( [terminatingCondition isEqualToString:terminatingConditionString1]) {
+            correctInitialization = @"int i = 0";
+        } else {
+            correctInitialization = @"int i = 1";
+        }
         correctTerminating = @"";
         correctIncrement = @"";
-        NSArray *correctCombo = [NSArray arrayWithObjects:correctInitialization,correctTerminating,correctIncrement, nil];
+        correctCombo = [NSArray arrayWithObjects:correctInitialization,correctTerminating,correctIncrement, nil];
         [correctAnswerCombinations addObject:correctCombo];
         
     }
@@ -366,6 +392,7 @@
 }
 
 - (IBAction)checkAnswer:(UIBarButtonItem *)sender {
+    
     BOOL answerCorrect = NO;
     
     for (NSArray *combo in _currentLevel.correctAnswerCombinations)
@@ -384,6 +411,10 @@
     
     if (answerCorrect == YES) {
         
+        // set feedback image
+        UIImage *correctFeedbackImage = [UIImage imageNamed:@"feedback_correct.png"];
+        [_feedbackImage setImage:correctFeedbackImage];
+        
         NSString *popupTitle = [NSString stringWithFormat:@"Level %i Complete",_currentLevel.levelNumber];
         NSString *popupMessage = @"That is the correct answer, well done! :-)";
         //NSString *popupImageLocation = @"feedback_correct.png";
@@ -398,15 +429,30 @@
        
         
     } else {
-        _incorrectGuesses++;
-        NSString *message = @"Sorry, that answer is not correct. :(";
-        if (_incorrectGuesses >= 2) {
-            NSUInteger randomIndex = arc4random() % [_currentLevel.levelHints count];
-            NSString *hint = _currentLevel.levelHints[randomIndex];
-            message = [NSString stringWithFormat:@"%@ \rHint: %@",message,hint];
+        
+        if (![_initializationAnswer isEqualToString:@""]
+            || ![_terminatingConditionAnswer isEqualToString:@""]
+            || ![_incrementAnswer isEqualToString:@""])
+        {
+            // set feedback image
+            UIImage *incorrectFeedbackImage = [UIImage imageNamed:@"feedback_wrong.png"];
+            [_feedbackImage setImage:incorrectFeedbackImage];
+            
+            _incorrectGuesses++;
+            NSString *message = @"Sorry, that answer is not correct. :(";
+            if (_incorrectGuesses >= 2) {
+                NSUInteger randomIndex = arc4random() % [_currentLevel.levelHints count];
+                NSString *hint = _currentLevel.levelHints[randomIndex];
+                message = [NSString stringWithFormat:@"%@ \rHint: %@",message,hint];
+            }
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Wrong Answer" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alert show];
+        } else {
+            // user didn't enter an answer...
+            NSString *message = @"Please drag and drop an answer!";
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Answer Entered" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
         }
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Wrong Answer" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alert show];
     }
 }
 

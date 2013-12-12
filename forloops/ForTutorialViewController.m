@@ -531,10 +531,7 @@
     _myLabel.editable = NO;
    
     
-   
 }
-
-
 - (IBAction)VideoButton:(UIBarButtonItem *)sender {
     /*****
      This section resets the view and all of the labels and images

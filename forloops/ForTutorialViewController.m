@@ -475,6 +475,7 @@
 }
 
 -(void)exampleInitializationButtonClicked {
+    _exampleButtonPressed = @"initialization";
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Choose an option."
                                                              delegate:self
                                                     cancelButtonTitle:nil
@@ -492,6 +493,7 @@
 }
 
 -(void)exampleTerminatingButtonClicked {
+    _exampleButtonPressed = @"terminating";
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Choose an option."
                                                              delegate:self
                                                     cancelButtonTitle:nil
@@ -510,6 +512,7 @@
 }
 
 -(void)exampleIncrementButtonClicked {
+    _exampleButtonPressed = @"increment";
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Choose an option."
                                                              delegate:self
                                                     cancelButtonTitle:nil
@@ -524,6 +527,22 @@
     actionSheet.cancelButtonIndex = [_exampleIncrementArray count];
     
     [actionSheet showInView:self.view];
+}
+
+- (void) actionSheet:(UIActionSheet *) actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if ([_exampleButtonPressed isEqualToString:@"initialization"]) {
+        if (buttonIndex != _exampleInitializationArray.count) {
+           [_exampleInitialization setTitle:_exampleInitializationArray[buttonIndex] forState:UIControlStateNormal];
+        }
+    } else if ([_exampleButtonPressed isEqualToString:@"terminating"]) {
+        if (buttonIndex != _exampleTerminatingArray.count) {
+            [_exampleTerminating setTitle:_exampleTerminatingArray[buttonIndex] forState:UIControlStateNormal];
+        }
+    } else if ([_exampleButtonPressed isEqualToString:@"increment"]) {
+        if (buttonIndex != _exampleIncrementArray.count) {
+            [_exampleIncrement setTitle:_exampleIncrementArray[buttonIndex] forState:UIControlStateNormal];
+        }
+    }
 }
 
 -(void) resetView {

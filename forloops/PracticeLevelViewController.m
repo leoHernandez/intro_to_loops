@@ -36,7 +36,7 @@
     _maxLevel = 20;
     
     // start level 1 first
-    [self startLevel:16];
+    [self startLevel:1];
     
 }
 

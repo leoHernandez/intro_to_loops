@@ -56,6 +56,8 @@
 @property(strong, nonatomic) NSArray *exampleTerminatingArray;
 @property(strong, nonatomic) NSArray *exampleIncrementArray;
 
+@property(strong, nonatomic) NSString *exampleButtonPressed;
+
 - (IBAction)myButton:(UIButton *)sender;
 
 @property (strong, nonatomic) IBOutlet UITextField *userInput;

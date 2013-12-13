@@ -740,12 +740,12 @@
 
     else if (level == 13) {
         int random = [self getRandomNumberFrom:3 to:10];
-        levelInstructions = [NSString stringWithFormat:@"Drag and drop the correct loop increment/decrement variable to make the loop run exactly %i times.", random];
+        levelInstructions = [NSString stringWithFormat:@"Drag and drop the correct loop increment/decrement variable to make the loop run exactly %i times.", random-1];
         
         loopBody = @"System.out.println(\"I never knew loops could be incredible!\");";
         
         initialization = [NSString stringWithFormat:@"int i = %i", random];
-        terminatingCondition = @"i > 0";
+        terminatingCondition = [NSString stringWithFormat:@"i <%i", random* random];
         increment = @"";
         
         NSString *possibleAnswer;
@@ -755,7 +755,7 @@
         [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"increment"]];
         possibleAnswer = @"i--";
         [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"increment"]];
-        possibleAnswer = [NSString stringWithFormat:@"i = i - %i",random];
+        possibleAnswer = [NSString stringWithFormat:@"i = i + %i",random];
         [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"increment"]];
         
         NSString *correctInitialization;
@@ -764,7 +764,7 @@
         
         correctInitialization = @"";
         correctTerminating = @"";
-        correctIncrement = @"i--";
+        correctIncrement = [NSString stringWithFormat:@"i = i + %i",random];
         NSArray *correctCombo = [NSArray arrayWithObjects:correctInitialization, correctTerminating, correctIncrement, nil];
         [correctAnswerCombinations addObject:correctCombo];
         
@@ -814,8 +814,8 @@
         
         loopBody = @"System.out.println(\"I never knew loops could be incredible!\");";
         
-        initialization = [NSString stringWithFormat:@"int i = %i", random];
-        terminatingCondition = @"i > 0";
+        initialization = [NSString stringWithFormat:@"int i = 0"];
+        terminatingCondition = [NSString stringWithFormat:@"i < %i", random];
         increment = @"";
         
         NSString *possibleAnswer;
@@ -834,7 +834,7 @@
         
         correctInitialization = @"";
         correctTerminating = @"";
-        correctIncrement = @"i--";
+        correctIncrement = @"i++";
         NSArray *correctCombo = [NSArray arrayWithObjects:correctInitialization, correctTerminating, correctIncrement, nil];
         [correctAnswerCombinations addObject:correctCombo];
         

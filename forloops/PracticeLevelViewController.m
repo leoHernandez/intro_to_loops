@@ -36,7 +36,7 @@
     _maxLevel = 16;
     
     // start level 1 first
-    [self startLevel:12];
+    [self startLevel:1];
     
 }
 
@@ -336,7 +336,7 @@
         int random = [self getRandomNumberFrom:3 to:10];
         levelInstructions = [NSString stringWithFormat:@"Drag and drop the correct terminating condition from the answers section to make the loop run exactly %i times.",random];
         
-        loopBody = @"System.out.println(\"Must get all the homeowrk done in time!\");";
+        loopBody = @"System.out.println(\"Must get all the homework done in time!\");";
         
         initialization = @"int i = 1";
         terminatingCondition = @"";
@@ -367,8 +367,7 @@
         [levelHints addObject:@"The loop needs to run an exact amount of times, no more."];
         
         
-    }
-    else if (level == 3) {
+    } else if (level == 3) {
         int random = [self getRandomNumberFrom:3 to:10];
         levelInstructions = [NSString stringWithFormat:@"Drag and drop the correct terminating condition from the answers section to make the loop run exactly %i times.",random];
         
@@ -403,7 +402,7 @@
         [levelHints addObject:@"The loop needs to run an exact amount of times, no more."];
         
         
-    }else if (level == 4) {
+    } else if (level == 4) {
         int random = [self getRandomNumberFrom:3 to:10];
         levelInstructions = [NSString stringWithFormat:@"Drag and drop the correct terminating condition from the answers section to make the loop run exactly %i times.",random];
         
@@ -438,12 +437,11 @@
         [levelHints addObject:@"The loop needs to run an exact amount of times, no more."];
         
         
-    }
-    else if (level == 5) {
+    } else if (level == 5) {
         int random = [self getRandomNumberFrom:3 to:10];
         levelInstructions = [NSString stringWithFormat:@"Drag and drop the correct terminating condition from the answers section to make the loop run exactly %i times.",random];
         
-        loopBody = @"System.out.println(\"I am Starting to get this\");";
+        loopBody = @"System.out.println(\"I am starting to get this\");";
         
         initialization = @"int i = 1";
         terminatingCondition = @"";
@@ -706,12 +704,12 @@
     }
     else if (level == 12) {
         int random = [self getRandomNumberFrom:3 to:10];
-        levelInstructions = [NSString stringWithFormat:@"Drag and drop the correct loop increment/decrement variable to make the loop run exactly %i times.", random -1];
+        levelInstructions = [NSString stringWithFormat:@"Drag and drop the correct loop increment/decrement variable to make the loop run exactly %i times.", random];
         
         loopBody = @"System.out.println(\"I never knew loops could be incredible!\");";
         
-        initialization = [NSString stringWithFormat:@"int i = %i", random];
-        terminatingCondition =[NSString stringWithFormat: @"i < %i", random* random];
+        initialization = [NSString stringWithFormat:@"int i = %i", random*random];
+        terminatingCondition = @"i > 0";
         increment = @"";
         
         NSString *possibleAnswer;
@@ -730,7 +728,7 @@
         
         correctInitialization = @"";
         correctTerminating = @"";
-        correctIncrement = [NSString stringWithFormat:@"i = i +%i ", random];
+        correctIncrement = [NSString stringWithFormat:@"i = i - %i", random];
         NSArray *correctCombo = [NSArray arrayWithObjects:correctInitialization, correctTerminating, correctIncrement, nil];
         [correctAnswerCombinations addObject:correctCombo];
         
@@ -742,12 +740,12 @@
 
     else if (level == 13) {
         int random = [self getRandomNumberFrom:3 to:10];
-        levelInstructions = [NSString stringWithFormat:@"Drag and drop the correct loop increment/decrement variable to make the loop run exactly %i times.", random];
+        levelInstructions = [NSString stringWithFormat:@"Drag and drop the correct loop increment/decrement variable to make the loop run exactly %i times.", random-1];
         
         loopBody = @"System.out.println(\"I never knew loops could be incredible!\");";
         
         initialization = [NSString stringWithFormat:@"int i = %i", random];
-        terminatingCondition = @"i > 0";
+        terminatingCondition = [NSString stringWithFormat:@"i <%i", random* random];
         increment = @"";
         
         NSString *possibleAnswer;
@@ -757,7 +755,7 @@
         [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"increment"]];
         possibleAnswer = @"i--";
         [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"increment"]];
-        possibleAnswer = [NSString stringWithFormat:@"i = i - %i",random];
+        possibleAnswer = [NSString stringWithFormat:@"i = i + %i",random];
         [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"increment"]];
         
         NSString *correctInitialization;
@@ -766,7 +764,7 @@
         
         correctInitialization = @"";
         correctTerminating = @"";
-        correctIncrement = @"i--";
+        correctIncrement = [NSString stringWithFormat:@"i = i + %i",random];
         NSArray *correctCombo = [NSArray arrayWithObjects:correctInitialization, correctTerminating, correctIncrement, nil];
         [correctAnswerCombinations addObject:correctCombo];
         
@@ -816,8 +814,8 @@
         
         loopBody = @"System.out.println(\"I never knew loops could be incredible!\");";
         
-        initialization = [NSString stringWithFormat:@"int i = %i", random];
-        terminatingCondition = @"i > 0";
+        initialization = [NSString stringWithFormat:@"int i = 0"];
+        terminatingCondition = [NSString stringWithFormat:@"i < %i", random];
         increment = @"";
         
         NSString *possibleAnswer;
@@ -836,7 +834,7 @@
         
         correctInitialization = @"";
         correctTerminating = @"";
-        correctIncrement = @"i--";
+        correctIncrement = @"i++";
         NSArray *correctCombo = [NSArray arrayWithObjects:correctInitialization, correctTerminating, correctIncrement, nil];
         [correctAnswerCombinations addObject:correctCombo];
         
@@ -906,7 +904,6 @@
         [levelHints addObject:@"Make sure you understand what the loop increment is doing."];
         [levelHints addObject:@"Try to write down the value of the variable i after each iteration."];
     }
-    
   
     // create level object
     _currentLevel = [[Level alloc] initWithLevel:level withInstructions:levelInstructions];
@@ -1001,6 +998,7 @@
 {
     // next level button
     if (buttonIndex == 1) {
+        // TODO: check if last level completed, else start next level
         [self startLevel:_currentLevel.levelNumber + 1];
     }
 }

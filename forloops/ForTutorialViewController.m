@@ -468,25 +468,7 @@
     /*****
      This section resets the view and all of the labels and images
      *****/
-    _myLabel.text= @" ";
-    _firstTextView.text =@" ";
-    _secondTextView.text = @" ";
-    _thirdTextView.text =@" ";
-    _fourthTextView.text =@" ";
-    _titleLabel.text= @" ";
-    _label1.text=@" " ;
-    _label2.text=@" ";
-    _label3.text=@" ";
-    _label4.text =@" ";
-    
-    _placeholder1.backgroundColor= Nil;
-    _placeholder2.backgroundColor= Nil;
-    _placeholder3.backgroundColor=Nil;
-    _placeholder4.backgroundColor=Nil;
-    self.statementimg.hidden = YES;
-    self.Controlimage.hidden = YES;
-    self.variableimage.hidden =YES;
-    self.iterationImage.hidden=YES;
+    [self resetView];
     
     //create loop structure
     
@@ -532,6 +514,32 @@
    
     
 }
+
+-(void) resetView {
+    _myLabel.text = @"";
+    _variableimage.hidden = YES;
+    _Controlimage.hidden = YES;
+    _iterationImage.hidden = YES;
+    _statementimg.hidden = YES;
+    
+    _firstTextView.text = @"";
+    _secondTextView.text = @"";
+    _thirdTextView.text = @"";
+    _fourthTextView.text = @"";
+    
+    _label1.text = @"";
+    _label2.text = @"";
+    _label3.text = @"";
+    _label4.text = @"";
+    
+    _placeholder1.backgroundColor= Nil;
+    _placeholder2.backgroundColor= Nil;
+    _placeholder3.backgroundColor=Nil;
+    _placeholder4.backgroundColor=Nil;
+    
+    [_exampleLoopBody removeFromSuperview];
+}
+
 - (IBAction)VideoButton:(UIBarButtonItem *)sender {
     /*****
      This section resets the view and all of the labels and images

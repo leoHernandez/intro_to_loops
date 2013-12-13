@@ -33,10 +33,10 @@
 	// Do any additional setup after loading the view.
  
     // set highest level available
-    _maxLevel = 16;
+    _maxLevel = 20;
     
     // start level 1 first
-    [self startLevel:1];
+    [self startLevel:16];
     
 }
 
@@ -849,6 +849,251 @@
          do {
             random = [self getRandomNumberFrom:10 to:50];
         } while (!random%5==0);
+         */
+        
+        // dirty fix for above code as it causes performance issue
+        int val = 10;
+        int randomNums[9];
+        for (int i = 0; i < 9; i++) {
+            randomNums[i] = val;
+            val = val + 5;
+        }
+        int index = [self getRandomNumberFrom:0 to:9];
+        random = randomNums[index];
+        
+        int div = random/5;
+        
+        levelInstructions = [NSString stringWithFormat:@"Drag and drop the correct initialization and terminating condition to make the loop run exactly %i times.", div];
+        
+        loopBody = @"System.out.println(\"I can't wait to start using loops in my programs!\");";
+        
+        initialization = @"";
+        terminatingCondition = @"";
+        increment = @"i = i + 5";
+        
+        // answer labels
+        NSString *possibleAnswer;
+        possibleAnswer = @"int i = 0";
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"initialization"]];
+        possibleAnswer = @"int i = 5";
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"initialization"]];
+        possibleAnswer = [NSString stringWithFormat:@"i < %i",random];
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"terminating"]];
+        possibleAnswer = [NSString stringWithFormat:@"i <= %i", random];
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"terminating"]];
+        
+        // correct answer combos
+        NSString *correctInitialization;
+        NSString *correctTerminating;
+        NSString *correctIncrement;
+        NSArray *correctCombo;
+        
+        correctInitialization = @"int i = 0";
+        correctTerminating = [NSString stringWithFormat:@"i < %i",random];
+        correctIncrement = @"";
+        correctCombo = [NSArray arrayWithObjects:correctInitialization, correctTerminating, correctIncrement, nil];
+        [correctAnswerCombinations addObject:correctCombo];
+        
+        correctInitialization = @"int i = 5";
+        correctTerminating = [NSString stringWithFormat:@"i <= %i", random];
+        correctIncrement = @"";
+        correctCombo = [NSArray arrayWithObjects:correctInitialization, correctTerminating, correctIncrement, nil];
+        [correctAnswerCombinations addObject:correctCombo];
+        
+        // hints
+        [levelHints addObject:@"Make sure you understand what the loop increment is doing."];
+        [levelHints addObject:@"Try to write down the value of the variable i after each iteration."];
+    }
+    else if (level == 17) {
+        int random;
+        /*
+         the code below takes a long time to generate a number, using a dirty fix for now
+         do {
+         random = [self getRandomNumberFrom:10 to:50];
+         } while (!random%5==0);
+         */
+        
+        // dirty fix for above code as it causes performance issue
+        int val = 10;
+        int randomNums[9];
+        for (int i = 0; i < 9; i++) {
+            randomNums[i] = val;
+            val = val + 5;
+        }
+        int index = [self getRandomNumberFrom:0 to:9];
+        random = randomNums[index];
+        
+        int div = random/5;
+        
+        levelInstructions = [NSString stringWithFormat:@"Drag and drop the correct initialization and terminating condition to make the loop run exactly %i times.", div];
+        
+        loopBody = @"System.out.println(\"I can't wait to start using loops in my programs!\");";
+        
+        initialization = @"";
+        terminatingCondition = @"";
+        increment = @"i = i + 5";
+        
+        // answer labels
+        NSString *possibleAnswer;
+        possibleAnswer = @"int i = 0";
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"initialization"]];
+        possibleAnswer = @"int i = 5";
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"initialization"]];
+        possibleAnswer = [NSString stringWithFormat:@"i < %i",random];
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"terminating"]];
+        possibleAnswer = [NSString stringWithFormat:@"i <= %i", random];
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"terminating"]];
+        
+        // correct answer combos
+        NSString *correctInitialization;
+        NSString *correctTerminating;
+        NSString *correctIncrement;
+        NSArray *correctCombo;
+        
+        correctInitialization = @"int i = 0";
+        correctTerminating = [NSString stringWithFormat:@"i < %i",random];
+        correctIncrement = @"";
+        correctCombo = [NSArray arrayWithObjects:correctInitialization, correctTerminating, correctIncrement, nil];
+        [correctAnswerCombinations addObject:correctCombo];
+        
+        correctInitialization = @"int i = 5";
+        correctTerminating = [NSString stringWithFormat:@"i <= %i", random];
+        correctIncrement = @"";
+        correctCombo = [NSArray arrayWithObjects:correctInitialization, correctTerminating, correctIncrement, nil];
+        [correctAnswerCombinations addObject:correctCombo];
+        
+        // hints
+        [levelHints addObject:@"Make sure you understand what the loop increment is doing."];
+        [levelHints addObject:@"Try to write down the value of the variable i after each iteration."];
+    } else if (level == 18) {
+        int random;
+        /*
+         the code below takes a long time to generate a number, using a dirty fix for now
+         do {
+         random = [self getRandomNumberFrom:10 to:50];
+         } while (!random%5==0);
+         */
+        
+        // dirty fix for above code as it causes performance issue
+        int val = 10;
+        int randomNums[9];
+        for (int i = 0; i < 9; i++) {
+            randomNums[i] = val;
+            val = val + 5;
+        }
+        int index = [self getRandomNumberFrom:0 to:9];
+        random = randomNums[index];
+        
+        int div = random/5;
+        
+        levelInstructions = [NSString stringWithFormat:@"Drag and drop the correct initialization and terminating condition to make the loop run exactly %i times.", div];
+        
+        loopBody = @"System.out.println(\"I can't wait to start using loops in my programs!\");";
+        
+        initialization = @"";
+        terminatingCondition = @"";
+        increment = @"i = i + 5";
+        
+        // answer labels
+        NSString *possibleAnswer;
+        possibleAnswer = @"int i = 0";
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"initialization"]];
+        possibleAnswer = @"int i = 5";
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"initialization"]];
+        possibleAnswer = [NSString stringWithFormat:@"i < %i",random];
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"terminating"]];
+        possibleAnswer = [NSString stringWithFormat:@"i <= %i", random];
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"terminating"]];
+        
+        // correct answer combos
+        NSString *correctInitialization;
+        NSString *correctTerminating;
+        NSString *correctIncrement;
+        NSArray *correctCombo;
+        
+        correctInitialization = @"int i = 0";
+        correctTerminating = [NSString stringWithFormat:@"i < %i",random];
+        correctIncrement = @"";
+        correctCombo = [NSArray arrayWithObjects:correctInitialization, correctTerminating, correctIncrement, nil];
+        [correctAnswerCombinations addObject:correctCombo];
+        
+        correctInitialization = @"int i = 5";
+        correctTerminating = [NSString stringWithFormat:@"i <= %i", random];
+        correctIncrement = @"";
+        correctCombo = [NSArray arrayWithObjects:correctInitialization, correctTerminating, correctIncrement, nil];
+        [correctAnswerCombinations addObject:correctCombo];
+        
+        // hints
+        [levelHints addObject:@"Make sure you understand what the loop increment is doing."];
+        [levelHints addObject:@"Try to write down the value of the variable i after each iteration."];
+    } else if (level == 19) {
+        int random;
+        /*
+         the code below takes a long time to generate a number, using a dirty fix for now
+         do {
+         random = [self getRandomNumberFrom:10 to:50];
+         } while (!random%5==0);
+         */
+        
+        // dirty fix for above code as it causes performance issue
+        int val = 10;
+        int randomNums[9];
+        for (int i = 0; i < 9; i++) {
+            randomNums[i] = val;
+            val = val + 5;
+        }
+        int index = [self getRandomNumberFrom:0 to:9];
+        random = randomNums[index];
+        
+        int div = random/5;
+        
+        levelInstructions = [NSString stringWithFormat:@"Drag and drop the correct initialization and terminating condition to make the loop run exactly %i times.", div];
+        
+        loopBody = @"System.out.println(\"I can't wait to start using loops in my programs!\");";
+        
+        initialization = @"";
+        terminatingCondition = @"";
+        increment = @"i = i + 5";
+        
+        // answer labels
+        NSString *possibleAnswer;
+        possibleAnswer = @"int i = 0";
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"initialization"]];
+        possibleAnswer = @"int i = 5";
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"initialization"]];
+        possibleAnswer = [NSString stringWithFormat:@"i < %i",random];
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"terminating"]];
+        possibleAnswer = [NSString stringWithFormat:@"i <= %i", random];
+        [possibleAnswers addObject:[[AnswerLabel alloc] initWithAnswer:possibleAnswer ofType:@"terminating"]];
+        
+        // correct answer combos
+        NSString *correctInitialization;
+        NSString *correctTerminating;
+        NSString *correctIncrement;
+        NSArray *correctCombo;
+        
+        correctInitialization = @"int i = 0";
+        correctTerminating = [NSString stringWithFormat:@"i < %i",random];
+        correctIncrement = @"";
+        correctCombo = [NSArray arrayWithObjects:correctInitialization, correctTerminating, correctIncrement, nil];
+        [correctAnswerCombinations addObject:correctCombo];
+        
+        correctInitialization = @"int i = 5";
+        correctTerminating = [NSString stringWithFormat:@"i <= %i", random];
+        correctIncrement = @"";
+        correctCombo = [NSArray arrayWithObjects:correctInitialization, correctTerminating, correctIncrement, nil];
+        [correctAnswerCombinations addObject:correctCombo];
+        
+        // hints
+        [levelHints addObject:@"Make sure you understand what the loop increment is doing."];
+        [levelHints addObject:@"Try to write down the value of the variable i after each iteration."];
+    } else if (level == 20) {
+        int random;
+        /*
+         the code below takes a long time to generate a number, using a dirty fix for now
+         do {
+         random = [self getRandomNumberFrom:10 to:50];
+         } while (!random%5==0);
          */
         
         // dirty fix for above code as it causes performance issue

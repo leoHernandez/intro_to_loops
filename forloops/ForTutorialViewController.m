@@ -464,20 +464,23 @@
     _fourthTextView.font= loopBodyFont;
     _fourthTextView.text =@"{";
     
-    _placeholder1.frame =CGRectMake(100, 350, answerLabelWidth, answerLabelHeight);
-    _placeholder1.font =answerLabelFont;
-    _placeholder1.backgroundColor = [UIColor yellowColor];
-    _placeholder1.text = @"int i = 5";
+    _exampleInitialization = [[UIButton alloc] initWithFrame:CGRectMake(100, 350, answerLabelWidth, answerLabelHeight)];
+    _exampleInitialization.backgroundColor = [UIColor yellowColor];
+    [_exampleInitialization setTitle:@"int i = 5" forState:UIControlStateNormal];
+    [_exampleInitialization setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.view addSubview:_exampleInitialization];
     
-    _placeholder2.frame = CGRectMake(260, 350, answerLabelWidth, answerLabelHeight);
-    _placeholder2.font=answerLabelFont;
-    _placeholder2.text = @" i < 5" ;
-    _placeholder2.backgroundColor = [UIColor cyanColor];
+    _exampleTerminating = [[UIButton alloc] initWithFrame:CGRectMake(260, 350, answerLabelWidth, answerLabelHeight)];
+    _exampleTerminating.backgroundColor = [UIColor cyanColor];
+    [_exampleTerminating setTitle:@"i < 5" forState:UIControlStateNormal];
+    [_exampleTerminating setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.view addSubview:_exampleTerminating];
     
-    _placeholder3.frame = CGRectMake(430, 350, answerLabelWidth, answerLabelHeight);
-    _placeholder3.font = answerLabelFont;
-    _placeholder3.text = @"i++";
-    _placeholder3.backgroundColor =[UIColor orangeColor];
+    _exampleIncrement = [[UIButton alloc] initWithFrame:CGRectMake(430, 350, answerLabelWidth, answerLabelHeight)];
+    _exampleIncrement.backgroundColor = [UIColor orangeColor];
+    [_exampleIncrement setTitle:@"i++" forState:UIControlStateNormal];
+    [_exampleIncrement setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.view addSubview:_exampleIncrement];
     
     _exampleLoopBody = [[UILabel alloc] initWithFrame:CGRectMake(40, 380, self.view.frame.size.width-100, 70)];
     _exampleLoopBody.text = @"System.out.println(\"Loops are so loopy!\");";
@@ -526,6 +529,10 @@
     
     _myLabel.text= @" ";
     _myLabel.frame=CGRectMake(30,300,750,600);
+    
+    [_exampleInitialization removeFromSuperview];
+    [_exampleTerminating removeFromSuperview];
+    [_exampleIncrement removeFromSuperview];
 }
 
 - (IBAction)VideoButton:(UIBarButtonItem *)sender {

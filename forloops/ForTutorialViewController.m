@@ -52,33 +52,7 @@
      This section resets the view and all of the labels and images
      *****/
     _titleLabel.frame = CGRectMake(300, 250, self.view.frame.size.width-20, 20);
-      _myButton.hidden = YES;
-    _firstTextView.text =@" ";
-    _secondTextView.text = @" ";
-    _thirdTextView.text =@" ";
-    _fourthTextView.text =@" ";
-    _label1.text=@" " ;
-    _label1.backgroundColor= Nil;
-    _label2.text=@" ";
-    _label2.backgroundColor= Nil;
-    _label3.text=@" ";
-    _label3.backgroundColor=Nil;
-    _label4.text =@" ";
-    _label4.backgroundColor= Nil;
-    _placeholder1.text= @" ";
-    _placeholder2.text=@"";
-    _placeholder3.text=@"";
-    _placeholder4.text=@"";
-    _placeholder1.backgroundColor= Nil;
-    _placeholder2.backgroundColor= Nil;
-    _placeholder3.backgroundColor=Nil;
-    _placeholder4.backgroundColor=Nil;
-   _myLabel.text =@"";
-  self.statementimg.hidden = YES;
-    self.Controlimage.hidden = YES;
-    self.variableimage.hidden =YES;
-    self.iterationImage.hidden=YES;
-    _userInput.hidden = YES;
+    [self resetView];
     
    
     _titleLabel.textColor = [UIColor blackColor];
@@ -103,31 +77,10 @@
     /*****
      This section resets the view and all of the labels and images
      *****/
+    [self resetView];
    _titleLabel.frame = CGRectMake(300, 250, self.view.frame.size.width-20, 20);
      UIFont *textfont = [UIFont fontWithName:@"Courier New" size:16];
-       _myLabel.text= @" ";
-      _myButton.hidden = YES;
-    _label1.text=@" " ;
-    _label1.backgroundColor= Nil;
-    _label2.text=@" ";
-    _label2.backgroundColor= Nil;
-    _label3.text=@" ";
-    _label3.backgroundColor=Nil;
-    _label4.text =@" ";
-    _label4.backgroundColor= Nil;
-    _placeholder1.text= @" ";
-    _placeholder2.text=@"";
-    _placeholder3.text=@"";
-    _placeholder4.text=@"";
-    self.statementimg.hidden = NO;
-    self.Controlimage.hidden = NO;
-    self.variableimage.hidden =NO;
-    self.iterationImage.hidden=NO;
-    _placeholder1.backgroundColor= Nil;
-    _placeholder2.backgroundColor= Nil;
-    _placeholder3.backgroundColor=Nil;
-    _placeholder4.backgroundColor=Nil;
-    _userInput.hidden = YES;
+    [self resetView];
     
     _titleLabel.text= @"What does it look Like? ";
     
@@ -156,12 +109,16 @@
     
     self.iterationImage.image = [UIImage imageNamed:@"initializerImage2.png"];
     _iterationImage.frame = CGRectMake(360, 330, 330, 80);
+    _iterationImage.hidden = NO;
     self.statementimg.image = [UIImage imageNamed:@"conditionImage2.png"];
     _statementimg.frame=CGRectMake(360, 450, 330, 80);
+    _statementimg.hidden = NO;
     self.Controlimage.image = [UIImage imageNamed:@"iterationImage2.png"];
     _Controlimage.frame= CGRectMake(360, 580, 330, 80);
+    _Controlimage.hidden = NO;
     self.variableimage.image =[UIImage imageNamed:@"bodyImage2.png"];
     _variableimage.frame= CGRectMake(360, 720, 330, 80);
+    _variableimage.hidden = NO;
    
     _myLabel.frame=CGRectMake(30,300,750,600);
    
@@ -184,48 +141,48 @@
     
     UIFont *textfont = [UIFont fontWithName:@"Courier New" size:16];
    
-    _firstTextView.text= @"Initialization --->";
+    _firstTextView.text= @"Loop Counter--->";
     _firstTextView.frame= CGRectMake(30, 350, 200, 100);
     _firstTextView.font = textfont;
     _firstTextView.backgroundColor =Nil;
-   _secondTextView.text =@"Terminating Condition -->";
+   _secondTextView.text =@"Terminating Condition--->";
     _secondTextView.frame= CGRectMake(30, 490, 200, 100);
     _secondTextView.font = textfont;
-   _thirdTextView.text =@"Increment/Decrement-->";
+   _thirdTextView.text =@"Increment/Decrement--->";
     _thirdTextView.frame = CGRectMake(30, 680, 200, 100);
     _thirdTextView.font =textfont;
-   _fourthTextView.text =@"Loop Body-->";
+   _fourthTextView.text =@"Loop Body--->";
     _fourthTextView.frame= CGRectMake(30, 870, 200, 100);
     _fourthTextView.font= textfont;
     
     _titleLabel.frame = CGRectMake(100, 200, 700, 100);
     _titleLabel.font = textfont;
-    _titleLabel.text = @"Match the corresponding terms with the correct defenitions";
+    _titleLabel.text = @"Match the corresponding terms with the correct definitions";
     
-    self.label1.frame = CGRectMake(600, 350, 150, 20);
+    self.label1.frame = CGRectMake(600, 300, 150, 20);
     _label1.font = textfont;
-    _label1.text= @"The number of times the code in the loop body has been executed";
+    _label1.text= @"The action that will be performed on the loop counter variable with each loop iteration.";
     self.label1.numberOfLines=0;
     [self.label1 sizeToFit];
     self.label1.userInteractionEnabled= YES;
     
     self.label2.frame = CGRectMake(600, 490, 150, 20);
     _label2.font= textfont;
-    _label2.text = @"A line of code to be executed";
+    _label2.text = @"The line(s) of code to be executed.";
     self.label2.numberOfLines=0;
     [self.label2 sizeToFit];
     self.label2.userInteractionEnabled=YES;
     
     self.label3.frame = CGRectMake(600, 570, 150, 20);
     _label3.font= textfont;
-    _label3.text = @"A symbolic name or storage location given to a piece of data stored in a computer's memory";
+    _label3.text = @"The variable that will incremented or decremented with each iteration of the loop.";
     self.label3.numberOfLines=0;
     [self.label3 sizeToFit];
     self.label3.userInteractionEnabled=YES;
     
     self.label4.frame = CGRectMake(600, 730, 150, 20);
     _label4.font= textfont;
-    _label4.text =@"the variable that is incremented or decremented and is used to keep track of the number of iterations in a loop";
+    _label4.text =@"The condition that has to be TRUE in order for the loop to end.";
     self.label4.userInteractionEnabled=YES;
     self.label4.numberOfLines=0;
     [self.label4 sizeToFit];
@@ -509,10 +466,14 @@
     _thirdTextView.text = @"";
     _fourthTextView.text = @"";
     
+    _label1.backgroundColor= Nil;
     _label1.text = @"";
-    _label2.text = @"";
-    _label3.text = @"";
-    _label4.text = @"";
+    _label2.text=@" ";
+    _label2.backgroundColor= Nil;
+    _label3.text=@" ";
+    _label3.backgroundColor=Nil;
+    _label4.text =@" ";
+    _label4.backgroundColor= Nil;
     
     _placeholder1.backgroundColor= Nil;
     _placeholder2.backgroundColor= Nil;

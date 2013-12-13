@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ForTutorialViewController : UIViewController
+@interface ForTutorialViewController : UIViewController<UIActionSheetDelegate>
 
 
 
@@ -51,6 +51,10 @@
 @property(strong, nonatomic) UIButton *exampleInitialization;
 @property(strong, nonatomic) UIButton *exampleTerminating;
 @property(strong, nonatomic) UIButton *exampleIncrement;
+
+@property(strong, nonatomic) NSMutableArray *exampleInitializationArray;
+@property(strong, nonatomic) NSMutableArray *exampleTerminatingArray;
+@property(strong, nonatomic) NSMutableArray *exampleIncrementArray;
 
 - (IBAction)myButton:(UIButton *)sender;
 

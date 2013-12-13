@@ -425,18 +425,21 @@
     _exampleInitialization.backgroundColor = [UIColor yellowColor];
     [_exampleInitialization setTitle:@"int i = 5" forState:UIControlStateNormal];
     [_exampleInitialization setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_exampleInitialization addTarget:self action:@selector(exampleInitializationButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_exampleInitialization];
     
     _exampleTerminating = [[UIButton alloc] initWithFrame:CGRectMake(260, 350, answerLabelWidth, answerLabelHeight)];
     _exampleTerminating.backgroundColor = [UIColor cyanColor];
     [_exampleTerminating setTitle:@"i < 5" forState:UIControlStateNormal];
     [_exampleTerminating setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_exampleTerminating addTarget:self action:@selector(exampleTerminatingButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_exampleTerminating];
     
     _exampleIncrement = [[UIButton alloc] initWithFrame:CGRectMake(430, 350, answerLabelWidth, answerLabelHeight)];
     _exampleIncrement.backgroundColor = [UIColor orangeColor];
     [_exampleIncrement setTitle:@"i++" forState:UIControlStateNormal];
     [_exampleIncrement setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_exampleIncrement addTarget:self action:@selector(exampleIncrementButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_exampleIncrement];
     
     _exampleLoopBody = [[UILabel alloc] initWithFrame:CGRectMake(40, 380, self.view.frame.size.width-100, 70)];
@@ -451,6 +454,36 @@
     _myButton.hidden = NO;
     _myLabel.editable = NO;
    
+    
+}
+
+-(void) populateExampleOptionsArray {
+    _exampleInitializationArray = [[NSMutableArray alloc] init];
+    for (int i = 0; i <= 5; i++) {
+        [_exampleInitializationArray addObject:[NSString stringWithFormat:@"int i = %i", i]];
+    }
+    
+    _exampleTerminatingArray = [[NSMutableArray alloc] init];
+    for (int i = 0; i <= 5; i++) {
+        [_exampleTerminatingArray addObject:[NSString stringWithFormat:@"i < %i", i]];
+        [_exampleTerminatingArray addObject:[NSString stringWithFormat:@"i <= %i", i]];
+    }
+    [_exampleTerminatingArray addObject:@"i > 0"];
+    
+    _exampleIncrementArray = [[NSMutableArray alloc] init];
+    [_exampleIncrementArray addObject:@"i++"];
+    [_exampleIncrementArray addObject:@"i--"];
+}
+
+-(void)exampleInitializationButtonClicked {
+    
+}
+
+-(void)exampleTerminatingButtonClicked {
+    
+}
+
+-(void)exampleIncrementButtonClicked {
     
 }
 

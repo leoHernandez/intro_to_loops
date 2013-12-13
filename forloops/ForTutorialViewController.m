@@ -180,30 +180,9 @@
     /*****
      This section resets the view and all of the labels and images
      *****/
-    _myButton.hidden = YES;
-    _userInput.hidden = YES;
-    _firstTextView.text =@" ";
-    _secondTextView.text = @" ";
-    _thirdTextView.text =@" ";
-    _fourthTextView.text =@" ";
-    _titleLabel.text= @" ";
-    _placeholder1.text= @" ";
-    _placeholder2.text=@"";
-    _placeholder3.text=@"";
-    _placeholder4.text=@"";
-    _label1.text=@" " ;
-    _label1.backgroundColor= Nil;
-    _label2.text=@" ";
-    _label2.backgroundColor= Nil;
-    _label3.text=@" ";
-    _label3.backgroundColor=Nil;
-    _label4.text =@" ";
-    _label4.backgroundColor= Nil;
-    _titleLabel.frame = CGRectMake(300, 250, self.view.frame.size.width-20, 20);
-    _myLabel.text= @" ";
-    _myLabel.frame=CGRectMake(30,300,750,600);
+    [self resetView];
+    
     UIFont *textfont = [UIFont fontWithName:@"Courier New" size:16];
-
    
     _firstTextView.text= @"Initialization --->";
     _firstTextView.frame= CGRectMake(30, 350, 200, 100);
@@ -538,6 +517,15 @@
     _placeholder4.backgroundColor=Nil;
     
     [_exampleLoopBody removeFromSuperview];
+    
+    _myButton.hidden = YES;
+    
+    _userInput.hidden = YES;
+    
+    _titleLabel.frame = CGRectMake(300, 250, self.view.frame.size.width-20, 20);
+    
+    _myLabel.text= @" ";
+    _myLabel.frame=CGRectMake(30,300,750,600);
 }
 
 - (IBAction)VideoButton:(UIBarButtonItem *)sender {

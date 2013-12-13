@@ -48,6 +48,9 @@
 @property (strong, nonatomic) IBOutlet UIButton *myButton;
 
 @property(strong, nonatomic) UILabel *exampleLoopBody;
+@property(strong, nonatomic) UIButton *exampleInitialization;
+@property(strong, nonatomic) UIButton *exampleTerminating;
+@property(strong, nonatomic) UIButton *exampleIncrement;
 
 - (IBAction)myButton:(UIButton *)sender;
 

@@ -405,6 +405,7 @@
      This section resets the view and all of the labels and images
      *****/
     [self resetView];
+    [self populateExampleOptionsArray];
     
     //create loop structure
     
@@ -464,7 +465,7 @@
                                    @"int i = 5", nil];
     
     _exampleTerminatingArray = [[NSArray alloc] initWithObjects:
-                                @"i < 5"
+                                @"i < 5",
                                 @"i <= 5",
                                 @"i > 0", nil];
     
@@ -474,15 +475,55 @@
 }
 
 -(void)exampleInitializationButtonClicked {
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Choose an option."
+                                                             delegate:self
+                                                    cancelButtonTitle:nil
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:nil];
     
+    for (NSString *str in _exampleInitializationArray) {
+        [actionSheet addButtonWithTitle:str];
+    }
+    
+    [actionSheet addButtonWithTitle:@"Cancel"];
+    actionSheet.cancelButtonIndex = [_exampleInitializationArray count];
+    
+    [actionSheet showInView:self.view];
 }
 
 -(void)exampleTerminatingButtonClicked {
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Choose an option."
+                                                             delegate:self
+                                                    cancelButtonTitle:nil
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:nil];
+    
+    for (NSString *str in _exampleTerminatingArray) {
+        [actionSheet addButtonWithTitle:str];
+    }
+    
+    [actionSheet addButtonWithTitle:@"Cancel"];
+    actionSheet.cancelButtonIndex = [_exampleTerminatingArray count];
+    
+    [actionSheet showInView:self.view];
     
 }
 
 -(void)exampleIncrementButtonClicked {
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Choose an option."
+                                                             delegate:self
+                                                    cancelButtonTitle:nil
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:nil];
     
+    for (NSString *str in _exampleIncrementArray) {
+        [actionSheet addButtonWithTitle:str];
+    }
+    
+    [actionSheet addButtonWithTitle:@"Cancel"];
+    actionSheet.cancelButtonIndex = [_exampleIncrementArray count];
+    
+    [actionSheet showInView:self.view];
 }
 
 -(void) resetView {

@@ -52,9 +52,9 @@
 @property(strong, nonatomic) UIButton *exampleTerminating;
 @property(strong, nonatomic) UIButton *exampleIncrement;
 
-@property(strong, nonatomic) NSMutableArray *exampleInitializationArray;
-@property(strong, nonatomic) NSMutableArray *exampleTerminatingArray;
-@property(strong, nonatomic) NSMutableArray *exampleIncrementArray;
+@property(strong, nonatomic) NSArray *exampleInitializationArray;
+@property(strong, nonatomic) NSArray *exampleTerminatingArray;
+@property(strong, nonatomic) NSArray *exampleIncrementArray;
 
 - (IBAction)myButton:(UIButton *)sender;
 

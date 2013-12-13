@@ -458,21 +458,19 @@
 }
 
 -(void) populateExampleOptionsArray {
-    _exampleInitializationArray = [[NSMutableArray alloc] init];
-    for (int i = 0; i <= 5; i++) {
-        [_exampleInitializationArray addObject:[NSString stringWithFormat:@"int i = %i", i]];
-    }
+    _exampleInitializationArray = [[NSArray alloc] initWithObjects:
+                                   @"int i = 0",
+                                   @"int i = 1",
+                                   @"int i = 5", nil];
     
-    _exampleTerminatingArray = [[NSMutableArray alloc] init];
-    for (int i = 0; i <= 5; i++) {
-        [_exampleTerminatingArray addObject:[NSString stringWithFormat:@"i < %i", i]];
-        [_exampleTerminatingArray addObject:[NSString stringWithFormat:@"i <= %i", i]];
-    }
-    [_exampleTerminatingArray addObject:@"i > 0"];
+    _exampleTerminatingArray = [[NSArray alloc] initWithObjects:
+                                @"i < 5"
+                                @"i <= 5",
+                                @"i > 0", nil];
     
-    _exampleIncrementArray = [[NSMutableArray alloc] init];
-    [_exampleIncrementArray addObject:@"i++"];
-    [_exampleIncrementArray addObject:@"i--"];
+    _exampleIncrementArray = [[NSArray alloc] initWithObjects:
+                              @"i++",
+                              @"i--", nil];
 }
 
 -(void)exampleInitializationButtonClicked {

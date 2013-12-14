@@ -59,6 +59,7 @@
 @property(strong, nonatomic) NSString *exampleButtonPressed;
 
 @property(strong, nonatomic) UILabel *exampleOutput;
+@property(strong, nonatomic) UILabel *exampleInstructions;
 
 - (IBAction)myButton:(UIButton *)sender;
 

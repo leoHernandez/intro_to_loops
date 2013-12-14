@@ -413,6 +413,12 @@
     UIFont *answerLabelFont = [UIFont fontWithName:@"Courier New" size:20];
     CGFloat answerLabelWidth = 140;
     CGFloat answerLabelHeight = 25;
+    
+    _exampleInstructions = [[UILabel alloc] initWithFrame:CGRectMake(20, 250, self.view.frame.size.width-60, 60)];
+    _exampleInstructions.text = @"Click on each of the loop components to change their values. Then click 'Run it' to see what happens!";
+    [_exampleInstructions setNumberOfLines:0];
+    [_exampleInstructions sizeToFit];
+    [self.view addSubview:_exampleInstructions];
  
     _titleLabel.frame = CGRectMake(20, 350, self.view.frame.size.width-20, 20);
     _titleLabel.font = loopBodyFont;
@@ -454,6 +460,11 @@
     
     _myButton.hidden = NO;
     _myLabel.editable = NO;
+    
+    _exampleOutput = [[UILabel alloc] initWithFrame:CGRectMake(20,500,300,100)];
+    _exampleOutput.text = @"Loop Output";
+    _exampleOutput.font = [UIFont fontWithName:@"Helvetica" size:25];
+    [self.view addSubview:_exampleOutput];
    
     
 }
@@ -587,6 +598,7 @@
     [_exampleIncrement removeFromSuperview];
     
     [_exampleOutput removeFromSuperview];
+    [_exampleInstructions removeFromSuperview];
 }
 
 - (IBAction)VideoButton:(UIBarButtonItem *)sender {
@@ -628,20 +640,75 @@
 }
 
 - (IBAction)myButton:(UIButton *)sender {
-    _exampleOutput = [[UILabel alloc] initWithFrame:CGRectMake(30, 590, 200, 1000)];
-    _exampleOutput.text = @"";
+    _thirdTextView.frame =CGRectMake(30, 550, 200, 1000);
+    _thirdTextView.text = @"";
     
-    NSString *initialization = _exampleInitialization.titleLabel.text;
-    NSString *terminating = _exampleTerminating.titleLabel.text;
-    NSString *increment = _exampleIncrement.titleLabel.text;
+    NSString *output = @"Loops are so loopy!";
     
-    if ([initialization isEqualToString:@"int i = 0"]) {
-        
-    } else if ([initialization isEqualToString:@"int = 1"]) {
-        
-    } else if ([initialization isEqualToString:@"int = 5"]) {
-        
+    NSString *initialization = _exampleInitialization.currentTitle;
+    NSString *terminating = _exampleTerminating.currentTitle;
+    NSString *increment = _exampleIncrement.currentTitle;
+    
+    if ([increment isEqualToString:@"i++"]) {
+        if ([initialization isEqualToString:@"int i = 0"]) {
+            if([terminating isEqualToString:@"i < 5"]) {
+                for (int i = 0; i < 5; i++) {
+                    _thirdTextView.text = [NSString stringWithFormat:@"%@ \r %@", _thirdTextView.text, output];
+                }
+            } else if ([terminating isEqualToString:@"i <= 5"]) {
+                for (int i = 0; i <= 5; i++) {
+                    _thirdTextView.text = [NSString stringWithFormat:@"%@ \r %@", _thirdTextView.text, output];
+                }
+            } else if ([terminating isEqualToString:@"i > 0"]) {
+                _thirdTextView.text = @"The current options would create an infinite loop!";
+            }
+        } else if ([initialization isEqualToString:@"int = 1"]) {
+            if([terminating isEqualToString:@"i < 5"]) {
+                
+            } else if ([terminating isEqualToString:@"i <= 5"]) {
+                
+            } else if ([terminating isEqualToString:@"i > 0"]) {
+                
+            }
+        } else if ([initialization isEqualToString:@"int = 5"]) {
+            if([terminating isEqualToString:@"i < 5"]) {
+                
+            } else if ([terminating isEqualToString:@"i <= 5"]) {
+                
+            } else if ([terminating isEqualToString:@"i > 0"]) {
+                
+            }
+        }
+    } else if ([increment isEqualToString:@"i--"]) {
+        if ([initialization isEqualToString:@"int i = 0"]) {
+            if([terminating isEqualToString:@"i < 5"]) {
+                
+            } else if ([terminating isEqualToString:@"i <= 5"]) {
+                
+            } else if ([terminating isEqualToString:@"i > 0"]) {
+                
+            }
+        } else if ([initialization isEqualToString:@"int = 1"]) {
+            if([terminating isEqualToString:@"i < 5"]) {
+                
+            } else if ([terminating isEqualToString:@"i <= 5"]) {
+                
+            } else if ([terminating isEqualToString:@"i > 0"]) {
+                
+            }
+        } else if ([initialization isEqualToString:@"int = 5"]) {
+            if([terminating isEqualToString:@"i < 5"]) {
+                
+            } else if ([terminating isEqualToString:@"i <= 5"]) {
+                
+            } else if ([terminating isEqualToString:@"i > 0"]) {
+                
+            }
+        }
     }
+    
+    [self.thirdTextView sizeToFit];
+    
 }
 
 

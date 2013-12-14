@@ -640,7 +640,7 @@
 }
 
 - (IBAction)myButton:(UIButton *)sender {
-    _thirdTextView.frame =CGRectMake(30, 550, 200, 1000);
+    _thirdTextView.frame =CGRectMake(30, 570, self.view.frame.size.width-30, 1000);
     _thirdTextView.text = @"";
     
     NSString *output = @"Loops are so loopy!";

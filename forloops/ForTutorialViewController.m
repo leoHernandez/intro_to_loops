@@ -430,7 +430,7 @@
     
     _exampleInitialization = [[UIButton alloc] initWithFrame:CGRectMake(100, 350, answerLabelWidth, answerLabelHeight)];
     _exampleInitialization.backgroundColor = [UIColor yellowColor];
-    [_exampleInitialization setTitle:@"int i = 5" forState:UIControlStateNormal];
+    [_exampleInitialization setTitle:@"int i = 0" forState:UIControlStateNormal];
     [_exampleInitialization setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_exampleInitialization addTarget:self action:@selector(exampleInitializationButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_exampleInitialization];

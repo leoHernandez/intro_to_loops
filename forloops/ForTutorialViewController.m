@@ -585,6 +585,8 @@
     [_exampleInitialization removeFromSuperview];
     [_exampleTerminating removeFromSuperview];
     [_exampleIncrement removeFromSuperview];
+    
+    [_exampleOutput removeFromSuperview];
 }
 
 - (IBAction)VideoButton:(UIBarButtonItem *)sender {
@@ -625,23 +627,21 @@
     [self.view addSubview:webView];
 }
 
-
-
-
-
 - (IBAction)myButton:(UIButton *)sender {
-    _thirdTextView.frame =CGRectMake(30, 590, 200, 1000);
+    _exampleOutput = [[UILabel alloc] initWithFrame:CGRectMake(30, 590, 200, 1000)];
+    _exampleOutput.text = @"";
     
-    _thirdTextView.text = @"";
+    NSString *initialization = _exampleInitialization.titleLabel.text;
+    NSString *terminating = _exampleTerminating.titleLabel.text;
+    NSString *increment = _exampleIncrement.titleLabel.text;
     
+    if ([initialization isEqualToString:@"int i = 0"]) {
         
- 
-    for (int i = 1; i < 5; i++) {
-        _thirdTextView.text = [NSString stringWithFormat:@"%@ \r %@", _thirdTextView.text, self.userInput.text];
-      
+    } else if ([initialization isEqualToString:@"int = 1"]) {
+        
+    } else if ([initialization isEqualToString:@"int = 5"]) {
+        
     }
-   
-    [self.thirdTextView sizeToFit];
 }
 
 

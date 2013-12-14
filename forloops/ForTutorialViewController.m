@@ -52,33 +52,7 @@
      This section resets the view and all of the labels and images
      *****/
     _titleLabel.frame = CGRectMake(300, 250, self.view.frame.size.width-20, 20);
-      _myButton.hidden = YES;
-    _firstTextView.text =@" ";
-    _secondTextView.text = @" ";
-    _thirdTextView.text =@" ";
-    _fourthTextView.text =@" ";
-    _label1.text=@" " ;
-    _label1.backgroundColor= Nil;
-    _label2.text=@" ";
-    _label2.backgroundColor= Nil;
-    _label3.text=@" ";
-    _label3.backgroundColor=Nil;
-    _label4.text =@" ";
-    _label4.backgroundColor= Nil;
-    _placeholder1.text= @" ";
-    _placeholder2.text=@"";
-    _placeholder3.text=@"";
-    _placeholder4.text=@"";
-    _placeholder1.backgroundColor= Nil;
-    _placeholder2.backgroundColor= Nil;
-    _placeholder3.backgroundColor=Nil;
-    _placeholder4.backgroundColor=Nil;
-   _myLabel.text =@"";
-  self.statementimg.hidden = YES;
-    self.Controlimage.hidden = YES;
-    self.variableimage.hidden =YES;
-    self.iterationImage.hidden=YES;
-    _userInput.hidden = YES;
+    [self resetView];
     
    
     _titleLabel.textColor = [UIColor blackColor];
@@ -103,31 +77,10 @@
     /*****
      This section resets the view and all of the labels and images
      *****/
+    [self resetView];
    _titleLabel.frame = CGRectMake(300, 250, self.view.frame.size.width-20, 20);
      UIFont *textfont = [UIFont fontWithName:@"Courier New" size:16];
-       _myLabel.text= @" ";
-      _myButton.hidden = YES;
-    _label1.text=@" " ;
-    _label1.backgroundColor= Nil;
-    _label2.text=@" ";
-    _label2.backgroundColor= Nil;
-    _label3.text=@" ";
-    _label3.backgroundColor=Nil;
-    _label4.text =@" ";
-    _label4.backgroundColor= Nil;
-    _placeholder1.text= @" ";
-    _placeholder2.text=@"";
-    _placeholder3.text=@"";
-    _placeholder4.text=@"";
-    self.statementimg.hidden = NO;
-    self.Controlimage.hidden = NO;
-    self.variableimage.hidden =NO;
-    self.iterationImage.hidden=NO;
-    _placeholder1.backgroundColor= Nil;
-    _placeholder2.backgroundColor= Nil;
-    _placeholder3.backgroundColor=Nil;
-    _placeholder4.backgroundColor=Nil;
-    _userInput.hidden = YES;
+    [self resetView];
     
     _titleLabel.text= @"What does it look Like? ";
     
@@ -156,12 +109,16 @@
     
     self.iterationImage.image = [UIImage imageNamed:@"initializerImage2.png"];
     _iterationImage.frame = CGRectMake(360, 330, 330, 80);
+    _iterationImage.hidden = NO;
     self.statementimg.image = [UIImage imageNamed:@"conditionImage2.png"];
     _statementimg.frame=CGRectMake(360, 450, 330, 80);
+    _statementimg.hidden = NO;
     self.Controlimage.image = [UIImage imageNamed:@"iterationImage2.png"];
     _Controlimage.frame= CGRectMake(360, 580, 330, 80);
+    _Controlimage.hidden = NO;
     self.variableimage.image =[UIImage imageNamed:@"bodyImage2.png"];
     _variableimage.frame= CGRectMake(360, 720, 330, 80);
+    _variableimage.hidden = NO;
    
     _myLabel.frame=CGRectMake(30,300,750,600);
    
@@ -180,73 +137,52 @@
     /*****
      This section resets the view and all of the labels and images
      *****/
-    _myButton.hidden = YES;
-    _userInput.hidden = YES;
-    _firstTextView.text =@" ";
-    _secondTextView.text = @" ";
-    _thirdTextView.text =@" ";
-    _fourthTextView.text =@" ";
-    _titleLabel.text= @" ";
-    _placeholder1.text= @" ";
-    _placeholder2.text=@"";
-    _placeholder3.text=@"";
-    _placeholder4.text=@"";
-    _label1.text=@" " ;
-    _label1.backgroundColor= Nil;
-    _label2.text=@" ";
-    _label2.backgroundColor= Nil;
-    _label3.text=@" ";
-    _label3.backgroundColor=Nil;
-    _label4.text =@" ";
-    _label4.backgroundColor= Nil;
-    _titleLabel.frame = CGRectMake(300, 250, self.view.frame.size.width-20, 20);
-    _myLabel.text= @" ";
-    _myLabel.frame=CGRectMake(30,300,750,600);
+    [self resetView];
+    
     UIFont *textfont = [UIFont fontWithName:@"Courier New" size:16];
-
    
-    _firstTextView.text= @"Initialization --->";
+    _firstTextView.text= @"Loop Counter--->";
     _firstTextView.frame= CGRectMake(30, 350, 200, 100);
     _firstTextView.font = textfont;
     _firstTextView.backgroundColor =Nil;
-   _secondTextView.text =@"Terminating Condition -->";
+   _secondTextView.text =@"Terminating Condition--->";
     _secondTextView.frame= CGRectMake(30, 490, 200, 100);
     _secondTextView.font = textfont;
-   _thirdTextView.text =@"Increment/Decrement-->";
+   _thirdTextView.text =@"Increment/Decrement--->";
     _thirdTextView.frame = CGRectMake(30, 680, 200, 100);
     _thirdTextView.font =textfont;
-   _fourthTextView.text =@"Loop Body-->";
+   _fourthTextView.text =@"Loop Body--->";
     _fourthTextView.frame= CGRectMake(30, 870, 200, 100);
     _fourthTextView.font= textfont;
     
     _titleLabel.frame = CGRectMake(100, 200, 700, 100);
     _titleLabel.font = textfont;
-    _titleLabel.text = @"Match the corresponding terms with the correct defenitions";
+    _titleLabel.text = @"Match the corresponding terms with the correct definitions";
     
-    self.label1.frame = CGRectMake(600, 350, 150, 20);
+    self.label1.frame = CGRectMake(600, 300, 150, 20);
     _label1.font = textfont;
-    _label1.text= @"The number of times the code in the loop body has been executed";
+    _label1.text= @"The action that will be performed on the loop counter variable with each loop iteration.";
     self.label1.numberOfLines=0;
     [self.label1 sizeToFit];
     self.label1.userInteractionEnabled= YES;
     
     self.label2.frame = CGRectMake(600, 490, 150, 20);
     _label2.font= textfont;
-    _label2.text = @"A line of code to be executed";
+    _label2.text = @"The line(s) of code to be executed.";
     self.label2.numberOfLines=0;
     [self.label2 sizeToFit];
     self.label2.userInteractionEnabled=YES;
     
     self.label3.frame = CGRectMake(600, 570, 150, 20);
     _label3.font= textfont;
-    _label3.text = @"A symbolic name or storage location given to a piece of data stored in a computer's memory";
+    _label3.text = @"The variable that will incremented or decremented with each iteration of the loop.";
     self.label3.numberOfLines=0;
     [self.label3 sizeToFit];
     self.label3.userInteractionEnabled=YES;
     
     self.label4.frame = CGRectMake(600, 730, 150, 20);
     _label4.font= textfont;
-    _label4.text =@"the variable that is incremented or decremented and is used to keep track of the number of iterations in a loop";
+    _label4.text =@"The condition that has to be TRUE in order for the loop to end.";
     self.label4.userInteractionEnabled=YES;
     self.label4.numberOfLines=0;
     [self.label4 sizeToFit];
@@ -468,25 +404,8 @@
     /*****
      This section resets the view and all of the labels and images
      *****/
-    _myLabel.text= @" ";
-    _firstTextView.text =@" ";
-    _secondTextView.text = @" ";
-    _thirdTextView.text =@" ";
-    _fourthTextView.text =@" ";
-    _titleLabel.text= @" ";
-    _label1.text=@" " ;
-    _label2.text=@" ";
-    _label3.text=@" ";
-    _label4.text =@" ";
-    
-    _placeholder1.backgroundColor= Nil;
-    _placeholder2.backgroundColor= Nil;
-    _placeholder3.backgroundColor=Nil;
-    _placeholder4.backgroundColor=Nil;
-    self.statementimg.hidden = YES;
-    self.Controlimage.hidden = YES;
-    self.variableimage.hidden =YES;
-    self.iterationImage.hidden=YES;
+    [self resetView];
+    [self populateExampleOptionsArray];
     
     //create loop structure
     
@@ -494,43 +413,194 @@
     UIFont *answerLabelFont = [UIFont fontWithName:@"Courier New" size:20];
     CGFloat answerLabelWidth = 140;
     CGFloat answerLabelHeight = 25;
+    
+    _exampleInstructions = [[UILabel alloc] initWithFrame:CGRectMake(20, 250, self.view.frame.size.width-60, 60)];
+    _exampleInstructions.text = @"Click on each of the loop components to change their values. Then click 'Run it' to see what happens!";
+    [_exampleInstructions setNumberOfLines:0];
+    [_exampleInstructions sizeToFit];
+    [self.view addSubview:_exampleInstructions];
  
     _titleLabel.frame = CGRectMake(20, 350, self.view.frame.size.width-20, 20);
     _titleLabel.font = loopBodyFont;
     _titleLabel.text = @"for (          ;          ;          )";
     
-    _fourthTextView.frame= CGRectMake(20, 360, 100, 100);
+    _fourthTextView.frame= CGRectMake(12, 360, 100, 100);
     _fourthTextView.font= loopBodyFont;
     _fourthTextView.text =@"{";
     
-    _placeholder1.frame =CGRectMake(100, 350, answerLabelWidth, answerLabelHeight);
-    _placeholder1.font =answerLabelFont;
-    _placeholder1.backgroundColor = [UIColor yellowColor];
-    _placeholder1.text = @" i = 1";
+    _exampleInitialization = [[UIButton alloc] initWithFrame:CGRectMake(100, 350, answerLabelWidth, answerLabelHeight)];
+    _exampleInitialization.backgroundColor = [UIColor yellowColor];
+    [_exampleInitialization setTitle:@"int i = 0" forState:UIControlStateNormal];
+    [_exampleInitialization setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_exampleInitialization addTarget:self action:@selector(exampleInitializationButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_exampleInitialization];
     
-    _placeholder2.frame = CGRectMake(260, 350, answerLabelWidth, answerLabelHeight);
-    _placeholder2.font=answerLabelFont;
-    _placeholder2.text = @" i < 5" ;
-    _placeholder2.backgroundColor = [UIColor cyanColor];
+    _exampleTerminating = [[UIButton alloc] initWithFrame:CGRectMake(260, 350, answerLabelWidth, answerLabelHeight)];
+    _exampleTerminating.backgroundColor = [UIColor cyanColor];
+    [_exampleTerminating setTitle:@"i < 5" forState:UIControlStateNormal];
+    [_exampleTerminating setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_exampleTerminating addTarget:self action:@selector(exampleTerminatingButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_exampleTerminating];
     
-    _placeholder3.frame = CGRectMake(430, 350, answerLabelWidth, answerLabelHeight);
-    _placeholder3.font = answerLabelFont;
-    _placeholder3.text = @"i++";
-    _placeholder3.backgroundColor =[UIColor orangeColor];
+    _exampleIncrement = [[UIButton alloc] initWithFrame:CGRectMake(430, 350, answerLabelWidth, answerLabelHeight)];
+    _exampleIncrement.backgroundColor = [UIColor orangeColor];
+    [_exampleIncrement setTitle:@"i++" forState:UIControlStateNormal];
+    [_exampleIncrement setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_exampleIncrement addTarget:self action:@selector(exampleIncrementButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_exampleIncrement];
     
-    
-    _userInput.hidden = NO;
-    _userInput.frame =CGRectMake(30, 420, 300, 70);
+    _exampleLoopBody = [[UILabel alloc] initWithFrame:CGRectMake(40, 380, self.view.frame.size.width-100, 70)];
+    _exampleLoopBody.text = @"System.out.println(\"Loops are so loopy!\");";
+    _exampleLoopBody.font = answerLabelFont;
+    [self.view addSubview:_exampleLoopBody];
 
-    _secondTextView.frame= CGRectMake(15, 490, 100, 100);
+    _secondTextView.frame= CGRectMake(12, 420, 100, 100);
     _secondTextView.font= loopBodyFont;
-    _secondTextView.text = @" } ";
+    _secondTextView.text = @"}";
     
     _myButton.hidden = NO;
     _myLabel.editable = NO;
+    
+    _exampleOutput = [[UILabel alloc] initWithFrame:CGRectMake(20,500,300,100)];
+    _exampleOutput.text = @"Loop Output";
+    _exampleOutput.font = [UIFont fontWithName:@"Helvetica" size:25];
+    [self.view addSubview:_exampleOutput];
    
     
 }
+
+-(void) populateExampleOptionsArray {
+    _exampleInitializationArray = [[NSArray alloc] initWithObjects:
+                                   @"int i = 0",
+                                   @"int i = 1",
+                                   @"int i = 5", nil];
+    
+    _exampleTerminatingArray = [[NSArray alloc] initWithObjects:
+                                @"i < 5",
+                                @"i <= 5",
+                                @"i > 0", nil];
+    
+    _exampleIncrementArray = [[NSArray alloc] initWithObjects:
+                              @"i++",
+                              @"i--", nil];
+}
+
+-(void)exampleInitializationButtonClicked {
+    _exampleButtonPressed = @"initialization";
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Choose an option."
+                                                             delegate:self
+                                                    cancelButtonTitle:nil
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:nil];
+    
+    for (NSString *str in _exampleInitializationArray) {
+        [actionSheet addButtonWithTitle:str];
+    }
+    
+    [actionSheet addButtonWithTitle:@"Cancel"];
+    actionSheet.cancelButtonIndex = [_exampleInitializationArray count];
+    
+    [actionSheet showInView:self.view];
+}
+
+-(void)exampleTerminatingButtonClicked {
+    _exampleButtonPressed = @"terminating";
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Choose an option."
+                                                             delegate:self
+                                                    cancelButtonTitle:nil
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:nil];
+    
+    for (NSString *str in _exampleTerminatingArray) {
+        [actionSheet addButtonWithTitle:str];
+    }
+    
+    [actionSheet addButtonWithTitle:@"Cancel"];
+    actionSheet.cancelButtonIndex = [_exampleTerminatingArray count];
+    
+    [actionSheet showInView:self.view];
+    
+}
+
+-(void)exampleIncrementButtonClicked {
+    _exampleButtonPressed = @"increment";
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Choose an option."
+                                                             delegate:self
+                                                    cancelButtonTitle:nil
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:nil];
+    
+    for (NSString *str in _exampleIncrementArray) {
+        [actionSheet addButtonWithTitle:str];
+    }
+    
+    [actionSheet addButtonWithTitle:@"Cancel"];
+    actionSheet.cancelButtonIndex = [_exampleIncrementArray count];
+    
+    [actionSheet showInView:self.view];
+}
+
+- (void) actionSheet:(UIActionSheet *) actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if ([_exampleButtonPressed isEqualToString:@"initialization"]) {
+        if (buttonIndex != _exampleInitializationArray.count) {
+           [_exampleInitialization setTitle:_exampleInitializationArray[buttonIndex] forState:UIControlStateNormal];
+        }
+    } else if ([_exampleButtonPressed isEqualToString:@"terminating"]) {
+        if (buttonIndex != _exampleTerminatingArray.count) {
+            [_exampleTerminating setTitle:_exampleTerminatingArray[buttonIndex] forState:UIControlStateNormal];
+        }
+    } else if ([_exampleButtonPressed isEqualToString:@"increment"]) {
+        if (buttonIndex != _exampleIncrementArray.count) {
+            [_exampleIncrement setTitle:_exampleIncrementArray[buttonIndex] forState:UIControlStateNormal];
+        }
+    }
+}
+
+-(void) resetView {
+    _myLabel.text = @"";
+    _variableimage.hidden = YES;
+    _Controlimage.hidden = YES;
+    _iterationImage.hidden = YES;
+    _statementimg.hidden = YES;
+    
+    _firstTextView.text = @"";
+    _secondTextView.text = @"";
+    _thirdTextView.text = @"";
+    _fourthTextView.text = @"";
+    
+    _label1.backgroundColor= Nil;
+    _label1.text = @"";
+    _label2.text=@" ";
+    _label2.backgroundColor= Nil;
+    _label3.text=@" ";
+    _label3.backgroundColor=Nil;
+    _label4.text =@" ";
+    _label4.backgroundColor= Nil;
+    
+    _placeholder1.backgroundColor= Nil;
+    _placeholder2.backgroundColor= Nil;
+    _placeholder3.backgroundColor=Nil;
+    _placeholder4.backgroundColor=Nil;
+    
+    [_exampleLoopBody removeFromSuperview];
+    
+    _myButton.hidden = YES;
+    
+    _userInput.hidden = YES;
+    
+    _titleLabel.frame = CGRectMake(300, 250, self.view.frame.size.width-20, 20);
+    
+    _myLabel.text= @" ";
+    _myLabel.frame=CGRectMake(30,300,750,600);
+    
+    [_exampleInitialization removeFromSuperview];
+    [_exampleTerminating removeFromSuperview];
+    [_exampleIncrement removeFromSuperview];
+    
+    [_exampleOutput removeFromSuperview];
+    [_exampleInstructions removeFromSuperview];
+}
+
 - (IBAction)VideoButton:(UIBarButtonItem *)sender {
     /*****
      This section resets the view and all of the labels and images
@@ -569,23 +639,86 @@
     [self.view addSubview:webView];
 }
 
-
-
-
-
 - (IBAction)myButton:(UIButton *)sender {
-    _thirdTextView.frame =CGRectMake(30, 590, 200, 1000);
-    
+    _thirdTextView.frame =CGRectMake(30, 570, self.view.frame.size.width-30, 1000);
     _thirdTextView.text = @"";
     
-        
- 
-    for (int i = 1; i < 5; i++) {
-        _thirdTextView.text = [NSString stringWithFormat:@"%@ \r %@", _thirdTextView.text, self.userInput.text];
-      
+    NSString *output = @"Loops are so loopy!";
+    
+    NSString *initialization = _exampleInitialization.currentTitle;
+    NSString *terminating = _exampleTerminating.currentTitle;
+    NSString *increment = _exampleIncrement.currentTitle;
+    
+    if ([increment isEqualToString:@"i++"]) {
+        if ([initialization isEqualToString:@"int i = 0"]) {
+            if([terminating isEqualToString:@"i < 5"]) {
+                for (int i = 0; i < 5; i++) {
+                    _thirdTextView.text = [NSString stringWithFormat:@"%@ \r %@", _thirdTextView.text, output];
+                }
+            } else if ([terminating isEqualToString:@"i <= 5"]) {
+                for (int i = 0; i <= 5; i++) {
+                    _thirdTextView.text = [NSString stringWithFormat:@"%@ \r %@", _thirdTextView.text, output];
+                }
+            } else if ([terminating isEqualToString:@"i > 0"]) {
+                _thirdTextView.text = @"The current options would create an infinite loop!";
+            }
+        } else if ([initialization isEqualToString:@"int = 1"]) {
+            if([terminating isEqualToString:@"i < 5"]) {
+                for (int i = 1; i < 5; i++) {
+                    _thirdTextView.text = [NSString stringWithFormat:@"%@ \r %@", _thirdTextView.text, output];
+                }
+            } else if ([terminating isEqualToString:@"i <= 5"]) {
+                for (int i = 1; i <= 5; i++) {
+                    _thirdTextView.text = [NSString stringWithFormat:@"%@ \r %@", _thirdTextView.text, output];
+                }
+            } else if ([terminating isEqualToString:@"i > 0"]) {
+                _thirdTextView.text = @"The current options would create an infinite loop!";
+            }
+        } else if ([initialization isEqualToString:@"int = 5"]) {
+            if([terminating isEqualToString:@"i < 5"]) {
+                _thirdTextView.text = @"The current options would mean this loop would not run at all!";
+            } else if ([terminating isEqualToString:@"i <= 5"]) {
+                for (int i = 5; i <= 5; i++) {
+                    _thirdTextView.text = [NSString stringWithFormat:@"%@ \r %@", _thirdTextView.text, output];
+                }
+            } else if ([terminating isEqualToString:@"i > 0"]) {
+                _thirdTextView.text = @"The current options would create an infinite loop!";
+            }
+        }
+    } else if ([increment isEqualToString:@"i--"]) {
+        if ([initialization isEqualToString:@"int i = 0"]) {
+            if([terminating isEqualToString:@"i < 5"]) {
+                _thirdTextView.text = @"The current options would create an infinite loop!";
+            } else if ([terminating isEqualToString:@"i <= 5"]) {
+                _thirdTextView.text = @"The current options would create an infinite loop!";
+            } else if ([terminating isEqualToString:@"i > 0"]) {
+                _thirdTextView.text = @"The current options would mean the loop would not run at all!";
+            }
+        } else if ([initialization isEqualToString:@"int = 1"]) {
+            if([terminating isEqualToString:@"i < 5"]) {
+                _thirdTextView.text = @"The current options would create an infinite loop!";
+            } else if ([terminating isEqualToString:@"i <= 5"]) {
+                _thirdTextView.text = @"The current options would create an infinite loop!";
+            } else if ([terminating isEqualToString:@"i > 0"]) {
+                for (int i = 1; i > 0; i--) {
+                    _thirdTextView.text = [NSString stringWithFormat:@"%@ \r %@", _thirdTextView.text, output];
+                }
+            }
+        } else if ([initialization isEqualToString:@"int = 5"]) {
+            if([terminating isEqualToString:@"i < 5"]) {
+                _thirdTextView.text = @"The current options would create an infinite loop!";
+            } else if ([terminating isEqualToString:@"i <= 5"]) {
+                _thirdTextView.text = @"The current options would create an infnite loop!";
+            } else if ([terminating isEqualToString:@"i > 0"]) {
+                for (int i = 5; i > 0; i--) {
+                    _thirdTextView.text = [NSString stringWithFormat:@"%@ \r %@", _thirdTextView.text, output];
+                }
+            }
+        }
     }
-   
+    
     [self.thirdTextView sizeToFit];
+    
 }
 
 

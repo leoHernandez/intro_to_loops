@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ForTutorialViewController : UIViewController
+@interface ForTutorialViewController : UIViewController<UIActionSheetDelegate>
 
 
 
@@ -45,7 +45,21 @@
 @property (strong, nonatomic) IBOutlet UILabel *placeholder3;
 
 @property (strong, nonatomic) IBOutlet UILabel *placeholder4;
-    @property (strong, nonatomic) IBOutlet UIButton *myButton;
+@property (strong, nonatomic) IBOutlet UIButton *myButton;
+
+@property(strong, nonatomic) UILabel *exampleLoopBody;
+@property(strong, nonatomic) UIButton *exampleInitialization;
+@property(strong, nonatomic) UIButton *exampleTerminating;
+@property(strong, nonatomic) UIButton *exampleIncrement;
+
+@property(strong, nonatomic) NSArray *exampleInitializationArray;
+@property(strong, nonatomic) NSArray *exampleTerminatingArray;
+@property(strong, nonatomic) NSArray *exampleIncrementArray;
+
+@property(strong, nonatomic) NSString *exampleButtonPressed;
+
+@property(strong, nonatomic) UILabel *exampleOutput;
+@property(strong, nonatomic) UILabel *exampleInstructions;
 
 - (IBAction)myButton:(UIButton *)sender;
 

@@ -664,45 +664,55 @@
             }
         } else if ([initialization isEqualToString:@"int = 1"]) {
             if([terminating isEqualToString:@"i < 5"]) {
-                
+                for (int i = 1; i < 5; i++) {
+                    _thirdTextView.text = [NSString stringWithFormat:@"%@ \r %@", _thirdTextView.text, output];
+                }
             } else if ([terminating isEqualToString:@"i <= 5"]) {
-                
+                for (int i = 1; i <= 5; i++) {
+                    _thirdTextView.text = [NSString stringWithFormat:@"%@ \r %@", _thirdTextView.text, output];
+                }
             } else if ([terminating isEqualToString:@"i > 0"]) {
-                
+                _thirdTextView.text = @"The current options would create an infinite loop!";
             }
         } else if ([initialization isEqualToString:@"int = 5"]) {
             if([terminating isEqualToString:@"i < 5"]) {
-                
+                _thirdTextView.text = @"The current options would mean this loop would not run at all!";
             } else if ([terminating isEqualToString:@"i <= 5"]) {
-                
+                for (int i = 5; i <= 5; i++) {
+                    _thirdTextView.text = [NSString stringWithFormat:@"%@ \r %@", _thirdTextView.text, output];
+                }
             } else if ([terminating isEqualToString:@"i > 0"]) {
-                
+                _thirdTextView.text = @"The current options would create an infinite loop!";
             }
         }
     } else if ([increment isEqualToString:@"i--"]) {
         if ([initialization isEqualToString:@"int i = 0"]) {
             if([terminating isEqualToString:@"i < 5"]) {
-                
+                _thirdTextView.text = @"The current options would create an infinite loop!";
             } else if ([terminating isEqualToString:@"i <= 5"]) {
-                
+                _thirdTextView.text = @"The current options would create an infinite loop!";
             } else if ([terminating isEqualToString:@"i > 0"]) {
-                
+                _thirdTextView.text = @"The current options would mean the loop would not run at all!";
             }
         } else if ([initialization isEqualToString:@"int = 1"]) {
             if([terminating isEqualToString:@"i < 5"]) {
-                
+                _thirdTextView.text = @"The current options would create an infinite loop!";
             } else if ([terminating isEqualToString:@"i <= 5"]) {
-                
+                _thirdTextView.text = @"The current options would create an infinite loop!";
             } else if ([terminating isEqualToString:@"i > 0"]) {
-                
+                for (int i = 1; i > 0; i--) {
+                    _thirdTextView.text = [NSString stringWithFormat:@"%@ \r %@", _thirdTextView.text, output];
+                }
             }
         } else if ([initialization isEqualToString:@"int = 5"]) {
             if([terminating isEqualToString:@"i < 5"]) {
-                
+                _thirdTextView.text = @"The current options would create an infinite loop!";
             } else if ([terminating isEqualToString:@"i <= 5"]) {
-                
+                _thirdTextView.text = @"The current options would create an infnite loop!";
             } else if ([terminating isEqualToString:@"i > 0"]) {
-                
+                for (int i = 5; i > 0; i--) {
+                    _thirdTextView.text = [NSString stringWithFormat:@"%@ \r %@", _thirdTextView.text, output];
+                }
             }
         }
     }
